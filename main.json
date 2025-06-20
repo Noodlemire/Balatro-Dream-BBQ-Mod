@@ -1,0 +1,13 @@
+{
+	"id": "DreamBBQ",
+	"author": ["Noodlemire"],
+	"description": "Crossover mod with ENA: Dream BBQ",
+	"prefix": "dbbq",
+	"main_file": "main.lua",
+	"priority": 0,
+	"badge_colour": "e64437",
+	"badge_text_colour": "a5cdd1",
+	"display_name": "Dream BBQ",
+	"version": "1.0.0",
+	"name":"DreamBBQ"
+}
