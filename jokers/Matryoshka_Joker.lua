@@ -26,7 +26,7 @@ SMODS.Joker{
     loc_vars = function(self, info_queue, card)
 		local highest = 1
 		for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
-			if joker.config.center.rarity > highest then
+			if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then
 				highest = joker.config.center.rarity
 			end
 		end
@@ -44,7 +44,7 @@ SMODS.Joker{
 		if context.selling_self then
 			local highest = 1
 			for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
-				if joker.config.center.rarity > highest then
+				if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then
 					highest = joker.config.center.rarity
 				end
 			end
