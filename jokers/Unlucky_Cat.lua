@@ -25,6 +25,9 @@ SMODS.Joker{
 	blueprint_compat = true,
     config = {extra = {Xmult = 2}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_unlucky", set = "Other"}
+		end
         return {vars = {card.ability.extra.Xmult}}
     end,
 	calculate = function(self, card, context)

@@ -28,6 +28,9 @@ SMODS.Joker{
 	blueprint_compat = true,
 	config = {extra = {poker_hand = "High Card", Xmult = 4, hand = 1, penalty = 0}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_tumi", set = "Other"}
+		end
         return {vars = {card.ability.extra.poker_hand, card.ability.extra.Xmult, card.ability.extra.hand, card.ability.extra.penalty}}
     end,
 	calculate = function(self, card, context)

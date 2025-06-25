@@ -27,6 +27,9 @@ SMODS.Joker{
 	blueprint_compat = true,
     config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_beholder", set = "Other"}
+		end
 		local remaining = ""
 		for _, rank in ipairs(VANILLA_RANKS) do
 			if not card.ability.extra.played[rank] then

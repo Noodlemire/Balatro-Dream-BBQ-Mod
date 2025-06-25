@@ -23,6 +23,9 @@ SMODS.Joker{
 	blueprint_compat = true,
 	config = {extra = {odds = 4, Xmult = 1.5}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_smoker", set = "Other"}
+		end
         return {vars = {(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.Xmult}}
     end,
 	calculate = function(self, card, context)

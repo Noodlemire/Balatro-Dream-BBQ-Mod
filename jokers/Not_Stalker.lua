@@ -23,6 +23,9 @@ SMODS.Joker{
 	pos = {x = 4, y = 2},
 	blueprint_compat = true,
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_stalker", set = "Other"}
+		end
         return {vars = {(G.GAME.dbbq_not_stalkers_sold or 1)}}
     end,
 	calculate = function(self, card, context)

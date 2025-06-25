@@ -29,6 +29,9 @@ SMODS.Joker{
 	blueprint_compat = false,
 	config = {extra = {cards = 5, say1 = NOTHING, say2 = NOTHING}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_spirit", set = "Other"}
+		end
         return {vars = {card.ability.extra.cards, card.ability.extra.say1, card.ability.extra.say2}}
     end,
 	calculate = function(self, card, context)

@@ -24,6 +24,9 @@ SMODS.Joker{
 	blueprint_compat = false,
 	config = {extra = {odds = 6}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_girl", set = "Other"}
+		end
         info_queue[#info_queue + 1] = {key = "e_negative", set = "Edition", config = {extra = 1}}
 		return {vars = {(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds}}
     end,

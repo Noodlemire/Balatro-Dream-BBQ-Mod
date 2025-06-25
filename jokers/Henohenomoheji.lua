@@ -3,6 +3,10 @@ Henohenohomeji
 Uncommon, $7
 
 When Blind is selected: Create a random Enhanced face card and draw it to hand
+
+じょ = jo
+け = ke
+る = ru
 --]]
 
 SMODS.Joker{
@@ -20,6 +24,11 @@ SMODS.Joker{
 	cost = 7,
 	pos = {x = 2, y = 1},
 	blueprint_compat = true,
+    loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_heno", set = "Other"}
+		end
+	end,
 	calculate = function(self, card, context)
 		if context.first_hand_drawn then
 			local rank = pseudorandom_element({'J', 'Q', 'K'}, pseudoseed("I AM DRATULAAAAA!!!!!"))

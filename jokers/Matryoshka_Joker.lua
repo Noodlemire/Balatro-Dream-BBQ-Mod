@@ -24,6 +24,9 @@ SMODS.Joker{
 	pos = {x = 2, y = 2},
 	blueprint_compat = false,
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_matry", set = "Other"}
+		end
 		local highest = 1
 		for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
 			if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then

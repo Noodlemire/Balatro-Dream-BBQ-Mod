@@ -27,6 +27,11 @@ SMODS.Joker{
 	pos = {x = 4, y = 0},
 	blueprint_compat = true,
     config = {extra = {upgrade = false}},
+    loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_fax", set = "Other"}
+		end
+	end,
 	calculate = function(self, card, context)
 		if context.before and context.main_eval and not context.blueprint then
 			local ranks = {

@@ -28,6 +28,9 @@ SMODS.Joker{
 	blueprint_compat = false,
 	config = {extra = {blind_angy = 10}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_mayo", set = "Other"}
+		end
         return {vars = {card.ability.extra.blind_angy}}
     end,
 	calculate = function(self, card, context)

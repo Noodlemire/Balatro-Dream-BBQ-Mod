@@ -20,9 +20,10 @@ SMODS.Joker{
 	cost = 4,
 	pos = {x = 0, y = 3},
 	blueprint_compat = false,
-	config = {extra = {}},
     loc_vars = function(self, info_queue, card)
-        return {vars = {}}
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_pet", set = "Other"}
+		end
     end,
 	calculate = function(self, card, context)
 		if context.selling_self and G.GAME.blind and G.GAME.blind.in_blind then

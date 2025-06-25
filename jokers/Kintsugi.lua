@@ -27,6 +27,9 @@ SMODS.Joker{
 	blueprint_compat = false,
     config = {extra = {price = 1}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_kintsugi", set = "Other"}
+		end
 		info_queue[#info_queue+1] = G.P_CENTERS.j_dbbq_unlucky
         return {vars = {card.ability.extra.price}}
     end,

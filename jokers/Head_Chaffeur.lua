@@ -24,6 +24,9 @@ SMODS.Joker{
 	blueprint_compat = true,
     config = {extra = {chips_gain = 5, mult_gain = 1, Xmult_gain = 0.05, chips = 0, mult = 0, Xmult = 1}},
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_head", set = "Other"}
+		end
         return {vars = {
 			card.ability.extra.chips_gain,
 			card.ability.extra.mult_gain,

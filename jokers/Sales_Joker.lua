@@ -23,6 +23,9 @@ SMODS.Joker{
 	pos = {x = 2, y = 3},
 	blueprint_compat = false,
     loc_vars = function(self, info_queue, card)
+		if card.area and card.area.config.collection then
+			info_queue[#info_queue + 1] = {key = "j_dbbq_source_sales", set = "Other"}
+		end
 		info_queue[#info_queue + 1] = {key = "j_dbbq_mean_dummy", set = "Other"}
         info_queue[#info_queue + 1] = G.P_CENTERS.m_mult
     end,
