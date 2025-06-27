@@ -42,7 +42,6 @@ SMODS.Back{
 					table.insert(order, i, k)
 				end
 				G.GAME.dbbq_purge_order = order
-				print(order)
 			end
 			if not G.GAME.dbbq_purge_index or G.GAME.dbbq_purge_index >= #G.GAME.dbbq_purge_order then
 				G.GAME.dbbq_purge_index = 1
