@@ -36,6 +36,7 @@ SMODS.Joker{
 		elseif context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
 			local prev_mult = card.ability.extra.mult
 			card.ability.extra.mult = math.ceil(card.ability.extra.mult / (G.GAME.chips / G.GAME.blind.chips))
+			if to_big then card.ability.extra.mult = card.ability.extra.mult:to_number() end
 			if prev_mult > card.ability.extra.mult then
 				return {
 					message = (card.ability.extra.mult - prev_mult).." Mult",

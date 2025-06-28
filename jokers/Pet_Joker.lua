@@ -28,7 +28,6 @@ SMODS.Joker{
 	calculate = function(self, card, context)
 		if context.selling_self and G.GAME.blind and G.GAME.blind.in_blind then
 			G.GAME.blind.chips = math.max(math.floor(G.GAME.blind.chips * 0.75), 1)
-			G.GAME.blind.chips = to_big and to_big(G.GAME.blind.chips) or G.GAME.blind.chips
     		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			G.GAME.blind:set_text()
 			G.GAME.blind:wiggle()
