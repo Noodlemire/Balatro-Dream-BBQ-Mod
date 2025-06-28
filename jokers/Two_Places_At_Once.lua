@@ -28,7 +28,7 @@ SMODS.Joker{
 	cost = 10,
 	pos = {x = 2, y = 4},
 	blueprint_compat = true,
-    config = {extra = {Xmult_gain = 0.2, Xmult = 1}},
+    config = {extra = {Xmult_gain = 0.15, Xmult = 1}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_tpao", set = "Other"}
@@ -48,7 +48,8 @@ SMODS.Joker{
 						local copy = SMODS.add_card({key = "j_dbbq_tpao"})
 						copy.pinned = true
 						copy.ability.extra.Xmult = card.ability.extra.Xmult
-						card.pinned = false
+						card.pinned = nil
+						card.ability.pinned = nil
 						G.GAME.joker_buffer = G.GAME.joker_buffer - 1
 						return true
 					end

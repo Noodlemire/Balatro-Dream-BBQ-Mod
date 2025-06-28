@@ -52,7 +52,7 @@ SMODS.Back{
 			local destroy_cards = {}
 			local destroy_indices = {}
 			for i, card in ipairs(G.playing_cards) do
-				if card.base.value == rank then
+				if card.base.value == rank and not SMODS.has_no_rank(card) then
 					table.insert(destroy_cards, card)
 					draw_card(G.deck, G.play, 1, "up", false, card)
 				end

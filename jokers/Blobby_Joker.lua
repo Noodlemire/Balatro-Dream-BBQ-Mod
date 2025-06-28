@@ -2,7 +2,7 @@
 Blobby Joker
 Common, $4
 
-+15 Mult if you play one of your least played hands.
++15 Mult if you don't play one of your most played hands.
 --]]
 
 SMODS.Joker{
@@ -10,9 +10,9 @@ SMODS.Joker{
 	loc_txt = {
 		name = "Blobby Joker",
 		text = {
-			"{C:mult}+#1#{} Mult if you",
+			"{C:mult}+#1#{} Mult if you don't",
 			"play one of your",
-			"least played hands"
+			"most played hands"
 		}
 	},
 	atlas = "dbbq_jokers",
@@ -29,11 +29,12 @@ SMODS.Joker{
     end,
 	calculate = function(self, card, context)
 		if context.joker_main then
-			local mult = true
-			local hopefully_min = G.GAME.hands[context.scoring_name].played - 1
+			local mult = false
+			local max_limit = G.GAME.hands[context.scoring_name].played - 1
 			for k, v in pairs(G.GAME.hands) do
-				if v.played < hopefully_min and v.visible then
-					mult = false
+				if k ~= context.scoring_name and v.played > max_limit and v.visible then
+					mult = true
+					break
 				end
 			end
 			if mult then
