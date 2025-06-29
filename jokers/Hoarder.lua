@@ -37,10 +37,11 @@ SMODS.Joker{
 			return
 		end
 		if context.setting_blind then
-			card.ability.extra.ante = G.GAME.round_resets.ante
-		elseif context.starting_shop and card.ability.extra.ante ~= G.GAME.round_resets.ante then
+			card.ability.extra.boss = G.GAME.blind.boss
+		elseif context.starting_shop and card.ability.extra.boss then
+			card.ability.extra.boss = nil
 			card.ability.extra.mult = card.ability.extra.mult + math.ceil(G.GAME.dollars * 0.6)
-			if to_big then
+			if to_big and type(card.ability.extra.mult) == "table" then
 				card.ability.extra.mult = card.ability.extra.mult:to_number()
 			end
 			ease_dollars(-G.GAME.dollars)
