@@ -29,8 +29,12 @@ SMODS.Joker{
         return {vars = {(G.GAME and G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.Xmult}}
     end,
 	calculate = function(self, card, context)
-		if context.stay_flipped and not context.blueprint and pseudorandom("cough") < G.GAME.probabilities.normal / card.ability.extra.odds then
-			return {stay_flipped = true}
+		if context.stay_flipped and context.to_area == G.hand then
+			if pseudorandom("Remember, ENA...") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				return {stay_flipped = true}
+			else
+				SMODS.calculate_context({roff_probability_missed = true, blueprint = context.blueprint})
+			end
 		elseif context.individual and not context.end_of_round and context.cardarea == G.hand and context.other_card.facing == "back" then
 			if context.other_card.debuff then
 				return {
