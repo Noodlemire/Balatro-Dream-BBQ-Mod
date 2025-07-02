@@ -470,5 +470,432 @@ return {
 				}
 			},
 		}
+	},
+	misc = {
+		quips = {
+			j_dbbq_blobby_friends = {
+				"All my \"friends\" criticized me",
+				"for coming here. I laugh at them",
+				"because they are all the same.",
+			},
+			j_dbbq_blobby_crazy = {
+				"You were right this whole",
+				"time and we called you crazy.",
+				"Or... maybe we're the crazy",
+				"ones for believing you now."
+			},
+			j_dbbq_blobby_sick = {
+				"I'm getting sick from",
+				"how scared I am."
+			},
+			j_dbbq_blobby_run = {
+				"This is the part of",
+				"the game where you",
+				"run to your death."
+			},
+			j_dbbq_horse_boss = {
+				"I am Boss!!!"
+			},
+			j_dbbq_horse_no = {
+				"Don't care. Not",
+				"recognized. Go away."
+			},
+			j_dbbq_horse_shitchat = {
+				"No time for shit-chat."
+			},
+			j_dbbq_horse_money = {
+				"I will give so many",
+				"money. Many money."
+			},
+			j_dbbq_horse_early = {
+				"Bad service! You are here early!"
+			},
+			j_dbbq_horse_meal = {
+				"Ohhh, thank GOD! I was starving.",
+				"Now I can have a good meal!"
+			},
+			j_dbbq_beholder_condolences = {
+				"My condolences on",
+				"reaching this place."
+			},
+			j_dbbq_beholder_never = {
+				"Forgiveness is only a",
+				"gift you can never have."
+			},
+			j_dbbq_beholder_food = {
+				"Remember: \"All it takes is",
+				"a place and the right food.\""
+			},
+			j_dbbq_beholder_toilet = {
+				"All of your sins are now forgotten.",
+				"Ascend to the toilet of GOD and",
+				"wipe the guilt off of your face,",
+				"beloved angel."
+			},
+			j_dbbq_beholder_unforgiven = {
+				"Wait wait wait, you are UNforgiven!",
+				"My job here is terminated..."
+			},
+			j_dbbq_beholder_capable = {
+				"You can't aspire for more",
+				"that what you are capable of."
+			},
+			j_dbbq_fax_handshake = {
+				"Ah... Sorry, handshakes weren't",
+				"part of the job description."
+			},
+			j_dbbq_fax_shambles = {
+				"My whole life is in",
+				"shambles right now..."
+			},
+			j_dbbq_fax_opportunity = {
+				"I turned down another job",
+				"opportunity to be here..."
+			},
+			j_dbbq_fax_highly = {
+				"...I'm highly concerned and",
+				"astonished at the same time."
+			},
+			j_dbbq_girl_care = {
+				"I don care! DON CARE!!",
+				">:OO GO AWAY!!!"
+			},
+			j_dbbq_girl_thankz = {
+				"POO!!! >:( I am nice to you",
+				"and this is the thankz I get?!",
+				"umwbmhjnbgrzmmafbczlcmnkvn"
+			},
+			j_dbbq_girl_rude = {
+				"Rude entities like you get",
+				"punished for the sins of others.",
+			},
+			j_dbbq_girl_fell = {
+				"MWAA-HA!!!, fell for",
+				"it, didn'tchuU?! ^-^",
+			},
+			j_dbbq_girl_words = {
+				"U know, im pretty good",
+				"@ organizing words!!",
+				"I should be the CEO of",
+				"organizing events or",
+				"sumthing... O . O"
+			},
+			j_dbbq_girl_resuemay = {
+				"I should send my worky",
+				"resuemay to the boss",
+				"nao. Im supa good with",
+				"organizing bosses!! , !!!"
+			},
+			j_dbbq_girl_job = {
+				"GUESS WHAT!! ! THIS",
+				"CHICKEN BUTT GOTTA",
+				"NEW JOB, BABEH!! ! :d"
+			},
+			j_dbbq_head_work = {
+				"Work! Yes, I work a lot."
+			},
+			j_dbbq_head_party = {
+				"Have fun at the Extinction",
+				"Party!! Wait, wrong event."
+			},
+			j_dbbq_head_doom = {
+				"I bring the doom to anyone",
+				"looking for it. I can even",
+				"send your meatslab into",
+				"eternal darkness."
+			},
+			j_dbbq_head_awaiting = {
+				"Suffering and loneliness",
+				"are awaiting you."
+			},
+			j_dbbq_head_ride = {
+				"Get in the taxi and prepare",
+				"for the ride of your life!"
+			},
+			j_dbbq_head_awful = {
+				"Have an awful day!"
+			},
+			j_dbbq_heno_boss = {
+				"YESSS, I AM THE BOSS!!",
+				"HA HA HA, HAH HAH!!"
+			},
+			j_dbbq_heno_dratula = {
+				"I AM DRATULAAA!!"
+			},
+			j_dbbq_heno_nuts = {
+				"I AM NOT NUTS, I AM DRATULA."
+			},
+			j_dbbq_heno_pengvin = {
+				"VHAT?!! DID YOU CALL",
+				"ME A STINKY PENGVIN?!!"
+			},
+			j_dbbq_heno_stronk = {
+				"I AM A VAMPIRE. SO STRONK!!"
+			},
+			j_dbbq_hoarder_another = {
+				"Oh no, not another one."
+			},
+			j_dbbq_hoarder_fought = {
+				"HEY, HEY, HEY! LISTEN HERE:",
+				"I JUST HAD THE WORST DAY",
+				"OF MY LIFE, OKAY?!!",
+				"I FOUGHT THREE TIMES- NO,",
+				"FOUR! NO, NO, FIVE!!",
+				"FIVE TIMES!!!",
+				"BROKE UP WITH MY GIRLFRIEND,",
+				"KILLED MY BROTHER, and NOW...",
+				"ARGH!!!"
+			},
+			j_dbbq_hoarder_enjoy = {
+				"You think I enjoy this?",
+				"Being a professional",
+				"hoarder is no joke."
+			},
+			j_dbbq_hoarder_ogling = {
+				"Perfect. Now quit ogling my",
+				"properties and fly off."
+			},
+			j_dbbq_hoarder_posterior = {
+				"Go pull yourself along on",
+				"your mother's posterior."
+			},
+			j_dbbq_hoarder_rad = {
+				"Oh, you actually",
+				"did it? Okay. Rad."
+			},
+			j_dbbq_legs_obligation = {
+				"My mother always said,",
+				"\"He who plays out of necessity,",
+				"loses out of obligation.\""
+			},
+			j_dbbq_legs_how = {
+				"How am I supposed",
+				"to win big now?!"
+			},
+			j_dbbq_legs_damnation = {
+				"Time for you to visit the",
+				"toilet of eternal damnation!"
+			},
+			j_dbbq_legs_boobstraps = {
+				"Pull yourself up by your",
+				"boobstraps. Seek help."
+			},
+			j_dbbq_legs_epic = {
+				"May the Doors guide",
+				"my epic moves."
+			},
+			j_dbbq_legs_imploded = {
+				"I was so excited that",
+				"half of my body imploded!",
+				"That's what I get for",
+				"being on my feets all day."
+			},
+			j_dbbq_lazy_sweat = {
+				"Sweat that shirt! Keep",
+				"up that hard work.",
+			},
+			j_dbbq_lazy_slack = {
+				"I certainly won't be",
+				"picking up your slack!",
+				"Find a way out of there!"
+			},
+			j_dbbq_lazy_easier = {
+				"Good job. You always",
+				"make work easier."
+			},
+			j_dbbq_lazy_proactive = {
+				"Being proactive at work, eh?",
+				"Good signal, good signal."
+			},
+			j_dbbq_lazy_meat = {
+				"Now we're running out",
+				"of time to put that",
+				"dead meat in its place!"
+			},
+			j_dbbq_lazy_novice = {
+				"Stop acting like a novice!",
+				"You know your job."
+			},
+			j_dbbq_lazy_working = {
+				"I don't know what you did,",
+				"but it is really working!"
+			},
+			j_dbbq_matry_cents = {
+				"Listen to yourself, you don't",
+				"even make cents. Typical."
+			},
+			j_dbbq_matry_toot = {
+				"This is the real",
+				"deal, sugar-toot."
+			},
+			j_dbbq_matry_ruin = {
+				"Losers always ruin the party.",
+			},
+			j_dbbq_mean_boss = {
+				"WHERE THE HELL IS THE BOSS?!"
+			},
+			j_dbbq_mean_hogwash = {
+				"That was the boss? Hah!",
+				"The boss of what? Hogwash?!"
+			},
+			j_dbbq_mean_fraud = {
+				"You're not fooling anyone, FRAUD!"
+			},
+			j_dbbq_mean_sympathy = {
+				"HEY PAL! My sympathy",
+				"is gonna COST you",
+				"for every condolence."
+			},
+			j_dbbq_mean_prices = {
+				"With prices this low,",
+				"you can't afford a",
+				"lifetime to wait!"
+			},
+			j_dbbq_mean_bullshit = {
+				"You know, I don't even believe",
+				"anything! But you're bleeding",
+				"out some real BULLSHIT here!!",
+				"YOU'RE A FLUKE!!!"
+			},
+			j_dbbq_stalker_boss = {
+				"HEHEHEH. I Am. The",
+				"Boss. Heheheheh."
+			},
+			j_dbbq_stalker_mistake = {
+				"NO! NO. NO! NO. Common",
+				"Mistake. But Sad Mistake."
+			},
+			j_dbbq_stalker_heheheheh = {
+				"HEHEHEHEH..."
+			},
+			j_dbbq_stalker_delight = {
+				"What A Delight. To See. YOU!"
+			},
+			j_dbbq_stalker_captivity = {
+				"GLORY! It Is To See. Your",
+				"Actions. While. YOU Are",
+				"Trapped Here. In Captivity."
+			},
+			j_dbbq_quartet_delightful = {
+				"Delightful! Off we go, then.",
+				"Don't spend it all in one place.",
+				"Take care, dearie!",
+			},
+			j_dbbq_quartet_reference = {
+				"Psst... \"We should go home,",
+				"I am allergic to persons.\"",
+				"HAAAA-HA! I GOT THAT REFERENCE!!!",
+				"Shhh! Zip it!!!"
+			},
+			j_dbbq_quartet_fault = {
+				"GREAT! NOW WE WON'T MAKE IT TO THE",
+				"PURGE EVENT AND IT'S ALL YOUR FAULT.",
+				"Could you hurry it, please? I miss",
+				"my coffin.",
+				"I'd be surprised if you're still",
+				"alive. 5 minutes alone with us would",
+				"drive any entity to split into its",
+				"component parts."
+			},
+			j_dbbq_sales_loop = {
+				"Huh. Seems I am out of",
+				"the loop. Shall we review",
+				"the job description?"
+			},
+			j_dbbq_sales_ambush = {
+				"Let's arrange our next",
+				"ambush at the scene!"
+			},
+			j_dbbq_sales_doable = {
+				"That was most categorically doable."
+			},
+			j_dbbq_sales_child = {
+				"Worry not, you are",
+				"still a child of GOD."
+			},
+			j_dbbq_sales_bless = {
+				"Bless you for your business."
+			},
+			j_dbbq_sales_personally = {
+				"Don't take it personally."
+			},
+			j_dbbq_sixeyed_thank = {
+				"Thank you. I don't know what",
+				"I would have done without this."
+			},
+			j_dbbq_sixeyed_back = {
+				"I want to go back.",
+				"I'm so tired..."
+			},
+			j_dbbq_sixeyed_before = {
+				"I've never seen",
+				"something like this",
+				"before. It's relaxing."
+			},
+			j_dbbq_sixeyed_death = {
+				"To toil beyond death itself."
+			},
+			j_dbbq_tumi_boss = {
+				"I am the B-O-S-S! ...Naaah,",
+				"I W-I-S-H. I wish! Hahaha!"
+			},
+			j_dbbq_tumi_nobody = {
+				"What do have H-A-V-E H-E-R-E?",
+				"L-O-O-K at this nobody who",
+				"isn't having a G-O-O-D T-I-M-E!"
+			},
+			j_dbbq_tumi_waste = {
+				"Uhhh... What a W-A-S-TE...",
+				"w-aaa-s-ttt... aw, shoot."
+			},
+			j_dbbq_tumi_menu = {
+				"What's on the M-E-N-U tonight?!",
+				"Oh, I'm really hoping it's me!"
+			},
+			j_dbbq_tpao_understand = {
+				"I'm glad we understand each",
+				"each other. YOU are here",
+				"because you want to be.",
+				"I can see it in your eyes."
+			},
+			j_dbbq_tpao_life = {
+				"Now, go away, and get a LIFE.",
+				"That shall be your quest today!"
+			},
+			j_dbbq_tpao_forgive = {
+				"May the GODS forgive me",
+				"for what I'm about to do."
+			},
+			j_dbbq_tpao_done = {
+				"What had to be done was done,",
+				"but... what hadn't been done",
+				"was done too. And now that it",
+				"is done, it may be done again.",
+				"Done. Done. Done..."
+			},
+			j_dbbq_tpao_anew = {
+				"Now, it's your turn",
+				"to BEGIN LIFE ANEW!",
+				"...Possibly."
+			},
+			j_dbbq_unlucky_boss = {
+				"I am the Boss!"
+			},
+			j_dbbq_unlucky_simpleton = {
+				"I have seen you millions",
+				"of times here, is this something",
+				"like a simpleton event?!",
+				"AHAHAHAHAHA!"
+			},
+			j_dbbq_unlucky_cruise = {
+				"I am so ready to cruise",
+				"and party responsibly",
+				"in every illegal way!"
+			},
+			j_dbbq_unlucky_poppers = {
+				"Had one too many",
+				"party poppers?"
+			},
+		}
 	}
 }

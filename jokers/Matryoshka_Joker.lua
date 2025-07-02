@@ -23,6 +23,11 @@ SMODS.Joker{
 	cost = 3,
 	pos = {x = 2, y = 2},
 	blueprint_compat = false,
+	config = {extra = {dbbq_quotes = {
+		{type = "lose", key = "j_dbbq_matry_cents"},
+		{type = "win", key = "j_dbbq_matry_toot"},
+		{type = "lose", key = "j_dbbq_matry_ruin"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_matry", set = "Other"}

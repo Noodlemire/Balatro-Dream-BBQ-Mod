@@ -26,7 +26,12 @@ SMODS.Joker{
 	cost = 8,
 	pos = {x = 1, y = 4},
 	blueprint_compat = true,
-	config = {extra = {poker_hand = "High Card", Xmult = 4, hand = 1, penalty = 0}},
+	config = {extra = {poker_hand = "High Card", Xmult = 4, hand = 1, penalty = 0, dbbq_quotes = {
+		{type = "win", key = "j_dbbq_tumi_boss"},
+		{type = "lose", key = "j_dbbq_tumi_nobody"},
+		{type = "lose", key = "j_dbbq_tumi_waste"},
+		{type = "win", key = "j_dbbq_tumi_menu"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_tumi", set = "Other"}

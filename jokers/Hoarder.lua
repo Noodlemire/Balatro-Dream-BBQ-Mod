@@ -23,7 +23,14 @@ SMODS.Joker{
 	cost = 5,
 	pos = {x = 3, y = 1},
 	blueprint_compat = true,
-	config = {extra = {mult = 0}},
+	config = {extra = {mult = 0, dbbq_quotes = {
+		{type = "lose", key = "j_dbbq_hoarder_another"},
+		{type = "lose", key = "j_dbbq_hoarder_fought"},
+		{type = "lose", key = "j_dbbq_hoarder_enjoy"},
+		{type = "win", key = "j_dbbq_hoarder_ogling"},
+		{type = "lose", key = "j_dbbq_hoarder_posterior"},
+		{type = "win", key = "j_dbbq_hoarder_rad"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_hoarder", set = "Other"}

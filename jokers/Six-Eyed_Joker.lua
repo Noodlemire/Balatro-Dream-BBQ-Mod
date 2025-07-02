@@ -19,7 +19,12 @@ SMODS.Joker{
 	cost = 5,
 	pos = {x = 3, y = 3},
 	blueprint_compat = true,
-	config = {extra = {target = "6", chips = 36}},
+	config = {extra = {target = "6", chips = 36, dbbq_quotes = {
+		{type = "win", key = "j_dbbq_sixeyed_thank"},
+		{type = "lose", key = "j_dbbq_sixeyed_back"},
+		{type = "win", key = "j_dbbq_sixeyed_before"},
+		{type = "any", key = "j_dbbq_sixeyed_death"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_sixeyed", set = "Other"}

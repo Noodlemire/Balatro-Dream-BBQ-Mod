@@ -25,7 +25,14 @@ SMODS.Joker{
 	cost = 8,
 	pos = {x = 3, y = 0},
 	blueprint_compat = true,
-    config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1}},
+    config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1, dbbq_quotes = {
+		{type = "lose", key = "j_dbbq_beholder_condolences"},
+		{type = "lose", key = "j_dbbq_beholder_never"},
+		{type = "any", key = "j_dbbq_beholder_food"},
+		{type = "win", key = "j_dbbq_beholder_toilet"},
+		{type = "lose", key = "j_dbbq_beholder_unforgiven"},
+		{type = "lose", key = "j_dbbq_beholder_capable"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_beholder", set = "Other"}

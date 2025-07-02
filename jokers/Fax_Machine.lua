@@ -26,7 +26,12 @@ SMODS.Joker{
 	cost = 7,
 	pos = {x = 4, y = 0},
 	blueprint_compat = true,
-    config = {extra = {upgrade = false}},
+    config = {extra = {upgrade = false, dbbq_quotes = {
+		{type = "win", key = "j_dbbq_fax_handshake"},
+		{type = "lose", key = "j_dbbq_fax_shambles"},
+		{type = "lose", key = "j_dbbq_fax_opportunity"},
+		{type = "any", key = "j_dbbq_fax_highly"},
+	}}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_fax", set = "Other"}
