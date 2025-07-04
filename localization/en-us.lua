@@ -58,6 +58,25 @@ return {
 					"worthless for late-game."
 				}
 			},
+			j_dbbq_source_bunraku = {
+				name = "Source",
+				text = {
+					"Bunrako-man is a talking puppet",
+					"based on traditional Japanese",
+					"Bunraku performances. While you",
+					"interact with the puppet, some",
+					"some sort of ninja-like figure",
+					"is the one to operate him.",
+					"This Joker must also be operated",
+					"by your other Jokers, relying",
+					"on them for any sort of growth.",
+					"The puppet will occasionally",
+					"malfunction and slump down;",
+					"Ensure that your Jokers are able",
+					"to give it a firm hit to keep it",
+					"up and running smoothly."
+				}
+			},
 			j_dbbq_source_horse = {
 				name = "Source",
 				text = {
@@ -315,6 +334,18 @@ return {
 					"want a super-high XMult."
 				}
 			},
+			j_dbbq_source_party = {
+				name = "Source",
+				text = {
+					"Heh-Ito is a Power Ranger/Super Sentai-esque",
+					"character who speaks almost entirely in",
+					"explosions and acrobatics. There is an actual",
+					"voice somewhere in there, but it's unintelligible.",
+					"I figured a wild spirit like this could deal in",
+					"Wild Cards, which generally need all the help",
+					"they can get."
+				}
+			},
 			j_dbbq_source_pet = {
 				name = "Source",
 				text = {
@@ -492,6 +523,26 @@ return {
 				"This is the part of",
 				"the game where you",
 				"run to your death."
+			},
+			j_dbbq_bunraku_haters = {
+				"Ohohoh, YEAAH!! There will always",
+				"be haters hatin' on you, mate!",
+				"You can't live your life trying",
+				"to make everybody happy!!",
+				"YyeeeaAAAAH!!"
+			},
+			j_dbbq_bunraku_harder = {
+				"HAAAA, WAHOOOOO!! More reason",
+				"to party even harder, mate!!"
+			},
+			j_dbbq_bunraku_comes = {
+				"HERE IT COMEEESSS!!!",
+				"YeeaaAAAAAAAAAAH!!"
+			},
+			j_dbbq_bunraku_bathroom = {
+				"Consider: Would the sane put",
+				"only one Bathroom in a place",
+				"full of party poopers?"
 			},
 			j_dbbq_horse_boss = {
 				"I am Boss!!!"
@@ -775,6 +826,21 @@ return {
 				"GLORY! It Is To See. Your",
 				"Actions. While. YOU Are",
 				"Trapped Here. In Captivity."
+			},
+			j_dbbq_party_boss = {
+				"I AM THE BOSS!!"
+			},
+			j_dbbq_party_focusing = {
+				"You're better off focusing",
+				"on other things in life."
+			},
+			j_dbbq_party_crazy = {
+				"What the hell are you talking about?",
+				"You better start dancing, crazy."
+			},
+			j_dbbq_party_whistle = {
+				"Follow the whistle",
+				"and let yourself go."
 			},
 			j_dbbq_quartet_delightful = {
 				"Delightful! Off we go, then.",
