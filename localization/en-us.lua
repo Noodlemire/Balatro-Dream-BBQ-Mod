@@ -219,6 +219,12 @@ return {
 					"of junk items to block them from spawning."
 				}
 			},
+			j_dbbq_source_bus = {
+				name = "Source",
+				text = {
+					"I'M THE BUS!"
+				}
+			},
 			j_dbbq_source_legs = {
 				name = "Source",
 				text = {
@@ -713,6 +719,9 @@ return {
 			j_dbbq_hoarder_rad = {
 				"Oh, you actually",
 				"did it? Okay. Rad."
+			},
+			j_dbbq_im_the_bus = {
+				"I'M THE BUS!"
 			},
 			j_dbbq_legs_obligation = {
 				"My mother always said,",
