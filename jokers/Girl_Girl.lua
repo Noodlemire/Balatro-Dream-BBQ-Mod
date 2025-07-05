@@ -22,7 +22,7 @@ SMODS.Joker{
 	cost = 12,
 	pos = {x = 0, y = 1},
 	blueprint_compat = false,
-	config = {extra = {odds = 6, dbbq_quotes = {
+	config = {extra = {num = 1, den = 6, dbbq_quotes = {
 		{type = "lose", key = "j_dbbq_girl_care"},
 		{type = "lose", key = "j_dbbq_girl_thankz"},
 		{type = "lose", key = "j_dbbq_girl_rude"},
@@ -36,7 +36,8 @@ SMODS.Joker{
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_girl", set = "Other"}
 		end
         info_queue[#info_queue + 1] = {key = "e_negative", set = "Edition", config = {extra = 1}}
-		return {vars = {(G.GAME.probabilities.normal or 1), card.ability.extra.odds}}
+		local num, den = SMODS.get_probability_vars(card, card.ability.extra.num, card.ability.extra.den)
+		return {vars = {num, den}}
     end,
 	calculate = function(self, card, context)
 		if context.setting_blind and not context.blueprint then
@@ -59,17 +60,14 @@ SMODS.Joker{
 				end})) 
 			end
 			if #neg_eligible > 0 then
-				if pseudorandom("U know, im pretty good @ organizing words!!") < G.GAME.probabilities.normal / card.ability.extra.odds then
+				if SMODS.pseudorandom_probability(card, "U know, im pretty good @ organizing words!!", card.ability.extra.num, card.ability.extra.den) then
 					return {
 						func = function()
 							pseudorandom_element(neg_eligible, pseudoseed("umwbmhjnbgrzmmafbczlcmnkvn")):set_edition({negative = true}, true)
 						end
 					}
 				else
-					SMODS.calculate_context({roff_probability_missed = true})
-					return {
-						message = localize("k_nope_ex")
-					}
+					return {message = localize("k_nope_ex")}
 				end
 			end
 		end

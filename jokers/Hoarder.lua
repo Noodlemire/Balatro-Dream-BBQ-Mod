@@ -2,20 +2,28 @@
 Hoarder
 Uncommon, $5
 
-+0 Mult
-After Boss Blind is defeated,
-Add 60% of money to Mult and set money to $0
++1000 Consumable Slots
++5 Chips per held Consumable
+Prevents use of cards in Consumable Slots
 --]]
+
+local ccuc = Card.can_use_consumeable
+function Card:can_use_consumeable(any_state, skip_check)
+	if self.area == G.consumeables and #SMODS.find_card("j_dbbq_hoarder") > 0 then
+		return false
+	end
+	return ccuc(self, any_state, skip_check)
+end
 
 SMODS.Joker{
 	key = "hoarder",
 	loc_txt = {
 		name = "Hoarder",
 		text = {
-			"{C:mult}+#1#{} Mult",
-			"After {C:attention}Boss Blind{} is defeated,",
-			"add {C:attention}60%{} of money to Mult",
-			"and set money to {C:money}$0"
+			"{C:attention}+#1#{} Consumable Slots",
+			"{C:chips}+#2#{} Chips per held Consumable",
+			"Prevents use of cards",
+			"in Consumable Slots"
 		}
 	},
 	atlas = "dbbq_jokers",
@@ -23,7 +31,7 @@ SMODS.Joker{
 	cost = 5,
 	pos = {x = 3, y = 1},
 	blueprint_compat = true,
-	config = {extra = {mult = 0, dbbq_quotes = {
+	config = {extra = {slots = 1000, chips = 5, dbbq_quotes = {
 		{type = "lose", key = "j_dbbq_hoarder_another"},
 		{type = "lose", key = "j_dbbq_hoarder_fought"},
 		{type = "lose", key = "j_dbbq_hoarder_enjoy"},
@@ -35,24 +43,17 @@ SMODS.Joker{
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_hoarder", set = "Other"}
 		end
-        return {vars = {card.ability.extra.mult}}
+        return {vars = {card.ability.extra.slots, card.ability.extra.chips}}
     end,
 	calculate = function(self, card, context)
-		if context.joker_main then
-			return {mult = card.ability.extra.mult}
-		elseif context.blueprint then
-			return
+		if context.other_consumeable then
+			return {chips = card.ability.extra.chips}
 		end
-		if context.setting_blind then
-			card.ability.extra.boss = G.GAME.blind.boss
-		elseif context.starting_shop and card.ability.extra.boss then
-			card.ability.extra.boss = nil
-			card.ability.extra.mult = card.ability.extra.mult + math.ceil(G.GAME.dollars * 0.6)
-			if to_big and type(card.ability.extra.mult) == "table" then
-				card.ability.extra.mult = card.ability.extra.mult:to_number()
-			end
-			ease_dollars(-G.GAME.dollars)
-			return {message = "Mine!"}
-		end
-	end
+	end,
+	add_to_deck = function(self, card, from_debuff)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit + card.ability.extra.slots
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.slots
+	end,
 }

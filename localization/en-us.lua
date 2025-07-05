@@ -206,17 +206,17 @@ return {
 			j_dbbq_source_hoarder = {
 				name = "Source",
 				text = {
-					"Hoarder Alex is moreso known for hoarding",
-					"random junk in trash bags, rather than",
-					"money. However, the idea of hoarding",
-					"is easiest to represent in Balatro",
-					"using the money you get, so that's",
-					"what I went with.",
-					"It's potentially a bit too strong at",
-					"+Mult accumulation currently, but it",
-					"does have the downside of greatly",
-					"hindering your ability to gain Interest",
-					"and buy from the shop in order to fuel it."
+					"Hoarder Alex collects all sorts of junk.",
+					"He never really does anything with it,",
+					"except block your way past his bridge.",
+					"The main utility of this jokers is to",
+					"be able to hoard your items and create",
+					"a huge supply similar to his. The chips",
+					"are just a small bonus and probably won't",
+					"contribute much to your score.",
+					"Items you own don't show up in the shop",
+					"or packs again, you can even buy a bunch",
+					"of junk items to block them from spawning."
 				}
 			},
 			j_dbbq_source_legs = {
@@ -643,28 +643,28 @@ return {
 				"NEW JOB, BABEH!! ! :d"
 			},
 			j_dbbq_head_work = {
-				"Work! Yes, I work a lot."
+				"{C:gold}Work! Yes, I work a lot."
 			},
 			j_dbbq_head_party = {
-				"Have fun at the Extinction",
-				"Party!! Wait, wrong event."
+				"{C:gold}Have fun at the Extinction",
+				"{C:gold}Party!! Wait, wrong event."
 			},
 			j_dbbq_head_doom = {
-				"I bring the doom to anyone",
-				"looking for it. I can even",
-				"send your meatslab into",
-				"eternal darkness."
+				"{C:inactive}I bring the doom to anyone",
+				"{C:inactive}looking for it. I can even",
+				"{C:inactive}send your meatslab into",
+				"{C:inactive}eternal darkness."
 			},
 			j_dbbq_head_awaiting = {
-				"Suffering and loneliness",
-				"are awaiting you."
+				"{C:inactive}Suffering and loneliness",
+				"{C:inactive}are awaiting you."
 			},
 			j_dbbq_head_ride = {
-				"Get in the taxi and prepare",
-				"for the ride of your life!"
+				"{C:chips}Get in the taxi and prepare",
+				"{C:chips}for the ride of your life!"
 			},
 			j_dbbq_head_awful = {
-				"Have an awful day!"
+				"{C:chips}Have an awful day!"
 			},
 			j_dbbq_heno_boss = {
 				"YESSS, I AM THE BOSS!!",
@@ -783,30 +783,30 @@ return {
 				"Losers always ruin the party.",
 			},
 			j_dbbq_mean_boss = {
-				"WHERE THE HELL IS THE BOSS?!"
+				"{C:inactive}WHERE THE HELL IS THE BOSS?!"
 			},
 			j_dbbq_mean_hogwash = {
-				"That was the boss? Hah!",
-				"The boss of what? Hogwash?!"
+				"{C:inactive}That was the boss? Hah!",
+				"{C:inactive}The boss of what? Hogwash?!"
 			},
 			j_dbbq_mean_fraud = {
-				"You're not fooling anyone, FRAUD!"
+				"{C:inactive}You're not fooling anyone, FRAUD!"
 			},
 			j_dbbq_mean_sympathy = {
-				"HEY PAL! My sympathy",
-				"is gonna COST you",
-				"for every condolence."
+				"{C:inactive}HEY PAL! My sympathy",
+				"{C:inactive}is gonna COST you",
+				"{C:inactive}for every condolence."
 			},
 			j_dbbq_mean_prices = {
-				"With prices this low,",
-				"you can't afford a",
-				"lifetime to wait!"
+				"{C:inactive}With prices this low,",
+				"{C:inactive}you can't afford a",
+				"{C:inactive}lifetime to wait!"
 			},
 			j_dbbq_mean_bullshit = {
-				"You know, I don't even believe",
-				"anything! But you're bleeding",
-				"out some real BULLSHIT here!!",
-				"YOU'RE A FLUKE!!!"
+				"{C:inactive}You know, I don't even believe",
+				"{C:inactive}anything! But you're bleeding",
+				"{C:inactive}out some real BULLSHIT here!!",
+				"{C:inactive}YOU'RE A FLUKE!!!"
 			},
 			j_dbbq_stalker_boss = {
 				"HEHEHEH. I Am. The",
@@ -843,47 +843,47 @@ return {
 				"and let yourself go."
 			},
 			j_dbbq_quartet_delightful = {
-				"Delightful! Off we go, then.",
-				"Don't spend it all in one place.",
-				"Take care, dearie!",
+				"{C:purple}Delightful! Off we go, then.",
+				"{C:gold}Don't spend it all in one place.",
+				"{C:mult}Take care, dearie!",
 			},
 			j_dbbq_quartet_reference = {
-				"Psst... \"We should go home,",
-				"I am allergic to persons.\"",
-				"HAAAA-HA! I GOT THAT REFERENCE!!!",
-				"Shhh! Zip it!!!"
+				"{C:gold}Psst... \"We should go home,",
+				"{C:gold}I am allergic to persons.\"",
+				"{C:green}HAAAA-HA! I GOT THAT REFERENCE!!!",
+				"{C:mult}Shhh! Zip it!!!"
 			},
 			j_dbbq_quartet_fault = {
-				"GREAT! NOW WE WON'T MAKE IT TO THE",
-				"PURGE EVENT AND IT'S ALL YOUR FAULT.",
-				"Could you hurry it, please? I miss",
-				"my coffin.",
-				"I'd be surprised if you're still",
-				"alive. 5 minutes alone with us would",
-				"drive any entity to split into its",
-				"component parts."
+				"{C:green}GREAT! NOW WE WON'T MAKE IT TO THE",
+				"{C:green}PURGE EVENT AND IT'S ALL YOUR FAULT.",
+				"{C:gold}Could you hurry it, please? I miss",
+				"{C:gold}my coffin.",
+				"{C:mult}I'd be surprised if you're still",
+				"{C:mult}alive. 5 minutes alone with us would",
+				"{C:mult}drive any entity to split into its",
+				"{C:mult}component parts."
 			},
 			j_dbbq_sales_loop = {
-				"Huh. Seems I am out of",
-				"the loop. Shall we review",
-				"the job description?"
+				"{C:mult}Huh. Seems I am out of",
+				"{C:mult}the loop. Shall we review",
+				"{C:mult}the job description?"
 			},
 			j_dbbq_sales_ambush = {
-				"Let's arrange our next",
-				"ambush at the scene!"
+				"{C:mult}Let's arrange our next",
+				"{C:mult}ambush at the scene!"
 			},
 			j_dbbq_sales_doable = {
-				"That was most categorically doable."
+				"{C:mult}That was most categorically doable."
 			},
 			j_dbbq_sales_child = {
-				"Worry not, you are",
-				"still a child of GOD."
+				"{C:mult}Worry not, you are",
+				"{C:mult}still a child of GOD."
 			},
 			j_dbbq_sales_bless = {
-				"Bless you for your business."
+				"{C:mult}Bless you for your business."
 			},
 			j_dbbq_sales_personally = {
-				"Don't take it personally."
+				"{C:mult}Don't take it personally."
 			},
 			j_dbbq_sixeyed_thank = {
 				"Thank you. I don't know what",
