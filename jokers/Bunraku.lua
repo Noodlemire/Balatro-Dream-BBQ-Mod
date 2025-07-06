@@ -60,7 +60,7 @@ SMODS.Joker{
 				colour = G.C.RED,
 				message_card = card
 			}
-		elseif context.post_trigger and G.GAME.blind.in_blind and context.other_card.config.center.key ~= "j_dbbq_puppet" then
+		elseif context.post_trigger and G.GAME.blind.in_blind and context.other_card.config.center and context.other_card.config.center.key ~= "j_dbbq_bunraku" then
 			card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
 			return {
 				message = localize("k_upgrade_ex"),
