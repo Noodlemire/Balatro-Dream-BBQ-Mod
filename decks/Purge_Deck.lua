@@ -21,16 +21,6 @@ Cycles through all possible Ranks, repeating the order if necessary
 
 SMODS.Back{
 	key = "purge",
-	loc_txt = {
-		name = "Purge Deck",
-		text = {
-			"When {C:attention}Boss Blind{} is defeated:",
-			"{C:mult}Destroy{} all playing cards",
-			"of one random Rank",
-			"Cycles through all possible Ranks,",
-			"and repeats the order if necessary"
-		}
-	},
 	atlas = "dbbq_decks",
 	pos = {x = 0, y = 0},
 	calculate = function(self, deck, context)

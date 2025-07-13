@@ -263,6 +263,18 @@ return {
 				}
 			},
 		},
+		Back = {
+			b_dbbq_purge = {
+				name = "Purge Deck",
+				text = {
+					"When {C:attention}Boss Blind{} is defeated:",
+					"{C:mult}Destroy{} all playing cards",
+					"of one random Rank",
+					"Cycles through all possible Ranks,",
+					"and repeats the order if necessary"
+				}
+			},
+		},
 		Other = {
 			j_dbbq_mean_dummy = {
 				name = "Mean Joker",

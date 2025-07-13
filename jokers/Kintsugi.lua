@@ -3,8 +3,7 @@ Kintsugi
 Uncommon, $6
 
 Gains $1 of sell value at end of round
-If a Glass Card shatters or a Lucky Card fails,
-pay out the sell value and transform into Unlucky Cat.
+If a Glass Card shatters or a Lucky Card fails, pay out the sell value and transform into Unlucky Cat.
 --]]
 
 SMODS.Joker{
