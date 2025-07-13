@@ -1,6 +1,6 @@
 --[[
 Not Stalker
-Uncommon, $4
+Common, $4
 
 When sold, all present and future copies of Not Stalker double their XMult
 (Currently X1 Mult)
@@ -8,17 +8,8 @@ When sold, all present and future copies of Not Stalker double their XMult
 
 SMODS.Joker{
 	key = "stalker",
-	loc_txt = {
-		name = "Not Stalker",
-		text = {
-			"When sold, all present",
-			"and future copies of",
-			"{C:attention}Not Stalker{} double their {X:mult,C:white}XMult",
-			"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
-		}
-	},
 	atlas = "dbbq_jokers",
-	rarity = 2,
+	rarity = 1,
 	cost = 4,
 	pos = {x = 4, y = 2},
 	blueprint_compat = true,

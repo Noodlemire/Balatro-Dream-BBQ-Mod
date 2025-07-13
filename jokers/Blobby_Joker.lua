@@ -7,14 +7,6 @@ Common, $4
 
 SMODS.Joker{
 	key = "blobby",
-	loc_txt = {
-		name = "Blobby Joker",
-		text = {
-			"{C:mult}+#1#{} Mult if you don't",
-			"play one of your",
-			"most played hands"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,

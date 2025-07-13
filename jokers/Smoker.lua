@@ -8,14 +8,6 @@ Each face down card held in hand grants X1.5 Mult
 
 SMODS.Joker{
 	key = "smoker",
-	loc_txt = {
-		name = "Smoker",
-		text = {
-			"{C:green}#1# in #2#{} cards are drawn face down",
-			"Each face down card held",
-			"in hand grants {X:mult,C:white}X#3#{} Mult"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 9,

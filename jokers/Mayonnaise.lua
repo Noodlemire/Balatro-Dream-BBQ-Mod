@@ -10,17 +10,6 @@ However, it will be extremely angry and become X10 as strong
 
 SMODS.Joker{
 	key = "mayo",
-	loc_txt = {
-		name = "Mayonnaise",
-		text = {
-			"Blind the {C:attention}Blind{}, so it can't",
-			"see you cheating your {C:mult}discards{}",
-			"{C:inactive}(Your discards are free){}",
-			"However, it wil be extremely",
-			"angry and become {X:mult,C:white}X#1#{} as strong",
-			"{C:inactive}(You may get blasted by a giant laser)"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 12,

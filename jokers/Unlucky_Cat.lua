@@ -9,15 +9,6 @@ destroy this card
 
 SMODS.Joker{
 	key = "unlucky",
-	loc_txt = {
-		name = "Unlucky Cat",
-		text = {
-			"{X:mult,C:white} X#1# {} Mult",
-			"If {C:inactive}Glass Card{} shatters",
-			"or a {C:attention}Lucky Card{} fails,",
-			"destroy this card",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,

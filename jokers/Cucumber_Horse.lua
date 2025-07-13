@@ -8,17 +8,6 @@ If all four Pet Jokers are given, this will also pay out $10 each Round
 
 SMODS.Joker{
 	key = "horse",
-	loc_txt = {
-		name = "Cucumber Horse",
-		text = {
-			"When {C:attention}Blind{} is selected:",
-			"Any {C:attention}Pet Joker{} you own is destroyed",
-			"and adds {C:chips}+#1#{} Chips to this card",
-			"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
-			"If all four {C:attention}Pet Jokers{} are given,",
-			"this will also pay out {C:money}$#3# each Round"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 4,

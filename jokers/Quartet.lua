@@ -8,15 +8,6 @@ When Hand is played: Gain +4 Mult if you have exactly 4 Jokers
 
 SMODS.Joker{
 	key = "quartet",
-	loc_txt = {
-		name = "Quartet",
-		text = {
-			"When {C:attention}Hand{} is played:",
-			"Gain {C:mult}+#1#{} Mult if you",
-			"have exactly {C:chips}4{} Jokers",
-			"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 4,

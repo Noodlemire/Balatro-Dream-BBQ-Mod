@@ -7,13 +7,6 @@ Each 6 held in hand grants +36 chips.
 
 SMODS.Joker{
 	key = "sixeyed",
-	loc_txt = {
-		name = "Six-Eyed Joker",
-		text = {
-			"Each {C:attention}#1#{} held in hand",
-			"gives {C:chips}+#2#{} Chips",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 5,

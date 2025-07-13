@@ -1,5 +1,268 @@
 return {
 	descriptions = {
+		Joker = {
+			j_dbbq_bathroom = {
+				name = "BATHROOM",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"{C:mult}Destroy all Jokers{}",
+					"For every third {C:attention}Joker{} destroyed,",
+					"you gain {C:green}+#1# Joker Slot{}",
+					"{C:inactive}(Includes itself)"
+				}
+			},
+			j_dbbq_blobby = {
+				name = "Blobby Joker",
+				text = {
+					"{C:mult}+#1#{} Mult if you don't",
+					"play one of your",
+					"most played hands"
+				}
+			},
+			j_dbbq_bunraku = {
+				name = "Bunraku",
+				text = {
+					"Gains {X:mult,C:white}X#1#{} Mult every time a non-{C:attention}Bunraku{}",
+					"Joker is triggered while in a {C:attention}Blind{}",
+					"Half of Mult will be lost when one of your",
+					"played cards is first scored, at random",
+					"{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
+				}
+			},
+			j_dbbq_horse = {
+				name = "Cucumber Horse",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Any {C:attention}Pet Joker{} you own is destroyed",
+					"and adds {C:chips}+#1#{} Chips to this card",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
+					"If all four {C:attention}Pet Jokers{} are given,",
+					"this will also pay out {C:money}$#3# each Round"
+				}
+			},
+			j_dbbq_beholder = {
+				name = "Eye Of The Beholder",
+				text = {
+					"Each time you play and score one of",
+					"each {C:inactive}(Vanilla){} Rank, gain {X:mult,C:white}X#1#{} Mult",
+					"{C:inactive}(Remaining: {C:chips}#2#{C:inactive})",
+					"{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
+				}
+			},
+			j_dbbq_fax = {
+				name = "Fax Machine",
+				text = {
+					"When {C:attention}poker hand{} is played:",
+					"If held cards contain all of:",
+					"Ranks {C:money}3{}, {C:money}4{}, {C:money}6{}, {C:money}8{}, and three {C:money}7{}s,",
+					"All cards held in hand",
+					"{C:chips}double{} their Chips"
+				}
+			},
+			j_dbbq_girl = {
+				name = "Girl Girl",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Flip and shuffle all Jokers",
+					"{C:green}#1# in #2#{} chance: Add {C:dark_edition}Negative{}",
+					"to one other Joker at random"
+				}
+			},
+			j_dbbq_head = {
+				name = "Head Chaffeur",
+				text = {
+					"When {C:attention}Hand{} is played:",
+					"Gain one of {C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult,",
+					"or {X:mult,C:white}X#3#{} Mult at random",
+					"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips, {C:mult}+#5#{C:inactive} Mult, {X:mult,C:white}X#6#{C:inactive} Mult)",
+				}
+			},
+			j_dbbq_heno = {
+				name = "Henohenomoheji",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Create random {C:attention}Enhanced{} face",
+					"card and draw it to hand"
+				}
+			},
+			j_dbbq_hoarder = {
+				name = "Hoarder",
+				text = {
+					"{C:attention}+#1#{} Consumable Slots",
+					"{C:chips}+#2#{} Chips per held Consumable",
+					"Prevents use of cards",
+					"in Consumable Slots"
+				}
+			},
+			j_dbbq_bus = {
+				name = "I'M THE BUS!",
+				text = {
+					"Each played card scores {X:mult,C:white}X#1#{} Mult",
+					"Add {X:mult,C:white}X#2#{} Mult to amount for each",
+					"consecutive {C:attention}hand{} played",
+					"without a scoring {C:attention}face{} card"
+				}
+			},
+			j_dbbq_legs = {
+				name = "Joker Legs",
+				text = {
+					"{C:chips}+#1#{} Chips if you",
+					"have drawn through",
+					"half of your deck"
+				}
+			},
+			j_dbbq_kintsugi = {
+				name = "Kintsugi",
+				text = {
+					"Gains {C:money}$#1#{} of {C:attention}sell value{}",
+					"at end of round",
+					"If {C:inactive}Glass Card{} shatters",
+					"or a {C:attention}Lucky Card{} fails,",
+					"pay out the {C:attention}sell value{} and",
+					"transform into {C:chips}Unlucky Cat{}"
+				}
+			},
+			j_dbbq_lazy = {
+				name = "Lazy Coworker",
+				text = {
+					"{C:mult}+#1#{} Mult",
+					"When {C:attention}Blind{} is defeated,",
+					"decrease Mult depending on",
+					"how much your final chip total",
+					"overshot the Blind's requirement"
+				}
+			},
+			j_dbbq_matry = {
+				name = "Matryoshka Joker",
+				text = {
+					"Sell this card to",
+					"create a random {C:attention}Joker{}",
+					"that is one step below",
+					"your Jokers' highest rarity",
+					"{C:inactive}(Currently: {B:1,C:white}#1#{C:inactive})"
+				}
+			},
+			j_dbbq_mayo = {
+				name = "Mayonnaise",
+				text = {
+					"Blind the {C:attention}Blind{}, so it can't",
+					"see you cheating your {C:mult}discards{}",
+					"{C:inactive}(Your discards are free){}",
+					"However, it wil be extremely",
+					"angry and become {X:mult,C:white}X#1#{} as strong",
+					"{C:inactive}(You may get blasted by a giant laser)"
+				}
+			},
+			j_dbbq_mean = {
+				name = "Mean Joker",
+				text = {
+					"All unenhanced cards",
+					"are destroyed after",
+					"being played and scored",
+					"When Blind is defeated,",
+					"transforms into {C:mult}Sales Joker{}"
+				}
+			},
+			j_dbbq_stalker = {
+				name = "Not Stalker",
+				text = {
+					"When sold, all present",
+					"and future copies of",
+					"{C:attention}Not Stalker{} double their {X:mult,C:white}XMult",
+					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
+				}
+			},
+			j_dbbq_party = {
+				name = "Party Ranger",
+				text = {
+					"Retrigger each scoring {C:attention}Wild Card{}",
+					"an additional {C:attention}#1#{} times."
+				}
+			},
+			j_dbbq_pet = {
+				name = "Pet? Joker",
+				text = {
+					"Sell this card to",
+					"reduce the current Blind's",
+					"chip requirement by {C:attention}25%{}"
+				}
+			},
+			j_dbbq_quartet = {
+				name = "Quartet",
+				text = {
+					"When {C:attention}Hand{} is played:",
+					"Gain {C:mult}+#1#{} Mult if you",
+					"have exactly {C:chips}4{} Jokers",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+				}
+			},
+			j_dbbq_sales = {
+				name = "Sales Joker",
+				text = {
+					"All played cards become",
+					"{C:attention}Mult{} cards when scored",
+					"When Blind is defeated,",
+					"transforms into {C:inactive}Mean Joker{}"
+				}
+			},
+			j_dbbq_sixeyed = {
+				name = "Six-Eyed Joker",
+				text = {
+					"Each {C:attention}#1#{} held in hand",
+					"gives {C:chips}+#2#{} Chips",
+				}
+			},
+			j_dbbq_smoker = {
+				name = "Smoker",
+				text = {
+					"{C:green}#1# in #2#{} cards are drawn face down",
+					"Each face down card held",
+					"in hand grants {X:mult,C:white}X#3#{} Mult"
+				}
+			},
+			j_dbbq_spirit = {
+				name = "Spirit Jokers",
+				text = {
+					"Tells you the {C:attention}Ranks{} and {C:attention}Suits{}",
+					"of the top {C:chips}#1#{} cards in your deck",
+					"However, one always lies",
+					"One says: {C:mult}\"#2#\"",
+					"Another says: {C:mult}\"#3#\"",
+				}
+			},
+			j_dbbq_tumi = {
+				name = "Tumi",
+				text = {
+					"If {C:attention}poker hand{} is {C:attention}#1#{}:",
+					"{X:mult,C:white}X#2#{} Mult and {C:blue}+#3#{} hand",
+					"{X:mult,C:white}X#4#{} Mult otherwise",
+					"Poker hand changes",
+					"after every hand played"
+				}
+			},
+			j_dbbq_tpao = {
+				name = "Two Places At Once",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Unpin and copy self without modifiers,",
+					"then pin the copy to the left",
+					"{C:inactive}(Must have room){}",
+					"When {C:attention}Blind{} is defeated:",
+					"If there's a copy to the right,",
+					"destroy it and gain {X:mult,C:white}X#1#{} Mult",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+				}
+			},
+			j_dbbq_unlucky = {
+				name = "Unlucky Cat",
+				text = {
+					"{X:mult,C:white} X#1# {} Mult",
+					"If {C:inactive}Glass Card{} shatters",
+					"or a {C:attention}Lucky Card{} fails,",
+					"destroy this card",
+				}
+			},
+		},
 		Other = {
 			j_dbbq_mean_dummy = {
 				name = "Mean Joker",

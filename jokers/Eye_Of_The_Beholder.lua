@@ -11,15 +11,6 @@ local VANILLA_RANKS = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', '
 
 SMODS.Joker{
 	key = "beholder",
-	loc_txt = {
-		name = "Eye Of The Beholder",
-		text = {
-			"Each time you play and score one of",
-			"each {C:inactive}(Vanilla){} Rank, gain {X:mult,C:white}X#1#{} Mult",
-			"{C:inactive}(Remaining: {C:chips}#2#{C:inactive})",
-			"{C:inactive}(Currently: {X:mult,C:white}X#3#{C:inactive} Mult)"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,

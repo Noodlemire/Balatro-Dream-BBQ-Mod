@@ -9,14 +9,6 @@ half of your deck
 
 SMODS.Joker{
 	key = "legs",
-	loc_txt = {
-		name = "Joker Legs",
-		text = {
-			"{C:chips}+#1#{} Chips if you",
-			"have drawn through",
-			"half of your deck"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,

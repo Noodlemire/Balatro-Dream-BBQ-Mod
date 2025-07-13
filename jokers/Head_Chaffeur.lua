@@ -8,15 +8,6 @@ When Hand is played: Gain one of +5 Chips, +1 Mult, or X0.05 Mult at random
 
 SMODS.Joker{
 	key = "head",
-	loc_txt = {
-		name = "Head Chaffeur",
-		text = {
-			"When {C:attention}Hand{} is played:",
-			"Gain one of {C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult,",
-			"or {X:mult,C:white}X#3#{} Mult at random",
-			"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips, {C:mult}+#5#{C:inactive} Mult, {X:mult,C:white}X#6#{C:inactive} Mult)",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,

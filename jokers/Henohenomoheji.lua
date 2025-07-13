@@ -11,14 +11,6 @@ When Blind is selected: Create a random Enhanced face card and draw it to hand
 
 SMODS.Joker{
 	key = "heno",
-	loc_txt = {
-		name = "Henohenomoheji",
-		text = {
-			"When {C:attention}Blind{} is selected:",
-			"Create random {C:attention}Enhanced{} face",
-			"card and draw it to hand"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 7,

@@ -10,19 +10,6 @@ When Blind is defeated: If there's a copy to the right, destroy it and gain X0.1
 
 SMODS.Joker{
 	key = "tpao",
-	loc_txt = {
-		name = "Two Places At Once",
-		text = {
-			"When {C:attention}Blind{} is selected:",
-			"Unpin and copy self without modifiers,",
-			"then pin the copy to the left",
-			"{C:inactive}(Must have room){}",
-			"When {C:attention}Blind{} is defeated:",
-			"If there's a copy to the right,",
-			"destroy it and gain {X:mult,C:white}X#1#{} Mult",
-			"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 10,

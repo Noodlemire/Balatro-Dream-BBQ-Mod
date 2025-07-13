@@ -12,16 +12,6 @@ local NOTHING = "Nothing yet"
 
 SMODS.Joker{
 	key = "spirit",
-	loc_txt = {
-		name = "Spirit Jokers",
-		text = {
-			"Tells you the {C:attention}Ranks{} and {C:attention}Suits{}",
-			"of the top {C:chips}#1#{} cards in your deck",
-			"However, one always lies",
-			"One says: {C:mult}\"#2#\"",
-			"Another says: {C:mult}\"#3#\"",
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,

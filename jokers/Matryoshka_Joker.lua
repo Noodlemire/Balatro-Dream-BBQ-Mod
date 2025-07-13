@@ -8,16 +8,6 @@ Sell create a random Joker that is one step below your Jokers' highest rarity
 
 SMODS.Joker{
 	key = "matry",
-	loc_txt = {
-		name = "Matryoshka Joker",
-		text = {
-			"Sell this card to",
-			"create a random {C:attention}Joker{}",
-			"that is one step below",
-			"your Jokers' highest rarity",
-			"{C:inactive}(Currently: {B:1,C:white}#1#{C:inactive})"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 3,

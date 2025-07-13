@@ -17,15 +17,6 @@ end
 
 SMODS.Joker{
 	key = "hoarder",
-	loc_txt = {
-		name = "Hoarder",
-		text = {
-			"{C:attention}+#1#{} Consumable Slots",
-			"{C:chips}+#2#{} Chips per held Consumable",
-			"Prevents use of cards",
-			"in Consumable Slots"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 5,

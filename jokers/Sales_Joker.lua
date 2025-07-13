@@ -8,15 +8,6 @@ When Blind is defeated, transforms into Mean Joker
 
 SMODS.Joker{
 	key = "sales",
-	loc_txt = {
-		name = "Sales Joker",
-		text = {
-			"All played cards become",
-			"{C:attention}Mult{} cards when scored",
-			"When Blind is defeated,",
-			"transforms into {C:inactive}Mean Joker{}"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 4,
 	cost = 20,

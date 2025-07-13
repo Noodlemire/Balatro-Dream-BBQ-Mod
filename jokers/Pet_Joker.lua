@@ -7,14 +7,6 @@ Sell to reduce the Boss Blind's chip requirement by 25%.
 
 SMODS.Joker{
 	key = "pet",
-	loc_txt = {
-		name = "Pet? Joker",
-		text = {
-			"Sell this card to",
-			"reduce the current Blind's",
-			"chip requirement by {C:attention}25%{}"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,

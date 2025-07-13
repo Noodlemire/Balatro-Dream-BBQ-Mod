@@ -11,16 +11,6 @@ double their Chips
 
 SMODS.Joker{
 	key = "fax",
-	loc_txt = {
-		name = "Fax Machine",
-		text = {
-			"When {C:attention}poker hand{} is played:",
-			"If held cards contain all of:",
-			"Ranks {C:money}3{}, {C:money}4{}, {C:money}6{}, {C:money}8{}, and three {C:money}7{}s,",
-			"All cards held in hand",
-			"{C:chips}double{} their Chips"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 7,

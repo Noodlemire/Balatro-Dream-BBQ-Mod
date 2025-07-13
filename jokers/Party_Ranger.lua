@@ -7,13 +7,6 @@ Retrigger each scoring Wild Card an additional 2 times.
 
 SMODS.Joker{
 	key = "party",
-	loc_txt = {
-		name = "Party Ranger",
-		text = {
-			"Retrigger each scoring {C:attention}Wild Card{}",
-			"an additional {C:attention}#1#{} times."
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,

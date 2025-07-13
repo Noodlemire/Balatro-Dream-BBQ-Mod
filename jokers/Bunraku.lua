@@ -9,16 +9,6 @@ Half of Mult will be lost when one of your played cards is first scored, at rand
 
 SMODS.Joker{
 	key = "bunraku",
-	loc_txt = {
-		name = "Bunraku",
-		text = {
-			"Gains {X:mult,C:white}X#1#{} Mult every time a non-{C:attention}Bunraku{}",
-			"Joker is triggered while in a {C:attention}Blind{}",
-			"Half of Mult will be lost when one of your",
-			"played cards is first scored, at random",
-			"{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,
@@ -60,7 +50,7 @@ SMODS.Joker{
 				colour = G.C.RED,
 				message_card = card
 			}
-		elseif context.post_trigger and G.GAME.blind.in_blind and context.other_card.config.center and context.other_card.config.center.key ~= "j_dbbq_bunraku" then
+		elseif context.post_trigger and G.GAME.blind.in_blind and context.other_card.config.center and context.other_card.config.center.key ~= "j_dbbq_bunraku" and not context.other_context.modify_scoring_hand then
 			card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
 			return {
 				message = localize("k_upgrade_ex"),

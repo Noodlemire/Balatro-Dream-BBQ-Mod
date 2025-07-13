@@ -11,16 +11,6 @@ after every hand played
 
 SMODS.Joker{
 	key = "tumi",
-	loc_txt = {
-		name = "Tumi",
-		text = {
-			"If {C:attention}poker hand{} is {C:attention}#1#{}:",
-			"{X:mult,C:white}X#2#{} Mult and {C:blue}+#3#{} hand",
-			"{X:mult,C:white}X#4#{} Mult otherwise",
-			"Poker hand changes",
-			"after every hand played"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,

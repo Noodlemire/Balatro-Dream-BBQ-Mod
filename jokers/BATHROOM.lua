@@ -9,16 +9,6 @@ For every third Joker destroyed, you gain +1 Joker Slot
 
 SMODS.Joker{
 	key = "bathroom",
-	loc_txt = {
-		name = "BATHROOM",
-		text = {
-			"When {C:attention}Blind{} is selected:",
-			"{C:mult}Destroy all Jokers{}",
-			"For every third {C:attention}Joker{} destroyed,",
-			"you gain {C:green}+#1# Joker Slot{}",
-			"{C:inactive}(Includes itself)"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,

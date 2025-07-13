@@ -8,15 +8,6 @@ When Blind is selected: Flip and shuffle all Jokers.
 
 SMODS.Joker{
 	key = "girl",
-	loc_txt = {
-		name = "Girl Girl",
-		text = {
-			"When {C:attention}Blind{} is selected:",
-			"Flip and shuffle all Jokers",
-			"{C:green}#1# in #2#{} chance: Add {C:dark_edition}Negative{}",
-			"to one other Joker at random"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 12,

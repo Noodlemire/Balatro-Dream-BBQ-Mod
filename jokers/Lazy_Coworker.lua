@@ -8,16 +8,6 @@ When Blind is defeated, decrease Mult depending on how much your final chip tota
 
 SMODS.Joker{
 	key = "lazy",
-	loc_txt = {
-		name = "Lazy Coworker",
-		text = {
-			"{C:mult}+#1#{} Mult",
-			"When {C:attention}Blind{} is defeated,",
-			"decrease Mult depending on",
-			"how much your final chip total",
-			"overshot the Blind's requirement"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 5,

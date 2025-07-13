@@ -9,17 +9,6 @@ pay out the sell value and transform into Unlucky Cat.
 
 SMODS.Joker{
 	key = "kintsugi",
-	loc_txt = {
-		name = "Kintsugi",
-		text = {
-			"Gains {C:money}$#1#{} of {C:attention}sell value{}",
-			"at end of round",
-			"If {C:inactive}Glass Card{} shatters",
-			"or a {C:attention}Lucky Card{} fails,",
-			"pay out the {C:attention}sell value{} and",
-			"transform into {C:chips}Unlucky Cat{}"
-		}
-	},
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,

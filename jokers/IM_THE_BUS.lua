@@ -8,15 +8,6 @@ Add X0.05 to amount for each consecutive hand played without a scoring face card
 
 SMODS.Joker{
 	key = "bus",
-	loc_txt = {
-		name = "I'M THE BUS!",
-		text = {
-			"Each played card scores {X:mult,C:white}X#1#{} Mult",
-			"Add {X:mult,C:white}X#2#{} Mult to amount for each",
-			"consecutive {C:attention}hand{} played",
-			"without a scoring {C:attention}face{} card"
-		}
-	},
 	atlas = "dbbq_bus",
 	rarity = 4,
 	cost = 20,
