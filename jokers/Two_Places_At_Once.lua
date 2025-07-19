@@ -15,6 +15,7 @@ SMODS.Joker{
 	cost = 10,
 	pos = {x = 2, y = 4},
 	blueprint_compat = true,
+    eternal_compat = false,
     config = {extra = {Xmult_gain = 0.15, Xmult = 1, dbbq_quotes = {
 		{type = "win", key = "j_dbbq_tpao_understand"},
 		{type = "lose", key = "j_dbbq_tpao_life"},

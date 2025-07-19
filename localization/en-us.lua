@@ -275,6 +275,24 @@ return {
 				}
 			},
 		},
+		Sleeve = {
+			sleeve_dbbq_purge = {
+				name = "Purge Sleeve",
+				text = {
+					"When {C:attention}Boss Blind{} is defeated:",
+					"{C:mult}Destroy{} all playing cards of one random Rank",
+					"Cycles through all possible Ranks,",
+					"and repeats the order if necessary"
+				}
+			},
+			sleeve_dbbq_purge_double = {
+				name = "Purge Sleeve",
+				text = {
+					"An {C:attention}additional{} rank will be",
+					"destroyed after each {C:attention}Boss Blind{}"
+				}
+			},
+		},
 		Other = {
 			j_dbbq_mean_dummy = {
 				name = "Mean Joker",

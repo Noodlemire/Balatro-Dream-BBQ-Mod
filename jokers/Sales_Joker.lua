@@ -30,19 +30,25 @@ SMODS.Joker{
     end,
 	calculate = function(self, card, context)
 		if context.before and context.main_eval and not context.blueprint then
+			local any = false
 			for k, v in ipairs(context.scoring_hand) do
-				v:set_ability("m_mult", nil, true)
-				G.E_MANAGER:add_event(Event({
-					func = function()
-						v:juice_up()
-						return true
-					end
-				}))
+				if not v.debuff then
+					any = true
+					v:set_ability("m_mult", nil, true)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							v:juice_up()
+							return true
+						end
+					}))
+				end
 			end
-			return {
-				message = localize('k_mult'),
-				colour = G.C.MULT
-			}
+			if any then
+				return {
+					message = localize('k_mult'),
+					colour = G.C.MULT
+				}
+			end
 		elseif context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
 			G.E_MANAGER:add_event(Event({
 				trigger = 'after',

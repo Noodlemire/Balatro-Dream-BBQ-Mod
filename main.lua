@@ -1,3 +1,5 @@
+DBBQ = {}
+
 SMODS.Atlas {
     key = "dbbq_jokers",
     path = "Jokers.png",
@@ -9,6 +11,13 @@ SMODS.Atlas {
     key = "dbbq_decks",
     path = "Decks.png",
     px = 71,
+    py = 95,
+}
+
+SMODS.Atlas {
+    key = "dbbq_sleeves",
+    path = "Sleeves.png",
+    px = 73,
     py = 95,
 }
 
@@ -31,6 +40,15 @@ for _, filename in pairs(decks) do
     if string.sub(filename, string.len(filename) - 3) == '.lua' then
         assert(SMODS.load_file("decks/"..filename))()
     end
+end
+
+if next(SMODS.find_mod("CardSleeves")) then
+	local sleeves = NFS.getDirectoryItems(SMODS.current_mod.path.."sleeves")
+	for _, filename in pairs(sleeves) do
+		if string.sub(filename, string.len(filename) - 3) == '.lua' then
+		    assert(SMODS.load_file("sleeves/"..filename))()
+		end
+	end
 end
 
 local sounds = NFS.getDirectoryItems(SMODS.current_mod.path.."assets/sounds")
