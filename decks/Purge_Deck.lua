@@ -48,8 +48,8 @@ DBBQ.purge_calc = function(self, deck, context)
 		local rank = G.GAME.dbbq_purge_order[G.GAME.dbbq_purge_index]
 		local destroy_cards = {}
 		local destroy_indices = {}
-		for i, card in ipairs(G.playing_cards) do
-			if card.base.value == rank and not SMODS.has_no_rank(card) then
+		for _, card in ipairs(G.playing_cards) do
+			if card.base.value == rank and not SMODS.has_no_rank(card) and not card.ability.eternal and not card.ability.cry_absolute then
 				table.insert(destroy_cards, card)
 				draw_card(G.deck, G.play, 1, "up", false, card)
 			end
