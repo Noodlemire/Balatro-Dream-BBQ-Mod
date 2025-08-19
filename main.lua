@@ -28,25 +28,15 @@ SMODS.Atlas {
     py = 95,
 }
 
-local jokers = NFS.getDirectoryItems(SMODS.current_mod.path.."jokers")
-for _, filename in pairs(jokers) do
-    if string.sub(filename, string.len(filename) - 3) == '.lua' then
-        assert(SMODS.load_file("jokers/"..filename))()
-    end
-end
-
-local decks = NFS.getDirectoryItems(SMODS.current_mod.path.."decks")
-for _, filename in pairs(decks) do
-    if string.sub(filename, string.len(filename) - 3) == '.lua' then
-        assert(SMODS.load_file("decks/"..filename))()
-    end
-end
-
+local items = {"jokers", "decks", "challenges"}
 if next(SMODS.find_mod("CardSleeves")) then
-	local sleeves = NFS.getDirectoryItems(SMODS.current_mod.path.."sleeves")
-	for _, filename in pairs(sleeves) do
+	table.insert(items, "sleeves")
+end
+for _, item in ipairs(items) do
+	local files = NFS.getDirectoryItems(SMODS.current_mod.path..item)
+	for _, filename in pairs(files) do
 		if string.sub(filename, string.len(filename) - 3) == '.lua' then
-		    assert(SMODS.load_file("sleeves/"..filename))()
+		    assert(SMODS.load_file(item.."/"..filename))()
 		end
 	end
 end

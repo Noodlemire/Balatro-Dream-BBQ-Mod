@@ -1,6 +1,29 @@
+local tpao_desc = {
+	"When {C:attention}Blind{} is selected:",
+	"Unpin and copy self without modifiers,",
+	"then pin the copy to the left",
+	"{C:inactive}(Must have room){}",
+	"When {C:attention}Blind{} is defeated:",
+	"If there's a copy to the right,",
+	"destroy it and gain {X:mult,C:white}X#1#{} Mult",
+	"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+}
+
 return {
 	descriptions = {
 		Joker = {
+			j_dbbq_antifun = {
+				name = "Anti-Fun Joker",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Loses {X:mult,C:white}X#1#{} Mult for each",
+					"{C:attention}Enhanced{} card in full deck",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+					"When Blind is defeated,",
+					"transforms into {C:inactive}Mean Joker{}",
+					"{C:inactive}(Challenge-Only)"
+				}
+			},
 			j_dbbq_bathroom = {
 				name = "BATHROOM",
 				text = {
@@ -160,7 +183,7 @@ return {
 					"are destroyed after",
 					"being played and scored",
 					"When Blind is defeated,",
-					"transforms into {C:mult}Sales Joker{}"
+					"transforms into {V:1}#1# Joker{}"
 				}
 			},
 			j_dbbq_stalker = {
@@ -240,18 +263,17 @@ return {
 					"after every hand played"
 				}
 			},
-			j_dbbq_tpao = {
+			j_dbbq_tpao1 = {
+				name = "One Place At One Time",
+				text = tpao_desc
+			},
+			j_dbbq_tpao2 = {
 				name = "Two Places At Once",
-				text = {
-					"When {C:attention}Blind{} is selected:",
-					"Unpin and copy self without modifiers,",
-					"then pin the copy to the left",
-					"{C:inactive}(Must have room){}",
-					"When {C:attention}Blind{} is defeated:",
-					"If there's a copy to the right,",
-					"destroy it and gain {X:mult,C:white}X#1#{} Mult",
-					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
-				}
+				text = tpao_desc
+			},
+			j_dbbq_tpao3 = {
+				name = "Many Places At Once",
+				text = tpao_desc
 			},
 			j_dbbq_unlucky = {
 				name = "Unlucky Cat",
@@ -294,6 +316,18 @@ return {
 			},
 		},
 		Other = {
+			j_dbbq_antifun_dummy = {
+				name = "Anti-Fun Joker",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Loses {X:mult,C:white}X#1#{} Mult for each",
+					"{C:attention}Enhanced{} card in full deck",
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
+					"When Blind is defeated,",
+					"transforms into {C:inactive}Mean Joker{}",
+					"{C:inactive}(Challenge-Only)"
+				}
+			},
 			j_dbbq_mean_dummy = {
 				name = "Mean Joker",
 				text = {
@@ -304,6 +338,16 @@ return {
 					"transforms into {C:mult}Sales Joker{}"
 				}
 			},
+			j_dbbq_mean_dummy2 = {
+				name = "Mean Joker",
+				text = {
+					"All unenhanced cards",
+					"are destroyed after",
+					"being played and scored",
+					"When Blind is defeated,",
+					"transforms into {C:planet}Anti-Fun Joker{}"
+				}
+			},
 			j_dbbq_sales_dummy = {
 				name = "Sales Joker",
 				text = {
@@ -311,6 +355,20 @@ return {
 					"{C:attention}Mult{} cards when scored",
 					"When Blind is defeated,",
 					"transforms into {C:inactive}Mean Joker{}"
+				}
+			},
+			j_dbbq_source_antifun = {
+				name = "Source",
+				text = {
+					"ENA is a complete and total workaholic.",
+					"Simply existing on a dance floor is all",
+					"it takes for her to become... this.",
+					"While it'd technically be more accurate",
+					"for her to remain in this state constantly",
+					"during the entire challenge, creating an",
+					"effect that would mix poorly with Meanie's",
+					"side of the ENA joker created a more",
+					"interesting idea overall."
 				}
 			},
 			j_dbbq_source_bathroom = {
@@ -802,7 +860,31 @@ return {
 		}
 	},
 	misc = {
+		challenge_names = {
+			c_dbbq_antifun = "The Fun Hater"
+		},
 		quips = {
+			j_dbbq_antifun_deplorable = {
+				"{C:planet}I need to get back to",
+				"{C:planet}my d-deplorable job..."
+			},
+			j_dbbq_antifun_sick = {
+				"{C:planet}I am f-feeling... sick in this p-place."
+			},
+			j_dbbq_antifun_morons = {
+				"{C:planet}L-Listen to me! Regrettably,",
+				"{C:planet}I'm v-very hard-working and",
+				"{C:planet}sh-shouldn't be in a place full",
+				"{C:planet}of m-morons having... FUN."
+			},
+			j_dbbq_antifun_uh = {
+				"{C:planet}......................................."
+			},
+			j_dbbq_antifun_schedule = {
+				"{C:planet}H-How can I leave this stupid event?",
+				"{C:planet}M-My lame schedule is full.",
+				"{C:planet}I c-can't afford. Another minute of joy."
+			},
 			j_dbbq_blobby_friends = {
 				"All my \"friends\" criticized me",
 				"for coming here. I laugh at them",
@@ -1035,7 +1117,7 @@ return {
 			},
 			j_dbbq_legs_epic = {
 				"May the Doors guide",
-				"my epic moves."
+				"my epic moves!"
 			},
 			j_dbbq_legs_imploded = {
 				"I was so excited that",
@@ -1245,6 +1327,14 @@ return {
 				"Now, it's your turn",
 				"to BEGIN LIFE ANEW!",
 				"...Possibly."
+			},
+			j_dbbq_tpao_explain = {
+				"I shall be happy to explain",
+				"everything to you:",
+				"\"One person can be in two places",
+				"at once. Althrough, the magician does",
+				"not have to be in two places at once.",
+				"He can be in one place at once ti&#-\""
 			},
 			j_dbbq_unlucky_boss = {
 				"I am the Boss!"
