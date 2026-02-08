@@ -29,7 +29,7 @@ SMODS.Joker{
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_antifun", set = "Other"}
 		end
 		info_queue[#info_queue + 1] = {key = "j_dbbq_mean_dummy2", set = "Other"}
-		return {vars = {joker.ability.extra.mult_gain, G.GAME.j_dbbq_antifun_mult}}
+		return {vars = {joker.ability.extra.mult_gain, G.GAME.j_dbbq_antifun_mult or 1}}
 	end,
 	add_to_deck = function(self, joker, from_debuff)
 		G.GAME.j_dbbq_antifun_mult = G.GAME.j_dbbq_antifun_mult or 1
@@ -85,5 +85,16 @@ SMODS.Joker{
 	end,
 	in_pool = function(self, args)
 		return false
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {{border_nodes = {
+				{text = "X"},
+				{ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp"}
+			}}},
+			calc_function = function(card)
+				card.joker_display_values.xmult = G.GAME.j_dbbq_antifun_mult or 1
+			end
+		}
 	end
 }
