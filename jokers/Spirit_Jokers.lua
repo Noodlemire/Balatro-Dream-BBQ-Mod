@@ -63,5 +63,13 @@ SMODS.Joker{
 			card.ability.extra.say1 = NOTHING
 			card.ability.extra.say2 = NOTHING
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			extra = {
+				{{ref_table = "card.ability.extra", ref_value = "say2", scale = 0.225}},
+				{{ref_table = "card.ability.extra", ref_value = "say1", scale = 0.225}},
+			}
+		}
 	end
 }

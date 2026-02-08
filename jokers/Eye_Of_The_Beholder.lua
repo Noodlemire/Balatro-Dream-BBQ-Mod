@@ -70,5 +70,40 @@ SMODS.Joker{
 				colour = G.C.MULT
 			}
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{border_nodes = {
+					{text = "X"},
+					{ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp"}
+				}}
+			},
+			extra = {
+				{{ref_table = "card.joker_display_values", ref_value = "remaining1", scale = 0.3}},
+				{{ref_table = "card.joker_display_values", ref_value = "remaining2", scale = 0.3}}
+			},
+			calc_function = function(card)
+				local remaining = {"", ""}
+				local i = 1
+				local count = 0
+				for _, rank in ipairs(VANILLA_RANKS) do
+					if not card.ability.extra.played[rank] then
+						count = count + 1
+						if count == 8 then
+							i = 2
+						end
+						if remaining[i]:len() == 0 then
+							remaining[i] = rank
+						else
+							remaining[i] = remaining[i]..", "..rank
+						end
+					end
+				end
+				card.joker_display_values.remaining1 = remaining[1].."\n"
+				card.joker_display_values.remaining2 = remaining[2].."\n"
+				card.joker_display_values.xmult = card.ability.extra.Xmult
+			end
+		}
 	end
 }

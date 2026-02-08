@@ -46,5 +46,22 @@ SMODS.Joker{
 			card.ability.extra[gain] = card.ability.extra[gain] + card.ability.extra[gain.."_gain"]
 			return {message = gain}
 		end
+	end,
+	joker_display_def = function(jd)
+		return {
+			extra = {
+				{{border_nodes = {{text = "X"}, {ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp"}}}},
+				{{text = "+", colour = G.C.MULT}, {ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult", colour = G.C.MULT}},
+				{{text = "+", colour = G.C.CHIPS}, {ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult", colour = G.C.CHIPS}},
+			},
+			extra_config = {
+				scale = 0.35
+			},
+			calc_function = function(card)
+				card.joker_display_values.xmult = card.ability.extra.Xmult
+				card.joker_display_values.mult = card.ability.extra.mult
+				card.joker_display_values.chips = card.ability.extra.chips
+			end
+		}
 	end
 }

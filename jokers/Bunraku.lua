@@ -58,5 +58,19 @@ SMODS.Joker{
 				message_card = card
 			}
 		end
+	end,
+	joker_display_def = function(jd)
+		return {
+			text = {{
+				border_nodes = {
+					{text = "X"},
+					{ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "exp"}
+				}
+			}},
+			--text_config = {colour = G.C.MULT},
+			calc_function = function(card)
+				card.joker_display_values.mult = card.ability.extra.Xmult
+			end
+		}
 	end
 }

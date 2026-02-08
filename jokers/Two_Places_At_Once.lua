@@ -71,5 +71,13 @@ SMODS.Joker{
 				end
 			end
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {{border_nodes = {
+				{text = "X"},
+				{ref_table = "card.ability.extra", ref_value = "Xmult", retrigger_type = "exp"}
+			}}}
+		}
 	end
 }

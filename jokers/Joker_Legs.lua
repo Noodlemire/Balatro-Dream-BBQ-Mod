@@ -15,7 +15,7 @@ SMODS.Joker{
 	pos = {x = 4, y = 1},
 	blueprint_compat = true,
 	config = {extra = {chips = 100, dbbq_quotes = {
-		{type = "any", key = "j_dbbq_legs_obligation"},
+		{type = "lose", key = "j_dbbq_legs_eyeball"},
 		{type = "lose", key = "j_dbbq_legs_how"},
 		{type = "lose", key = "j_dbbq_legs_damnation"},
 		{type = "lose", key = "j_dbbq_legs_boobstraps"},
@@ -34,5 +34,17 @@ SMODS.Joker{
 				chips = card.ability.extra.chips
 			}
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{text = "+"},
+				{ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult"}
+			},
+			text_config = {colour = G.C.CHIPS},
+			calc_function = function(card)
+				card.joker_display_values.chips = #G.deck.cards <= G.GAME.starting_deck_size / 2 and card.ability.extra.chips or 0
+			end
+		}
 	end
 }

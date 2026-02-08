@@ -38,5 +38,27 @@ SMODS.Joker{
 				return {mult = card.ability.extra.mult}
 			end
 		end
+	end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{text = "+"},
+				{ref_table = "card.joker_display_values", ref_value = "mult", retrigger_type = "mult"}
+			},
+			text_config = {colour = G.C.MULT},
+			calc_function = function(card)
+				card.joker_display_values.mult = 0
+				if #G.hand.highlighted > 0 or #G.play.cards > 0 then
+					local hand = G.FUNCS.get_poker_hand_info(#G.play.cards > 0 and G.play.cards or G.hand.highlighted)
+					local max_limit = G.GAME.hands[hand].played
+					for k, v in pairs(G.GAME.hands) do
+						if k ~= hand and v.played > max_limit and v.visible then
+							card.joker_display_values.mult = card.ability.extra.mult
+							return
+						end
+					end
+				end
+			end
+		}
 	end
 }

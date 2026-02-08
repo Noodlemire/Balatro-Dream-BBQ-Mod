@@ -13,7 +13,7 @@ SMODS.Joker{
 	cost = 6,
 	pos = {x = 0, y = 2},
 	blueprint_compat = false,
-    config = {extra = {price = 1}},
+    config = {extra = {price = 1, meteor = false, Xmult = 2}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_kintsugi", set = "Other"}
@@ -22,8 +22,13 @@ SMODS.Joker{
         return {vars = {card.ability.extra.price}}
     end,
 	calculate = function(self, card, context)
-		if not context.blueprint then
-			local meteor = false
+		if card.ability.extra.meteor then
+			if context.joker_main then
+				return {
+					xmult = card.ability.extra.Xmult
+				}
+			end
+		elseif not context.blueprint then
 			if context.end_of_round and context.game_over == false and context.main_eval then
 				card.ability.extra_value = card.ability.extra_value + card.ability.extra.price
 				card:set_cost()
@@ -34,14 +39,14 @@ SMODS.Joker{
 			elseif context.remove_playing_cards then
 				for _, removed_card in ipairs(context.removed) do
 					if removed_card.shattered then
-						meteor = true
+						card.ability.extra.meteor = true
 						break
 					end
 				end
 			elseif context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, 'm_lucky') and not context.other_card.lucky_trigger then
-				meteor = true
+				card.ability.extra.meteor = true
 			end
-			if meteor then
+			if card.ability.extra.meteor then
 				G.E_MANAGER:add_event(Event({
 					trigger = 'after',
 					delay = 0.15,
@@ -58,7 +63,7 @@ SMODS.Joker{
 					func = function()
 						card:set_ability("j_dbbq_unlucky")
 						--Setting Xmult here prevents bizarre crash when viewing full deck post-transformation
-						card.ability.extra.Xmult = 2
+						--card.ability.extra.Xmult = 2
 						return true
 					end
 				}))
@@ -89,5 +94,14 @@ SMODS.Joker{
 	end,
     in_pool = function(self, args)
 		return #SMODS.find_card("j_dbbq_unlucky") == 0
-    end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{text = "$"},
+				{ref_table = "card", ref_value = "sell_cost"}
+			},
+			text_config = {colour = G.C.GOLD}
+		}
+	end
 }

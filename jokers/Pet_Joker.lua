@@ -34,13 +34,26 @@ SMODS.Joker{
 				end
 			}))
 		end
-	end,
-    in_pool = function(self, args)
-		for _, joker in ipairs(G.jokers.cards) do
-			if joker.config.center.key == "j_dbbq_horse" and joker.ability.extra.chips >= 400 then
-				return false
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{text = "-"},
+				{ref_table = "card.joker_display_values", ref_value = "deduction"}
+			},
+			reminder_text = {
+				{ref_table = "card.joker_display_values", ref_value = "total"},
+				{text = " Total"}
+			},
+			calc_function = function(card)
+				if not G.GAME.blind or G.GAME.blind.chips == 0 then
+					card.joker_display_values.deduction = 0
+					card.joker_display_values.total = 0
+				else
+					card.joker_display_values.total = math.max(math.floor(G.GAME.blind.chips * 0.75), 1)
+					card.joker_display_values.deduction = G.GAME.blind.chips - card.joker_display_values.total
+				end
 			end
-		end
-        return true
-    end
+		}
+	end
 }

@@ -1,31 +1,48 @@
 DBBQ = {}
 
+SMODS.current_mod.optional_features = function()
+	return {
+		post_trigger = true,
+		cardareas = {
+			discard = true,
+			deck = true
+		}
+	}
+end
+
 SMODS.Atlas {
-    key = "dbbq_jokers",
-    path = "Jokers.png",
-    px = 71,
-    py = 95,
+	key = "dbbq_jokers",
+	path = "Jokers.png",
+	px = 71,
+	py = 95,
 }
 
 SMODS.Atlas {
-    key = "dbbq_decks",
-    path = "Decks.png",
-    px = 71,
-    py = 95,
+	key = "dbbq_decks",
+	path = "Decks.png",
+	px = 71,
+	py = 95,
 }
 
 SMODS.Atlas {
-    key = "dbbq_sleeves",
-    path = "Sleeves.png",
-    px = 73,
-    py = 95,
+	key = "dbbq_sleeves",
+	path = "Sleeves.png",
+	px = 73,
+	py = 95,
 }
 
 SMODS.Atlas {
-    key = "dbbq_bus",
-    path = "j_dbbq_bus.png",
-    px = 71,
-    py = 95,
+	key = "dbbq_bus",
+	path = "j_dbbq_bus.png",
+	px = 71,
+	py = 95,
+}
+
+SMODS.Atlas {
+	key = "dbbq_seals",
+	path = "Seals.png",
+	px = 73,
+	py = 95,
 }
 
 local items = {"jokers", "decks", "challenges"}
@@ -36,19 +53,19 @@ for _, item in ipairs(items) do
 	local files = NFS.getDirectoryItems(SMODS.current_mod.path..item)
 	for _, filename in pairs(files) do
 		if string.sub(filename, string.len(filename) - 3) == '.lua' then
-		    assert(SMODS.load_file(item.."/"..filename))()
+			assert(SMODS.load_file(item.."/"..filename))()
 		end
 	end
 end
 
 local sounds = NFS.getDirectoryItems(SMODS.current_mod.path.."assets/sounds")
 for _, filename in pairs(sounds) do
-    if string.sub(filename, string.len(filename) - 3) == '.ogg' then
-        SMODS.Sound({
+	if string.sub(filename, string.len(filename) - 3) == '.ogg' then
+		SMODS.Sound({
 			key = string.sub(filename, 1, string.len(filename) - 4),
 			path = filename
 		})
-    end
+	end
 end
 
 local next_quote = nil
@@ -73,7 +90,7 @@ function Card_Character:init(args)
 			end
 		end
 		if #eligible_quotes > 0 then
-			args.center = joker.config.center
+			args.center = joker.config.center.key
 			next_quote = pseudorandom_element(eligible_quotes, "WHERE THE HELL IS THE BOSS?!").key
 		end
 	end

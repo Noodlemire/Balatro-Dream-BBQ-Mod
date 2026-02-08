@@ -71,5 +71,36 @@ SMODS.Joker{
 		elseif context.individual and context.cardarea == G.play and joker.ability.extra.Xmult > 1 then
 			return {Xmult = joker.ability.extra.Xmult}
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {{border_nodes = {
+				{text = "X"},
+				{ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp"}
+			}}},
+			calc_function = function(card)
+				local count = 0
+				local base = card.ability.extra.Xmult
+				local increase = #G.play.cards == 0
+				local text, _, scoring_hand = JokerDisplay.evaluate_hand()
+				if text ~= "Unknown" then
+					for _, scoring_card in pairs(scoring_hand) do
+						if scoring_card:is_face() then
+							card.joker_display_values.xmult = 1
+							return
+						else
+							count = count + JokerDisplay.calculate_card_triggers(scoring_card, scoring_hand)
+						end
+					end
+				else
+					count = 1
+					increase = false
+				end
+				if increase then
+					base = base + card.ability.extra.Xmult_gain
+				end
+				card.joker_display_values.xmult = base ^ count
+			end
+		}
 	end
 }

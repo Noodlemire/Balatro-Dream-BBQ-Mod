@@ -47,4 +47,16 @@ SMODS.Joker{
 	remove_from_deck = function(self, card, from_debuff)
 		G.consumeables.config.card_limit = G.consumeables.config.card_limit - card.ability.extra.slots
 	end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{text = "+"},
+				{ref_table = "card.joker_display_values", ref_value = "chips", retrigger_type = "mult"}
+			},
+			text_config = {colour = G.C.CHIPS},
+			calc_function = function(card)
+				card.joker_display_values.chips = card.ability.extra.chips * #G.consumeables.cards
+			end
+		}
+	end
 }

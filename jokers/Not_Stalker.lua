@@ -34,5 +34,16 @@ SMODS.Joker{
 		elseif not context.blueprint and context.selling_self then
 			G.GAME.dbbq_not_stalkers_sold = (G.GAME.dbbq_not_stalkers_sold or 1) * 2
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {{border_nodes = {
+				{text = "X"},
+				{ref_table = "card.joker_display_values", ref_value = "xmult", retrigger_type = "exp"}
+			}}},
+			calc_function = function(card)
+				card.joker_display_values.xmult = (G.GAME.dbbq_not_stalkers_sold or 1)
+			end
+		}
 	end
 }

@@ -27,8 +27,7 @@ return {
 			j_dbbq_bathroom = {
 				name = "BATHROOM",
 				text = {
-					"When {C:attention}Blind{} is selected:",
-					"{C:mult}Destroy all Jokers{}",
+					"When sold, {C:mult}destroys all Jokers{}",
 					"For every third {C:attention}Joker{} destroyed,",
 					"you gain {C:green}+#1# Joker Slot{}",
 					"{C:inactive}(Includes itself)"
@@ -56,11 +55,8 @@ return {
 				name = "Cucumber Horse",
 				text = {
 					"When {C:attention}Blind{} is selected:",
-					"Any {C:attention}Pet Joker{} you own is destroyed",
-					"and adds {C:chips}+#1#{} Chips to this card",
-					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
-					"If all four {C:attention}Pet Jokers{} are given,",
-					"this will also pay out {C:money}$#3# each Round"
+					"{C:attention}#1#{} random cards in deck",
+					"will gain {C:attention}Pet? Seals",
 				}
 			},
 			j_dbbq_beholder = {
@@ -94,7 +90,7 @@ return {
 			j_dbbq_head = {
 				name = "Head Chaffeur",
 				text = {
-					"When {C:attention}Hand{} is played:",
+					"When {C:attention}poker hand{} is played:",
 					"Gain one of {C:chips}+#1#{} Chips, {C:mult}+#2#{} Mult,",
 					"or {X:mult,C:white}X#3#{} Mult at random",
 					"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips, {C:mult}+#5#{C:inactive} Mult, {X:mult,C:white}X#6#{C:inactive} Mult)",
@@ -171,7 +167,7 @@ return {
 					"Blind the {C:attention}Blind{}, so it can't",
 					"see you cheating your {C:mult}discards{}",
 					"{C:inactive}(Your discards are free){}",
-					"However, it wil be extremely",
+					"However, it will be extremely",
 					"angry and become {X:mult,C:white}X#1#{} as strong",
 					"{C:inactive}(You may get blasted by a giant laser)"
 				}
@@ -215,7 +211,8 @@ return {
 				text = {
 					"When {C:attention}Hand{} is played:",
 					"Gain {C:mult}+#1#{} Mult if you",
-					"have exactly {C:chips}4{} Jokers",
+					"have exactly {C:chips}#3#{} Jokers",
+					"{C:mult}Resets{} otherwise",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
 				}
 			},
@@ -251,6 +248,17 @@ return {
 					"However, one always lies",
 					"One says: {C:mult}\"#2#\"",
 					"Another says: {C:mult}\"#3#\"",
+				}
+			},
+			j_dbbq_casino = {
+				name = "Trio Casino",
+				text = {
+					"Chance for all played cards",
+					"to give {C:money}$#1#{} when scored",
+					"Chance depends on number of",
+					"held consumables, but they",
+					"must all be the same card",
+					"{C:inactive}(Currently {C:green}#2# in #3# {C:inactive}chance)"
 				}
 			},
 			j_dbbq_tumi = {
@@ -316,6 +324,15 @@ return {
 			},
 		},
 		Other = {
+			dbbq_pet_seal = {
+				name = "Pet? Seal",
+				text = {
+					"If all cards with {C:attention}Pet? Seals{} are",
+					"played and scored before round's end,",
+					"they are replaced with {C:money}Gold Seals",
+					"Otherwise, the Pet? Seals will vanish"
+				}
+			},
 			j_dbbq_antifun_dummy = {
 				name = "Anti-Fun Joker",
 				text = {
@@ -384,9 +401,8 @@ return {
 					"The other path requires much more",
 					"exploration, but grants you an item",
 					"that skips the river entirely.",
-					"In this Joker, needing to fight a",
-					"Blind without Jokers is that river.",
-					"You cannot avoid it at low-stake runs",
+					"Here, the need to give up Jokers is that river.",
+					"You cannot avoid it in low-stake runs",
 					"but higher stakes' Eternal Jokers can",
 					"bypass the challenge. Though, you do",
 					"still need to lose a few Jokers to",
@@ -440,10 +456,9 @@ return {
 					"why Shoryo asks you to retrieve his four",
 					"babies/pets, only for him to eat them.",
 					"Here, the Cucumber Horse also asks you to",
-					"bring it four Pet Jokers. But 10 units",
+					"bring it four 'Pet' Seals. But 10 units",
 					"of currency wouldn't be worth the effort",
-					"in Balatro, so instead, you get $10 every",
-					"round, on top of the sizable Chip bonus."
+					"in Balatro, so instead, you get Gold Seals."
 				}
 			},
 			j_dbbq_source_beholder = {
@@ -490,8 +505,8 @@ return {
 					"dialogue, Coral Glasses is the only one who",
 					"directly gives you her number. It's in the",
 					"form of the Data Matrix seen on this Joker.",
-					"The digit of her phone number are the card",
-					"ranks you must assemble for this Joker.",
+					"The digits of her phone number are the card",
+					"ranks you must assemble for this effect.",
 					"There are seven of them, so this will be",
 					"rather difficult. Thus, if you succeed,",
 					"your cards' Chip values will skyrocket."
@@ -711,10 +726,9 @@ return {
 					"a pet to get you past a Blind you couldn't",
 					"otherwise beat, or to beat it in one fewer",
 					"hand than you could otherwise.",
-					"However, the primary use for this is to",
-					"give it to the Joker based on Shoryo",
-					"since its power boost is more substantial",
-					"than a one-time effect."
+					"It also used to be required for Cucumber",
+					"Horse (Shoryo)'s function, but now it's",
+					"entirely independent."
 				}
 			},
 			j_dbbq_source_quartet = {
@@ -792,6 +806,26 @@ return {
 					"ones tell the truth. This would make the",
 					"Joker too easy to figure out, though, so",
 					"you don't get to see which color says what."
+				}
+			},
+			j_dbbq_source_casino = {
+				name = "Source",
+				text = {
+					"This is a French, arrogant, and rude Receptionist",
+					"who watches over a casino filled with slot",
+					"machines. She has three TV screens that project",
+					"a woman's face as she talks, and when she's not",
+					"insulting you, all she does is tell you about the",
+					"three main Doors and their Genies.",
+					"Because of this, it took a while for me to come up",
+					"with a decent concept for her. I figured she'd",
+					"have something to do with gambling, but it's hard",
+					"to make a purely luck-based machanic interesting.",
+					"Eventually, I settled on the idea of random chance",
+					"that you can rig in your favor, but only in the",
+					"unusual situation where you have multiple of the",
+					"same consumable in your possession. She already",
+					"calls you a scammer repeatedly, now it's finally true.",
 				}
 			},
 			j_dbbq_source_tumi = {
@@ -970,7 +1004,7 @@ return {
 			},
 			j_dbbq_beholder_capable = {
 				"You can't aspire for more",
-				"that what you are capable of."
+				"than what you are capable of."
 			},
 			j_dbbq_fax_handshake = {
 				"Ah... Sorry, handshakes weren't",
@@ -1098,10 +1132,10 @@ return {
 			j_dbbq_im_the_bus = {
 				"I'M THE BUS!"
 			},
-			j_dbbq_legs_obligation = {
-				"My mother always said,",
-				"\"He who plays out of necessity,",
-				"loses out of obligation.\""
+			j_dbbq_legs_eyeball = {
+				"Are you here on purpose?",
+				"Or are you going to",
+				"bounce like an eyeball?"
 			},
 			j_dbbq_legs_how = {
 				"How am I supposed",
@@ -1198,7 +1232,7 @@ return {
 			},
 			j_dbbq_stalker_mistake = {
 				"NO! NO. NO! NO. Common",
-				"Mistake. But Sad Mistake."
+				"Mistake. But Sad. Mistake."
 			},
 			j_dbbq_stalker_heheheheh = {
 				"HEHEHEHEH..."
@@ -1285,6 +1319,41 @@ return {
 			j_dbbq_sixeyed_death = {
 				"To toil beyond death itself."
 			},
+			j_dbbq_casino_tv_dinner = {
+				"Ugh, you again. Go away!",
+				"You smell poor! Go eat a",
+				"TV dinner, you broke,",
+				"ping-collared slug!"
+			},
+			j_dbbq_casino_nonsense = {
+				"What?! I hope you are spitting",
+				"some needy nonsense!"
+			},
+			j_dbbq_casino_richer = {
+				"Now SHOO! Come back when",
+				"you're a little, mmm, richer!"
+			},
+			j_dbbq_casino_clodpoll = {
+				"You poor, needy, beggarly, hard up,",
+				"schlocky, frowzy, scrimpy clodpoll!"
+			},
+			j_dbbq_casino_problematic = {
+				"Ah, making more losses, are we?",
+				"You seem rather... ah, pro-ble-ma-tic."
+			},
+			j_dbbq_casino_luck = {
+				"You are pushing your luck, 'winner'."
+			},
+			j_dbbq_casino_slacking = {
+				"I have no time for slacking off and",
+				"insulting a lowly conman all day.",
+				"Do what you need to do and leave."
+			},
+			j_dbbq_casino_party = {
+				"If you are a party person, you",
+				"can always switch the mood and",
+				"attend the infamous Purge Event."
+			},
 			j_dbbq_tumi_boss = {
 				"I am the B-O-S-S! ...Naaah,",
 				"I W-I-S-H. I wish! Hahaha!"
@@ -1354,6 +1423,9 @@ return {
 				"Had one too many",
 				"party poppers?"
 			},
+		},		
+		labels = {
+			dbbq_pet_seal = "Pe? Seal",
 		}
 	}
 }

@@ -62,5 +62,18 @@ SMODS.Joker{
 				end
 			end
 		end
+    end,
+	joker_display_def = function(jd)
+		return {
+			text = {
+				{ref_table = "card.joker_display_values", ref_value = "num"},
+				{text = " in "},
+				{ref_table = "card.joker_display_values", ref_value = "den"}
+			},
+			text_config = {colour = G.C.GREEN},
+			calc_function = function(card)
+				card.joker_display_values.num, card.joker_display_values.den = SMODS.get_probability_vars(card, card.ability.extra.num, card.ability.extra.den)
+			end
+		}
 	end
 }
