@@ -1,16 +1,21 @@
 --[[
 Not Stalker
-Common, $4
+Uncommon, $4
 
-When sold, all present and future copies of Not Stalker double their XMult
+When sold, all present
+and future copies of
+Not Stalker double their
+XMult and spawn rate
 (Currently X1 Mult)
+(Max 64x spawn rate)
 --]]
 
 SMODS.Joker{
 	key = "stalker",
 	atlas = "dbbq_jokers",
-	rarity = 1,
+	rarity = 2,
 	cost = 4,
+	--pools = {dbbq_stalker = true},
 	pos = {x = 4, y = 2},
 	blueprint_compat = true,
 	config = {extra = {dbbq_quotes = {
@@ -20,12 +25,12 @@ SMODS.Joker{
 		{type = "win", key = "j_dbbq_stalker_delight"},
 		{type = "lose", key = "j_dbbq_stalker_captivity"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_stalker", set = "Other"}
 		end
-        return {vars = {(G.GAME.dbbq_not_stalkers_sold or 1)}}
-    end,
+		return {vars = {(G.GAME.dbbq_not_stalkers_sold or 1)}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
@@ -34,7 +39,7 @@ SMODS.Joker{
 		elseif not context.blueprint and context.selling_self then
 			G.GAME.dbbq_not_stalkers_sold = (G.GAME.dbbq_not_stalkers_sold or 1) * 2
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {{border_nodes = {

@@ -6,6 +6,27 @@ Rare, $9
 Each face down card held in hand grants X1.5 Mult
 --]]
 
+--Since cards must be face down for Smoker to retrigger, it wouldn't make sense to JokerDisplay to factor in retriggers that rely on specific aspects of that card. However, there isn't a good way to create an actual card object that is invisible and intangible, so instead, I'll substitute it with a table that has some functions of cards, without being actual cards. Will this approach have horrific ramifications down the line? If so, i'm sorry.
+local dummy_card = {
+	base = {},
+	config = {},
+	ability = {},
+	get_id = function() return -1 end,
+	get_original_rank = function() return -1 end,
+	is_face = function() end,
+	get_seal = function() end,
+	get_edition = function() end,
+	get_chip_bonus = function() return 0 end,
+	get_chip_mult = function() return 0 end,
+	get_chip_x_mult = function() return 1 end,
+	get_chip_h_mult = function() return 0 end,
+	get_chip_h_x_mult = function() return 1 end,
+	get_chip_x_bonus = function() return 1 end,
+	get_chip_h_bonus = function() return 0 end,
+	get_chip_h_x_bonus = function() return 1 end,
+	get_h_dollars = function() return 0 end,
+}
+
 SMODS.Joker{
 	key = "smoker",
 	atlas = "dbbq_jokers",
@@ -50,8 +71,8 @@ SMODS.Joker{
 				local count = 0
 				for _, playing_card in ipairs(G.hand.cards) do
 					if playing_hand or not playing_card.highlighted then
-						if playing_card.facing and playing_card.facing == "back" and not playing_card.debuff then
-							count = count + JokerDisplay.calculate_card_triggers(playing_card, nil, true)
+						if playing_card.facing and playing_card.facing == "back" then
+							count = count + JokerDisplay.calculate_card_triggers(dummy_card, nil, true)
 						end
 					end
 				end

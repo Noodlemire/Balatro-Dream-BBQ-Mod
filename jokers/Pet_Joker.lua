@@ -1,6 +1,6 @@
 --[[
 Pet? Joker
-Common, $5
+Common, $2
 
 Sell to reduce the Boss Blind's chip requirement by 25%.
 --]]
@@ -9,18 +9,18 @@ SMODS.Joker{
 	key = "pet",
 	atlas = "dbbq_jokers",
 	rarity = 1,
-	cost = 4,
+	cost = 2,
 	pos = {x = 0, y = 3},
 	blueprint_compat = false,
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_pet", set = "Other"}
 		end
-    end,
+	end,
 	calculate = function(self, card, context)
 		if context.selling_self and G.GAME.blind and G.GAME.blind.in_blind then
 			G.GAME.blind.chips = math.max(math.floor(G.GAME.blind.chips * 0.75), 1)
-    		G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+			G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
 			G.GAME.blind:set_text()
 			G.GAME.blind:wiggle()
 			G.E_MANAGER:add_event(Event({
@@ -34,7 +34,7 @@ SMODS.Joker{
 				end
 			}))
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

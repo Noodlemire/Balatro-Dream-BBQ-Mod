@@ -22,14 +22,14 @@ SMODS.Joker{
 		{type = "win", key = "j_dbbq_girl_resuemay"},
 		{type = "win", key = "j_dbbq_girl_job"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_girl", set = "Other"}
 		end
-        info_queue[#info_queue + 1] = {key = "e_negative", set = "Edition", config = {extra = 1}}
+		info_queue[#info_queue + 1] = {key = "e_negative", set = "Edition", config = {extra = 1}}
 		local num, den = SMODS.get_probability_vars(card, card.ability.extra.num, card.ability.extra.den)
 		return {vars = {num, den}}
-    end,
+	end,
 	calculate = function(self, card, context)
 		if context.setting_blind and not context.blueprint then
 			local neg_eligible = {}
@@ -62,7 +62,7 @@ SMODS.Joker{
 				end
 			end
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

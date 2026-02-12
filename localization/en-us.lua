@@ -59,6 +59,13 @@ return {
 					"will gain {C:attention}Pet? Seals",
 				}
 			},
+			j_dbbq_diah = {
+				name = "Dog Inside An Hourglass",
+				text = {
+					"{C:money}Sell{} during a {C:attention}Blind{}",
+					"to gain {C:chips}+#1#{} hands",
+				}
+			},
 			j_dbbq_beholder = {
 				name = "Eye Of The Beholder",
 				text = {
@@ -187,8 +194,10 @@ return {
 				text = {
 					"When sold, all present",
 					"and future copies of",
-					"{C:attention}Not Stalker{} double their {X:mult,C:white}XMult",
+					"{C:attention}Not Stalker{} double their",
+					"{X:mult,C:white}XMult{} and {C:attention}spawn rate",
 					"{C:inactive}(Currently {X:mult,C:white}X#1#{C:inactive} Mult)",
+					"{C:inactive}(Max 64x spawn rate)",
 				}
 			},
 			j_dbbq_party = {
@@ -206,6 +215,20 @@ return {
 					"chip requirement by {C:attention}25%{}"
 				}
 			},
+			j_dbbq_phone = {
+				name = "Phone Call",
+				text = {
+					"When {C:attention}Hand{} is played:",
+					"attempt to call someone using held cards",
+					"If their ranks match one",
+					"of four secret phone numbers,",
+					"self-destruct and spawn the associated joker",
+					"{C:inactive}(Phone numbers are all 7 digits",
+					"{C:inactive}long, and only use numbers 2-8)",
+					"{C:inactive}(Order doesn't matter)",
+					"{C:inactive}(Cannot produce a joker you already have)"
+				}
+			},
 			j_dbbq_quartet = {
 				name = "Quartet",
 				text = {
@@ -214,6 +237,15 @@ return {
 					"have exactly {C:chips}#3#{} Jokers",
 					"{C:mult}Resets{} otherwise",
 					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)",
+				}
+			},
+			j_dbbq_radical = {
+				name = "Radical Dolphin",
+				text = {
+					"Retrigger {C:attention}rightmost{} scoring",
+					"card once for each other",
+					"scoring card with a unique rank",
+					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})",
 				}
 			},
 			j_dbbq_sales = {
@@ -240,6 +272,14 @@ return {
 					"in hand grants {X:mult,C:white}X#3#{} Mult"
 				}
 			},
+			j_dbbq_soooooie = {
+				name = "Soooooie!",
+				text = {
+					"When {C:attention}Blind{} is selected:",
+					"Create {C:attention}1 {C:dark_edition}Negative {C:attention}Dog Inside An Hourglass",
+					"{C:inactive}(They will all be removed if you lose Soooooie!)"
+				}
+			},
 			j_dbbq_spirit = {
 				name = "Spirit Jokers",
 				text = {
@@ -248,6 +288,14 @@ return {
 					"However, one always lies",
 					"One says: {C:mult}\"#2#\"",
 					"Another says: {C:mult}\"#3#\"",
+				}
+			},
+			j_dbbq_toll = {
+				name = "Toll Booth",
+				text = {
+					"If your first {C:chips}play{} or {C:mult}discard",
+					"{C:inactive}(not both){} contains only {C:attention}1{} card,",
+					"add a {C:attention}Sticker of Entry to it",
 				}
 			},
 			j_dbbq_casino = {
@@ -324,6 +372,12 @@ return {
 			},
 		},
 		Other = {
+			dbbq_entry = {
+				name = "Sticker of Entry",
+				text = {
+					"Cannot be debuffed",
+				},
+			},
 			dbbq_pet_seal = {
 				name = "Pet? Seal",
 				text = {
@@ -461,6 +515,21 @@ return {
 					"in Balatro, so instead, you get Gold Seals."
 				}
 			},
+			j_dbbq_source_diah = {
+				name = "Source",
+				text = {
+					"Hourglass Dogs are secret collectibles",
+					"found throughout the game of Dream BBQ,",
+					"but only if you play the Supporter Edition.",
+					"They are often associated with time. Not",
+					"just due to sometimes residing in hourglasses,",
+					"but because multiple secret Hourglass Dogs",
+					"require the player to wait long periods of",
+					"time. Here, this is represented as the ability",
+					"to give yourself extra time when needed,",
+					"in the form of extra hands for one Blind."
+				}
+			},
 			j_dbbq_source_beholder = {
 				name = "Source",
 				text = {
@@ -509,7 +578,8 @@ return {
 					"ranks you must assemble for this effect.",
 					"There are seven of them, so this will be",
 					"rather difficult. Thus, if you succeed,",
-					"your cards' Chip values will skyrocket."
+					"your cards' Chip values will skyrocket.",
+					"Her exact phone number is 7746837."
 				}
 			},
 			j_dbbq_source_girl = {
@@ -639,7 +709,8 @@ return {
 					"But this would be too powerful in the",
 					"early/mid-game where you might have",
 					"zero XMult sources, yet be able to",
-					"beat every Blind for free anyways."
+					"beat every Blind for free anyways.",
+					"His phone number is 8237653."
 				}
 			},
 			j_dbbq_source_matry = {
@@ -731,6 +802,23 @@ return {
 					"entirely independent."
 				}
 			},
+			j_dbbq_source_phone = {
+				name = "Source",
+				text = {
+					"Througout the game, there are a few secret",
+					"phone numbers that players can find from",
+					"exploring the map. All four of them are",
+					"presented in the form of data matrices,",
+					"and once decoded, the player can use their",
+					"number keys to dial the number for some",
+					"bonus dialogue.",
+					"Although this Joker won't tell you those",
+					"numbers directly, the Source info of all",
+					"callable Jokers will have their number listed.",
+					"Jokers that don't originate from Dream BBQ",
+					"are only obtainable via Phone Call."
+				}
+			},
 			j_dbbq_source_quartet = {
 				name = "Source",
 				text = {
@@ -744,6 +832,23 @@ return {
 					"I did try to think of something based on how",
 					"each Witch has her own distinct personality,",
 					"but each idea quickly became overcomplicated."
+				}
+			},
+			j_dbbq_source_radical = {
+				name = "Source",
+				text = {
+					"Phindoll is character introduced in the",
+					"third ENA episode, Temptation Stairway.",
+					"His high energy made him an easy choice",
+					"for a retrigger effect, and since he often",
+					"talk in math puns, that gave me the idea",
+					"to base his retriggers on having many",
+					"different card ranks in the played hand.",
+					"He makes a cameo in Dream BBQ where it's",
+					"revealed that he became unemployed between",
+					"the two entries, so I hope he appreciates",
+					"his new position.",
+					"His phone number is 2543276."
 				}
 			},
 			j_dbbq_source_sales = {
@@ -795,6 +900,24 @@ return {
 					"flips your cards face-down."
 				}
 			},
+			j_dbbq_source_soooooie = {
+				name = "Source",
+				text = {
+					"Prior to a secret Phone Call Cameo in",
+					"Dream BBQ, the Auctioneer was only ever",
+					"seen in Auction Day, the first episode of",
+					"the web series, and the shortest. All",
+					"they do is host the Auction for the",
+					"Hourglass Dog. It took Dream BBQ to expand",
+					"upon their character, as in their cameo,",
+					"they acknowledge that what they sell is",
+					"practically everywhere, and nowhere near",
+					"the exorbitant bids seen during the Auction.",
+					"This Joker's name comes from the Auctioneer's",
+					"catchphrase. Soooieee!",
+					"Their phone number is 6687226."
+				}
+			},
 			j_dbbq_source_spirit = {
 				name = "Source",
 				text = {
@@ -806,6 +929,20 @@ return {
 					"ones tell the truth. This would make the",
 					"Joker too easy to figure out, though, so",
 					"you don't get to see which color says what."
+				}
+			},
+			j_dbbq_source_toll = {
+				name = "Source",
+				text = {
+					"There are two 'Counter Eyes' guarding the",
+					"entrance to the Purge Event. They state",
+					"the cost of entry to be an arm or a leg.",
+					"When ENA pays the toll, she's given an odd",
+					"vase with an unidentified green liquid inside.",
+					"Upon drinking it, the barrier in front of the",
+					"Purge Event's entrance simply disappears, and",
+					"she can simply walk on inside as if nothing",
+					"was ever in the way."
 				}
 			},
 			j_dbbq_source_casino = {
@@ -1281,6 +1418,28 @@ return {
 				"{C:mult}drive any entity to split into its",
 				"{C:mult}component parts."
 			},
+			j_dbbq_radical_polynomial = {
+				"Just leave me your polynomial and",
+				"I'll integrate right on over."
+			},
+			j_dbbq_radical_tangent = {
+				"You're pretty acute for a newbie,",
+				"but now's not the time for",
+				"me to go off on a tangent."
+			},
+			j_dbbq_radical_chill = {
+				"Woah woah woah woah woah woah WOAH!",
+				"Take a chill pill, I meant no ill-will!"
+			},
+			j_dbbq_radical_star = {
+				"That's all, my star! Chyah!"
+			},
+			j_dbbq_radical_humor = {
+				"DO YOU KNOW WHY CAMELS DON'T DO",
+				"PROFESSIONAL WRESTLING? BECAUSE THEY--",
+				"Woah, wooah, woooaah, wooaAAH, WOOAAHH...",
+				"HAH, THAT'S DOLPHIN HUMOR FOR YAH."
+			},
 			j_dbbq_sales_loop = {
 				"{C:mult}Huh. Seems I am out of",
 				"{C:mult}the loop. Shall we review",
@@ -1318,6 +1477,40 @@ return {
 			},
 			j_dbbq_sixeyed_death = {
 				"To toil beyond death itself."
+			},
+			j_dbbq_soooooie_sad = {
+				"Hey, DON'T BE SAD! Soooooie!"
+			},
+			j_dbbq_soooooie_bright = {
+				"Look on the bright side!",
+				"Uh...",
+				"Hmmm...",
+				"...",
+				"Soooieeee!"
+			},
+			j_dbbq_soooooie_existential = {
+				"YEAH! All your existential",
+				"troubles will go away soon, okay?"
+			},
+			j_dbbq_soooooie_daily = {
+				"ALRIGHT, Y'ALL! Welcome to the",
+				"Daily Auctioning! Sooie! Soooooieeee!"
+			},
+			j_dbbq_toll_toll = {
+				"Pay the toll."
+			},
+			j_dbbq_toll_armleg = {
+				"Hmm, that blood... Ah, I see.",
+				"It will cost you an arm or a leg next."
+			},
+			j_dbbq_toll_surprise = {
+				"Not surprised."
+			},
+			j_dbbq_toll_refund = {
+				"Not refunds."
+			},
+			j_dbbq_toll_wait = {
+				"What are you waiting for?"
 			},
 			j_dbbq_casino_tv_dinner = {
 				"Ugh, you again. Go away!",
@@ -1423,9 +1616,16 @@ return {
 				"Had one too many",
 				"party poppers?"
 			},
-		},		
+		},
+		dictionary = {
+			k_dbbq_secret = "Secret",
+			k_dbbq_auction_day = "Auction Day",
+			k_dbbq_temptation_stairway = "Temptation Stairway"
+		},
 		labels = {
+			dbbq_entry = "Sticker of Entry",
 			dbbq_pet_seal = "Pe? Seal",
+			k_dbbq_secret = "Secret",
 		}
 	}
 }

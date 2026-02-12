@@ -71,7 +71,7 @@ SMODS.Joker{
 		elseif context.individual and context.cardarea == G.play and joker.ability.extra.Xmult > 1 then
 			return {Xmult = joker.ability.extra.Xmult}
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {{border_nodes = {

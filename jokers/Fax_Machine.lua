@@ -8,6 +8,8 @@ Ranks 3, 4, 6, 8, and three 7s,
 All cards held in hand gain double their Chips
 --]]
 
+--Known bug: Somehow, whne usd in tandem with UNIK's Mod and Bundles of Fun, attempting to add onto perma_bonus simply fails. No crash, it just acts like 0 + 8 = 0 and moves on. No clue how to fix.
+
 SMODS.Joker{
 	key = "fax",
 	atlas = "dbbq_jokers",

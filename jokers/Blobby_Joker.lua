@@ -18,12 +18,12 @@ SMODS.Joker{
 		{type = "lose", key = "j_dbbq_blobby_sick"},
 		{type = "lose", key = "j_dbbq_blobby_run"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_blobby", set = "Other"}
 		end
-        return {vars = {card.ability.extra.mult}}
-    end,
+		return {vars = {card.ability.extra.mult}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			local mult = false

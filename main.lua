@@ -10,6 +10,13 @@ SMODS.current_mod.optional_features = function()
 	}
 end
 
+SMODS.Atlas{
+	key = "modicon",
+	path = "icon.png",
+	px = 33,
+	py = 33
+}
+
 SMODS.Atlas {
 	key = "dbbq_jokers",
 	path = "Jokers.png",
@@ -41,8 +48,22 @@ SMODS.Atlas {
 SMODS.Atlas {
 	key = "dbbq_seals",
 	path = "Seals.png",
-	px = 73,
+	px = 71,
 	py = 95,
+}
+
+SMODS.Atlas {
+	key = "dbbq_stickers",
+	path = "Stickers.png",
+	px = 71,
+	py = 95,
+}
+
+SMODS.Rarity {
+	key = "secret",
+	badge_colour = HEX("000000"),
+	pools = {Joker = true},
+	default_weight = 0
 }
 
 local items = {"jokers", "decks", "challenges"}

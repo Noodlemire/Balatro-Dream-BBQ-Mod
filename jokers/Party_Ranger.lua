@@ -12,23 +12,23 @@ SMODS.Joker{
 	cost = 6,
 	pos = {x = 5, y = 1},
 	blueprint_compat = true,
-    config = {extra = {repetitions = 2, dbbq_quotes = {
+	config = {extra = {repetitions = 2, dbbq_quotes = {
 		{type = "win", key = "j_dbbq_party_boss"},
 		{type = "lose", key = "j_dbbq_party_focusing"},
 		{type = "lose", key = "j_dbbq_party_crazy"},
 		{type = "any", key = "j_dbbq_party_whistle"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_party", set = "Other"}
 		end
-        return {vars = {card.ability.extra.repetitions}}
-    end,
+		return {vars = {card.ability.extra.repetitions}}
+	end,
 	calculate = function(self, card, context)
 		if context.repetition and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, "m_wild") then
 			return {repetitions = card.ability.extra.repetitions}
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)

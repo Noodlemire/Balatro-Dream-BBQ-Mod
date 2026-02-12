@@ -1,0 +1,26 @@
+[manifest]
+version = "2.0"
+dump_lua = true
+priority = 0
+
+# Not Stalker - Increasing Spawn Rate
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+local _pool, _pool_key = get_current_pool(_type, _rarity, legendary, key_append)
+center = pseudorandom_element(_pool, pseudoseed(_pool_key))
+'''
+position = "after"
+payload = '''
+if _type == "Joker" and center ~= "j_dbbq_stalker" then
+	for i = 1, math.min(63, (G.GAME.dbbq_not_stalkers_sold or 1) - 1) do
+		local new_center = pseudorandom_element(_pool, pseudoseed(_pool_key.."_j_dbbq_stalker"))
+		if new_center == "j_dbbq_stalker" then
+			center = new_center
+			break
+		end
+	end
+end
+'''
+match_indent = true
