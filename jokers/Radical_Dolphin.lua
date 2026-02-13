@@ -51,7 +51,10 @@ SMODS.Joker{
 	end,
 	calculate = function(self, card, context)
 		if context.repetition and context.cardarea == G.play and context.other_card == context.scoring_hand[#context.scoring_hand] then
-			return {repetitions = unique_numbers(context.scoring_hand)}
+			local reps = unique_numbers(context.scoring_hand)
+			if reps > 0 then
+				return {repetitions = reps}
+			end
 		end
     end,
 	joker_display_def = function(jd)
