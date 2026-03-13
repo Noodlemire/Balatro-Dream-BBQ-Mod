@@ -107,8 +107,8 @@ return {
 				name = "Henohenomoheji",
 				text = {
 					"When {C:attention}Blind{} is selected:",
-					"Create random {C:attention}Enhanced{} face",
-					"card and draw it to hand"
+					"Create a random {C:attention}Enhanced{}",
+					"face card and draw it to hand"
 				}
 			},
 			j_dbbq_hoarder = {
@@ -142,7 +142,7 @@ return {
 				text = {
 					"Gains {C:money}$#1#{} of {C:attention}sell value{}",
 					"at end of round",
-					"If {C:inactive}Glass Card{} shatters",
+					"If a {C:inactive}Glass Card{} shatters",
 					"or a {C:attention}Lucky Card{} fails,",
 					"pay out the {C:attention}sell value{} and",
 					"transform into {C:chips}Unlucky Cat{}"
@@ -161,10 +161,10 @@ return {
 			j_dbbq_matry = {
 				name = "Matryoshka Joker",
 				text = {
-					"Sell this card to",
-					"create a random {C:attention}Joker{}",
-					"that is one step below",
-					"your Jokers' highest rarity",
+					"Sell this card to crate",
+					"a random {C:attention}Joker{} that is",
+					"one step below your Jokers'",
+					"highest {C:inactive}(Vanilla){} rarity",
 					"{C:inactive}(Currently: {B:1,C:white}#1#{C:inactive})"
 				}
 			},
@@ -182,9 +182,8 @@ return {
 			j_dbbq_mean = {
 				name = "Mean Joker",
 				text = {
-					"All unenhanced cards",
-					"are destroyed after",
-					"being played and scored",
+					"All unenhanced cards are destroyed",
+					"after being played and scored",
 					"When Blind is defeated,",
 					"transforms into {V:1}#1# Joker{}"
 				}
@@ -342,6 +341,16 @@ return {
 			},
 		},
 		Back = {
+			b_dbbq_deco = {
+				name = "Decorated Deck",
+				text = {
+					"Start run with half of the",
+					"deck consisting of {C:attention}4{} new",
+					"Suits with special effects",
+					"Cards of these suits",
+					"may appear in packs"
+				}
+			},
 			b_dbbq_purge = {
 				name = "Purge Deck",
 				text = {
@@ -354,6 +363,20 @@ return {
 			},
 		},
 		Sleeve = {
+			sleeve_dbbq_deco = {
+				name = "Decorated Sleeve",
+				text = {
+					"Start run with half of the deck consisting",
+					"of {C:attention}4{} new Suits with special effects",
+					"Cards of these new suits may appear in packs",
+				}
+			},
+			sleeve_dbbq_deco_double = {
+				name = "Decorated Sleeve",
+				text = {
+					"Start run with double the deck size",
+				}
+			},
 			sleeve_dbbq_purge = {
 				name = "Purge Sleeve",
 				text = {
@@ -378,6 +401,20 @@ return {
 					"Cannot be debuffed",
 				},
 			},
+			dbbq_fish = {
+				name = "N/A",
+				text = {
+					"If scored hand has exactly {C:attention}2 {C:dbbq_fish}Fish{},",
+					"convert the {C:attention}left{} card into the {C:attention}right{} card"
+				}
+			},
+			dbbq_grit = {
+				name = "N/A",
+				text = {
+					"Leftmost scoring {C:dbbq_grit}Grit{}",
+					"card gets destroyed"
+				}
+			},
 			dbbq_pet_seal = {
 				name = "Pet? Seal",
 				text = {
@@ -385,6 +422,20 @@ return {
 					"played and scored before round's end,",
 					"they are replaced with {C:money}Gold Seals",
 					"Otherwise, the Pet? Seals will vanish"
+				}
+			},
+			dbbq_travel = {
+				name = "N/A",
+				text = {
+					"After play or discard,",
+					"returns to the deck"
+				}
+			},
+			dbbq_utility = {
+				name = "N/A",
+				text = {
+					"One random card will be converted",
+					"to a {C:dbbq_utility}Utility{} card's rank after scoring"
 				}
 			},
 			j_dbbq_antifun_dummy = {
@@ -1626,6 +1677,18 @@ return {
 			dbbq_entry = "Sticker of Entry",
 			dbbq_pet_seal = "Pe? Seal",
 			k_dbbq_secret = "Secret",
-		}
+		},
+        suits_singular = {
+			dbbq_fish = "Fish",
+            dbbq_grit = "Grit",
+			dbbq_travel = "Travel",
+			dbbq_utility = "Utility",
+        },
+        suits_plural = {
+			dbbq_fish = "Fish",
+            dbbq_grit = "Grit",
+			dbbq_travel = "Travel",
+			dbbq_utility = "Utility",
+        }
 	}
 }

@@ -2,7 +2,8 @@
 Eye Of The Beholder
 Rare, $8
 
-Each time you play and score one of each (Vanilla) Rank, gain X1 Mult
+Each time you play and score one of
+each (Vanilla) Rank, gain X1 Mult
 (Remaining: 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A)
 (Currently: X1 Mult)
 --]]
@@ -16,7 +17,7 @@ SMODS.Joker{
 	cost = 8,
 	pos = {x = 3, y = 0},
 	blueprint_compat = true,
-    config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1, dbbq_quotes = {
+	config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1, dbbq_quotes = {
 		{type = "lose", key = "j_dbbq_beholder_condolences"},
 		{type = "lose", key = "j_dbbq_beholder_never"},
 		{type = "any", key = "j_dbbq_beholder_food"},
@@ -24,7 +25,7 @@ SMODS.Joker{
 		{type = "lose", key = "j_dbbq_beholder_unforgiven"},
 		{type = "lose", key = "j_dbbq_beholder_capable"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_beholder", set = "Other"}
 		end
@@ -38,8 +39,8 @@ SMODS.Joker{
 				end
 			end
 		end
-        return {vars = {card.ability.extra.Xmult_gain, remaining, card.ability.extra.Xmult}}
-    end,
+		return {vars = {card.ability.extra.Xmult_gain, remaining, card.ability.extra.Xmult}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
@@ -70,7 +71,7 @@ SMODS.Joker{
 				colour = G.C.MULT
 			}
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

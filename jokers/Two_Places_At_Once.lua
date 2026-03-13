@@ -2,9 +2,13 @@
 Two Places At Once
 Rare, $10
 
-When Blind is selected: Unpin and copy self without modifiers, then pin the copy to the left
+When Blind is selected:
+Unpin and copy self without modifiers,
+then pin the copy to the left
 (Must have room)
-When Blind is defeated: If there's a copy to the right, destroy it and gain X0.15 Mult
+When Blind is defeated:
+If there's a copy to the right,
+destroy it and gain X0.15 Mult
 (Currently X1 Mult)
 --]]
 

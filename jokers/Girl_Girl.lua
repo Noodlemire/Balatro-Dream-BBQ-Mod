@@ -2,8 +2,10 @@
 Girl Girl
 Rare, $12
 
-When Blind is selected: Flip and shuffle all Jokers.
-1 in 6 chance: Add Negative to one other Joker at random.
+When Blind is selected:
+Flip and shuffle all Jokers
+1 in 6 chance: Add Negative
+to one other Joker at random
 --]]
 
 SMODS.Joker{

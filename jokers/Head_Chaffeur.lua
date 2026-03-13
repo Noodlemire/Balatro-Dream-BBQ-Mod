@@ -2,7 +2,9 @@
 Head Chaffeur
 Uncommon, $6
 
-When Hand is played: Gain one of +5 Chips, +1 Mult, or X0.05 Mult at random
+When Hand is played:
+Gain one of +5 Chips, +1 Mult,
+or X0.05 Mult at random
 (Currently +0 Chips, +0 Mult, X1 Mult)
 --]]
 

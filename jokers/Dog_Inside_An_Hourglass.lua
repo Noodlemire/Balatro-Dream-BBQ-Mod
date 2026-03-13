@@ -13,6 +13,7 @@ SMODS.Joker{
 	cost = 2,
 	pos = {x = 7, y = 0},
 	blueprint_compat = false,
+	eternal_compat = false,
 	config = {extra = {hands = 2}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then

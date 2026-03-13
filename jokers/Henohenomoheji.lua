@@ -2,7 +2,9 @@
 Henohenohomeji
 Uncommon, $7
 
-When Blind is selected: Create a random Enhanced face card and draw it to hand
+When Blind is selected:
+Create a random Enhanced
+face card and draw it to hand
 
 じょ = jo
 け = ke

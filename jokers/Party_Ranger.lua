@@ -2,7 +2,8 @@
 Puppet Mascot
 Uncommon, $6
 
-Retrigger each scoring Wild Card an additional 2 times.
+Retrigger each scoring Wild Card
+an additional 2 times.
 --]]
 
 SMODS.Joker{

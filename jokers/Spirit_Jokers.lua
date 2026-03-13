@@ -2,7 +2,8 @@
 Spirit Jokers
 Common, $4
 
-Tells you the Ranks and Suits of the top 5 cards in your deck
+Tells you the Ranks and Suits
+of the top 5 cards in your deck
 However, one always lies
 One says: <cards>
 Another says:
@@ -18,12 +19,12 @@ SMODS.Joker{
 	pos = {x = 0, y = 4},
 	blueprint_compat = false,
 	config = {extra = {cards = 5, say1 = NOTHING, say2 = NOTHING}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_spirit", set = "Other"}
 		end
-        return {vars = {card.ability.extra.cards, card.ability.extra.say1, card.ability.extra.say2}}
-    end,
+		return {vars = {card.ability.extra.cards, card.ability.extra.say1, card.ability.extra.say2}}
+	end,
 	calculate = function(self, card, context)
 		if context.blueprint then return end
 		--if context.first_hand_drawn or context.hand_drawn then
@@ -46,7 +47,7 @@ SMODS.Joker{
 						if rank ~= tostring(tonumber(rank)) then
 							rank = rank:sub(1, 1)
 						end
-						spirit.say = rank..playing_card.base.suit:sub(1, 1)
+						spirit.say = rank..localize(playing_card.base.suit, "suits_singular"):sub(1, 1)
 					else
 						spirit.say = "Nil"
 					end
@@ -63,7 +64,7 @@ SMODS.Joker{
 			card.ability.extra.say1 = NOTHING
 			card.ability.extra.say2 = NOTHING
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			extra = {

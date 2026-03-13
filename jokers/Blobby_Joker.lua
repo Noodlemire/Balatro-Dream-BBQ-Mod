@@ -2,7 +2,9 @@
 Blobby Joker
 Common, $4
 
-+15 Mult if you don't play one of your most played hands.
++15 Mult if you don't
+play one of your
+most played hands.
 --]]
 
 SMODS.Joker{

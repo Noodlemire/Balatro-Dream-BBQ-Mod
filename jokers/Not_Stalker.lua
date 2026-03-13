@@ -15,9 +15,9 @@ SMODS.Joker{
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 4,
-	--pools = {dbbq_stalker = true},
 	pos = {x = 4, y = 2},
 	blueprint_compat = true,
+	eternal_compat = false,
 	config = {extra = {dbbq_quotes = {
 		{type = "win", key = "j_dbbq_stalker_boss"},
 		{type = "lose", key = "j_dbbq_stalker_mistake"},

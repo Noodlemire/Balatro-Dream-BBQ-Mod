@@ -2,8 +2,12 @@
 Kintsugi
 Uncommon, $6
 
-Gains $1 of sell value at end of round
-If a Glass Card shatters or a Lucky Card fails, pay out the sell value and transform into Unlucky Cat.
+Gains $1 of sell value
+at end of round
+If a Glass Card shatters
+or a Lucky Card fails,
+pay out the sell value and
+transform into Unlucky Cat.
 --]]
 
 SMODS.Joker{
@@ -13,14 +17,15 @@ SMODS.Joker{
 	cost = 6,
 	pos = {x = 0, y = 2},
 	blueprint_compat = false,
-    config = {extra = {price = 1, meteor = false, Xmult = 2}},
-    loc_vars = function(self, info_queue, card)
+	eternal_compat = false,
+	config = {extra = {price = 1, meteor = false, Xmult = 2}},
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_kintsugi", set = "Other"}
 		end
 		info_queue[#info_queue+1] = G.P_CENTERS.j_dbbq_unlucky
-        return {vars = {card.ability.extra.price}}
-    end,
+		return {vars = {card.ability.extra.price}}
+	end,
 	calculate = function(self, card, context)
 		if card.ability.extra.meteor then
 			if context.joker_main then
@@ -92,9 +97,9 @@ SMODS.Joker{
 			end
 		end
 	end,
-    in_pool = function(self, args)
+	in_pool = function(self, args)
 		return #SMODS.find_card("j_dbbq_unlucky") == 0
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

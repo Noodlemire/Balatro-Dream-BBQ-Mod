@@ -4,7 +4,8 @@ Uncommon, $5
 
 +1000 Consumable Slots
 +5 Chips per held Consumable
-Prevents use of cards in Consumable Slots
+Prevents use of cards
+in Consumable Slots
 --]]
 
 local ccuc = Card.can_use_consumeable

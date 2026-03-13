@@ -3,7 +3,10 @@ Lazy Coworker
 Uncommon, $5
 
 +50 Mult
-When Blind is defeated, decrease Mult depending on how much your final chip total overshot the Blind's requirement
+When Blind is defeated,
+decrease Mult depending on
+how much your final chip total
+overshot the Blind's requirement
 --]]
 
 SMODS.Joker{

@@ -2,9 +2,11 @@
 Mayonnaise
 Rare, $12
 
-Blind the Blind, so it can't see you cheating your discards
+Blind the Blind, so it can't
+see you cheating your discards
 (Your discards are free)
-However, it will be extremely angry and become X10 as strong
+However, it will be extremely
+angry and become X10 as strong
 (You may may get blasted by a giant laser)
 --]]
 

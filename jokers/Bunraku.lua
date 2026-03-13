@@ -2,8 +2,10 @@
 Bunraku
 Rare, $8
 
-Gains X0.1 Mult every time a non-Bunraku Joker is triggered while in a Blind
-Half of Mult will be lost when one of your played cards is first scored, at random
+Gains X0.1 Mult every time a non-Bunraku
+Joker is triggered while in a Blind
+Half of Mult will be lost when one of your
+played cards is first scored, at random
 (Currently: X0 Mult)
 --]]
 
@@ -14,18 +16,18 @@ SMODS.Joker{
 	cost = 8,
 	pos = {x = 5, y = 0},
 	blueprint_compat = true,
-    config = {extra = {Xmult_gain = 0.1, Xmult = 0, dbbq_quotes = {
+	config = {extra = {Xmult_gain = 0.1, Xmult = 0, dbbq_quotes = {
 		{type = "any", key = "j_dbbq_bunraku_haters"},
 		{type = "win", key = "j_dbbq_bunraku_harder"},
 		{type = "win", key = "j_dbbq_bunraku_comes"},
 		{type = "lose", key = "j_dbbq_bunraku_bathroom"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_bunraku", set = "Other"}
 		end
-        return {vars = {card.ability.extra.Xmult_gain, card.ability.extra.Xmult}}
-    end,
+		return {vars = {card.ability.extra.Xmult_gain, card.ability.extra.Xmult}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {xmult = card.ability.extra.Xmult}

@@ -3,7 +3,8 @@ Smoker
 Rare, $9
 
 1 in 4 cards are drawn face down
-Each face down card held in hand grants X1.5 Mult
+Each face down card held
+in hand grants X1.5 Mult
 --]]
 
 --Since cards must be face down for Smoker to retrigger, it wouldn't make sense to JokerDisplay to factor in retriggers that rely on specific aspects of that card. However, there isn't a good way to create an actual card object that is invisible and intangible, so instead, I'll substitute it with a table that has some functions of cards, without being actual cards. Will this approach have horrific ramifications down the line? If so, i'm sorry.

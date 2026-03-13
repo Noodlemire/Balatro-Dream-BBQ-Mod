@@ -2,8 +2,10 @@
 Mean Joker
 Legendary, $20
 
-All unenhanced cards are destroyed after being played and scored
-When Blind is defeated, transforms into Sales Joker
+All unenhanced cards are destroyed
+after being played and scored
+When Blind is defeated,
+transforms into Sales Joker
 --]]
 
 SMODS.Joker{

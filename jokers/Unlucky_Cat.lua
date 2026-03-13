@@ -3,7 +3,8 @@ Unlucky Cat
 Uncommon, $6
 
 X2 Mult
-If a Glass Card shatters or a Lucky Card fails,
+If a Glass Card shatters
+or a Lucky Card fails,
 destroy this card
 --]]
 
@@ -14,6 +15,7 @@ SMODS.Joker{
 	cost = 6,
 	pos = {x = 3, y = 4},
 	blueprint_compat = true,
+	eternal_compat = false,
     config = {extra = {Xmult = 2, dbbq_quotes = {
 		{type = "win", key = "j_dbbq_unlucky_boss"},
 		{type = "lose", key = "j_dbbq_unlucky_simpleton"},

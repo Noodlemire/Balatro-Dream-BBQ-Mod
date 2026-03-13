@@ -1,4 +1,4 @@
-DBBQ = {}
+DBBQ = {suits = {}}
 
 SMODS.current_mod.optional_features = function()
 	return {
@@ -59,6 +59,20 @@ SMODS.Atlas {
 	py = 95,
 }
 
+SMODS.Atlas {
+	key = "dbbq_suits",
+	path = "Suits.png",
+	px = 71,
+	py = 95,
+}
+
+SMODS.Atlas {
+	key = "dbbq_suit_ui",
+	path = "Suit_UI.png",
+	px = 18,
+	py = 18,
+}
+
 SMODS.Rarity {
 	key = "secret",
 	badge_colour = HEX("000000"),
@@ -66,7 +80,7 @@ SMODS.Rarity {
 	default_weight = 0
 }
 
-local items = {"jokers", "decks", "challenges"}
+local items = {"jokers", "decks", "challenges", "suits"}
 if next(SMODS.find_mod("CardSleeves")) then
 	table.insert(items, "sleeves")
 end

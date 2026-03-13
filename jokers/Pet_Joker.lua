@@ -2,7 +2,9 @@
 Pet? Joker
 Common, $2
 
-Sell to reduce the Boss Blind's chip requirement by 25%.
+Sell this card to
+reduce the current Blind's
+chip requirement by 25%
 --]]
 
 SMODS.Joker{

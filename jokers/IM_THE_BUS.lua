@@ -3,7 +3,9 @@ I'M THE BUS
 Legendary, $20
 
 Each played card scores X1 Mult
-Add X0.05 to amount for each consecutive hand played without a scoring face card
+Add X0.05 to amount for each
+consecutive hand played
+without a scoring face card
 --]]
 
 SMODS.Joker{

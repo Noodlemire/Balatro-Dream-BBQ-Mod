@@ -2,16 +2,19 @@
 Matryoshka Joker
 Common, $3
 
-Sell create a random Joker that is one step below your Jokers' highest rarity
+Sell this card to create
+a random Joker that is
+one step below your Jokers'
+highest (Vanilla) rarity
 (Currently: <Rarity>)
 --]]
 
 local function get_keys(t)
-    local keys = {}
-    for k, _ in pairs(t) do
-        keys[#keys + 1] = k
-    end
-    return keys
+	local keys = {}
+	for k, _ in pairs(t) do
+		keys[#keys + 1] = k
+	end
+	return keys
 end
 
 SMODS.Joker{
@@ -21,6 +24,7 @@ SMODS.Joker{
 	cost = 3,
 	pos = {x = 2, y = 2},
 	blueprint_compat = false,
+	eternal_compat = false,
 	config = {extra = {dbbq_quotes = {
 		{type = "lose", key = "j_dbbq_matry_cents"},
 		{type = "win", key = "j_dbbq_matry_toot"},

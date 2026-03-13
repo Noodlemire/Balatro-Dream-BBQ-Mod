@@ -2,7 +2,8 @@
 Six-Eyed Joker
 Common, $5
 
-Each 6 held in hand grants +36 chips.
+Each 6 held in hand
+grants +36 Chips
 --]]
 
 SMODS.Joker{
