@@ -69,7 +69,7 @@ SMODS.Joker{
 			end,
 			retrigger_function = function(playing_card, scoring_hand, held_in_hand, joker_card)
 				if held_in_hand then return 0 end
-				return playing_card == scoring_hand[scoring_hand] and unique_numbers(scoring_hand) * JokerDisplay.calculate_joker_triggers(joker_card) or 0
+				return playing_card == scoring_hand[#scoring_hand] and unique_numbers(scoring_hand) * JokerDisplay.calculate_joker_triggers(joker_card) or 0
 			end
 		}
 	end

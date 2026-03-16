@@ -23,8 +23,8 @@ SMODS.Suit {
 }
 
 local old_scc = SMODS.calculate_context
-function SMODS.calculate_context(context)
-	local ret = old_scc(context)
+function SMODS.calculate_context(context, return_table, no_resolve)
+	local ret = old_scc(context, return_table, no_resolve)
 
 	if context.destroy_card and context.cardarea == G.play and context.destroy_card.base.suit == "dbbq_grit" and not SMODS.has_no_suit(context.destroy_card) and not context.destroy_card.debuff then
 		for _, card in ipairs(context.scoring_hand) do
@@ -38,5 +38,5 @@ function SMODS.calculate_context(context)
 		end
 	end
 
-	return ret
+	return return_table or ret
 end

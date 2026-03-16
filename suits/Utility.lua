@@ -23,8 +23,8 @@ SMODS.Suit {
 }
 
 local old_scc = SMODS.calculate_context
-function SMODS.calculate_context(context)
-	local ret = old_scc(context)
+function SMODS.calculate_context(context, return_table, no_resolve)
+	local ret = old_scc(context, return_table, no_resolve)
 
 	if context.after and #context.scoring_hand > 1 then
 		local utilities = {}
@@ -87,5 +87,5 @@ function SMODS.calculate_context(context)
 		end
 	end
 
-	return ret
+	return return_table or ret
 end

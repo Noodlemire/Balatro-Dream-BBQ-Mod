@@ -32,12 +32,12 @@ SMODS.Joker{
 		if context.first_hand_drawn then
 			local eval = function() return G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0 and not G.RESET_JIGGLES end
 			juice_card_until(card, eval, true)
-		elseif (context.discard or context.before) and G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0 and #context.full_hand == 1 and not context.full_hand[1].debuff then
+		elseif (context.discard or context.before) and G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0 and #context.full_hand == 1 and not context.full_hand[1].debuff and not context.full_hand[1].ability.dbbq_entry then
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.15,
 				func = function()
-					context.full_hand[1].ability.dbbq_entry = true
+					context.full_hand[1]:add_sticker("dbbq_entry", true)
 					play_sound("tarot1")
 					context.full_hand[1]:juice_up()
 					return true
@@ -69,15 +69,11 @@ SMODS.Sticker{
 	key = "entry",
 	atlas = "dbbq_stickers",
 	pos = {x = 0, y = 0},
-	badge_colour = HEX("ba7a4d")
-}
-
-local old_set_debuff = Card.set_debuff
-function Card:set_debuff(should_debuff)
-	old_set_debuff(self, should_debuff)
-
-	if self.ability.dbbq_entry then
-		self.debuff = false
-		self.perma_debuff = false
+	badge_colour = HEX("ba7a4d"),
+	apply = function(self, card, val)
+		if G.STAGE == G.STAGES.RUN then
+			SMODS.debuff_card(card, val and "prevent_debuff" or nil, "dbbq_entry")
+		end
+		card.ability[self.key] = val
 	end
-end
+}
