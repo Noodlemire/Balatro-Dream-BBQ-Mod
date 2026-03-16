@@ -28,12 +28,16 @@ function SMODS.calculate_context(context)
 
 	if context.after then
 		local fish = {}
+		local has_real_fish = false
 		for _, card in ipairs(context.scoring_hand) do
-			if not SMODS.has_no_suit(card) and not card.debuff and card.base.suit == "dbbq_fish" then
+			if not SMODS.has_no_suit(card) and not card.debuff and card:is_suit("dbbq_fish") then
 				table.insert(fish, card)
+				if card.base.suit == "dbbq_fish" then
+					has_real_fish = true
+				end
 			end
 		end
-		if #fish == 2 then
+		if #fish == 2 and has_real_fish then
 			local lost, copy = fish[1], fish[2]
 			G.E_MANAGER:add_event(Event({
 				trigger = 'after',

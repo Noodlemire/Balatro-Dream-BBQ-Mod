@@ -36,13 +36,13 @@ SMODS.Joker{
 	pos = {x = 4, y = 3},
 	blueprint_compat = true,
 	config = {extra = {num = 1, den = 4, Xmult = 1.5}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_smoker", set = "Other"}
 		end
 		local num, den = SMODS.get_probability_vars(card, card.ability.extra.num, card.ability.extra.den)
-        return {vars = {num, den, card.ability.extra.Xmult}}
-    end,
+		return {vars = {num, den, card.ability.extra.Xmult}}
+	end,
 	calculate = function(self, card, context)
 		if context.stay_flipped and context.to_area == G.hand then
 			if SMODS.pseudorandom_probability(card, "Remember, ENA...", card.ability.extra.num, card.ability.extra.den) then

@@ -19,8 +19,8 @@ SMODS.Joker{
 	cost = 10,
 	pos = {x = 2, y = 4},
 	blueprint_compat = true,
-    eternal_compat = false,
-    config = {extra = {Xmult_gain = 0.15, Xmult = 1, dbbq_quotes = {
+	eternal_compat = false,
+	config = {extra = {Xmult_gain = 0.15, Xmult = 1, dbbq_quotes = {
 		{type = "win", key = "j_dbbq_tpao_understand"},
 		{type = "lose", key = "j_dbbq_tpao_life"},
 		{type = "lose", key = "j_dbbq_tpao_forgive"},
@@ -28,14 +28,14 @@ SMODS.Joker{
 		{type = "win", key = "j_dbbq_tpao_anew"},
 		{type = "any", key = "j_dbbq_tpao_explain"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_tpao", set = "Other"}
 		end
 		local num = math.min(#SMODS.find_card("j_dbbq_tpao"), 3)
 		if num == 0 then num = 2 end
-        return {vars = {card.ability.extra.Xmult_gain, card.ability.extra.Xmult}, key = self.key..num}
-    end,
+		return {vars = {card.ability.extra.Xmult_gain, card.ability.extra.Xmult}, key = self.key..num}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
@@ -75,7 +75,7 @@ SMODS.Joker{
 				end
 			end
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {{border_nodes = {

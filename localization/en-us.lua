@@ -1,3 +1,8 @@
+local adire_desc = {
+	"{C:mult}+#1#{} Mult per unique",
+	"{C:attention}rank{} held in hand"
+}
+
 local tpao_desc = {
 	"When {C:attention}Blind{} is selected:",
 	"Unpin and copy self without modifiers,",
@@ -12,6 +17,98 @@ local tpao_desc = {
 return {
 	descriptions = {
 		Joker = {
+			j_dbbq_adire = {
+				name = "A Dealer In Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire0 = {
+				name = "A Dealer In Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire1 = {
+				name = "A Speculator In The Real Estate Market",
+				text = adire_desc
+			},
+			j_dbbq_adire2 = {
+				name = "A Speculative Investor In Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire3 = {
+				name = "A Prospective Buyer And Seller In Real Estate Properties",
+				text = adire_desc
+			},
+			j_dbbq_adire4 = {
+				name = "Someone In The Market For Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire5 = {
+				name = "An Investor Hoping To Purchase Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire6 = {
+				name = "A Realtor",
+				text = adire_desc
+			},
+			j_dbbq_adire7 = {
+				name = "A Real Estate Agent",
+				text = adire_desc
+			},
+			j_dbbq_adire8 = {
+				name = "Someone Attempting To Acquire Real Estate Property",
+				text = adire_desc
+			},
+			j_dbbq_adire9 = {
+				name = "A Speculative Developer Of Land And Properties",
+				text = adire_desc
+			},
+			j_dbbq_adire10 = {
+				name = "A Hopeful Arbitrageur",
+				text = adire_desc
+			},
+			j_dbbq_adire11 = {
+				name = "The Representative Of A C-REIT Looking For Leverageable Assets",
+				text = adire_desc
+			},
+			j_dbbq_adire12 = {
+				name = "A Trade-Up Buyer On The Scent Of A Land Rush",
+				text = adire_desc
+			},
+			j_dbbq_adire13 = {
+				name = "A Prospective Mover On The Front Lines Of A Restructuring In The Real Estate Sector",
+				text = adire_desc
+			},
+			j_dbbq_adire14 = {
+				name = "An Aggressive Speculator In High-Yield Land-Base Securities",
+				text = adire_desc
+			},
+			j_dbbq_adire15 = {
+				name = "An Expectant Home-Improvement Profiteer",
+				text = adire_desc
+			},
+			j_dbbq_adire16 = {
+				name = "A Proto-Speculator, Seeking Growth At All Costs In The Wake Of A Marketwide Liquidity Crisis",
+				text = adire_desc
+			},
+			j_dbbq_adire17 = {
+				name = "Someone Trying To Acquire High LTV Financial Instruments In The Emerging Local Sector Of Real Estate",
+				text = adire_desc
+			},
+			j_dbbq_adire18 = {
+				name = "A Wannabe House Flipper",
+				text = adire_desc
+			},
+			j_dbbq_adire19 = {
+				name = "An Aspiring Property Enrichment Specialist Dabbling In Quick-Turnaround Investments",
+				text = adire_desc
+			},
+			j_dbbq_adire20 = {
+				name = "An Entry-Level Property Czar",
+				text = adire_desc
+			},
+			j_dbbq_adire21 = {
+				name = "A Would-Be Land Banker Rapidly Trading In Securitized Property Assets",
+				text = adire_desc
+			},
 			j_dbbq_antifun = {
 				name = "Anti-Fun Joker",
 				text = {
@@ -39,6 +136,23 @@ return {
 					"{C:mult}+#1#{} Mult if you don't",
 					"play one of your",
 					"most played hands"
+				}
+			},
+			j_dbbq_brc = {
+				name = "Blue Red Combine",
+				text = {
+					"{C:attention}Retrigger{} first {C:clubs}Club{} and {C:hearts}Heart",
+					"in scoring hand if it has both"
+				}
+			},
+			j_dbbq_body = {
+				name = "Body",
+				text = {
+					"Any attempt to destroy a playing",
+					"card will instead {C:attention}upgrade{} its",
+					"edition, unless it's already",
+					"{C:polychrome}Polychrome{} or has a modded edition",
+					"{C:inactive}({C:dark_edition}Foil {C:inactive}-> {C:dark_edition}Holographic {C:inactive}-> {C:dark_edition}Polychrome{C:inactive})"
 				}
 			},
 			j_dbbq_bunraku = {
@@ -214,6 +328,14 @@ return {
 					"chip requirement by {C:attention}25%{}"
 				}
 			},
+			j_dbbq_pg = {
+				name = "Partygoers",
+				text = {
+					"{C:attention}Wild Cards{} score {C:mult}+Mult",
+					"instead of {C:chips}+Chips{} equal",
+					"to their base value"
+				}
+			},
 			j_dbbq_phone = {
 				name = "Phone Call",
 				text = {
@@ -297,6 +419,16 @@ return {
 					"add a {C:attention}Sticker of Entry to it",
 				}
 			},
+			j_dbbq_tomb = {
+				name = "Joker's Tombstone",
+				text = {
+					"This Joker gains {C:chips}Chips{} equal",
+					"to {C:chips}X#2# {C:attention}#1#{}'s {C:money}sell value{} if",
+					"you sell that joker",
+					"{C:inactive}(Joker changes each round)",
+					"{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)"
+				}
+			},
 			j_dbbq_casino = {
 				name = "Trio Casino",
 				text = {
@@ -317,6 +449,10 @@ return {
 					"Poker hand changes",
 					"after every hand played"
 				}
+			},
+			j_dbbq_tpao = {
+				name = "Two Places At Once",
+				text = tpao_desc
 			},
 			j_dbbq_tpao1 = {
 				name = "One Place At One Time",
@@ -427,8 +563,8 @@ return {
 			dbbq_travel = {
 				name = "N/A",
 				text = {
-					"After play or discard,",
-					"returns to the deck"
+					"Scoring cards increase {C:attention}rank",
+					"for each scoring {C:dbbq_travel}Travel{} card"
 				}
 			},
 			dbbq_utility = {
@@ -477,6 +613,21 @@ return {
 					"{C:attention}Mult{} cards when scored",
 					"When Blind is defeated,",
 					"transforms into {C:inactive}Mean Joker{}"
+				}
+			},
+			j_dbbq_source_adire = {
+				name = "Source",
+				text = {
+					"Many of these strange realtors appear",
+					"after the smoke is lifted from the Lonely",
+					"Door's central area, having been reduced",
+					"to a barren, basic landscape. They don't",
+					"say anything, they just have a bajillion",
+					"possible descriptions. The only actual",
+					"characteristic of them is that they buy",
+					"and sell as much real estate as possible,",
+					"so I represented in a form that rewards",
+					"having a varied, undeveloped deck."
 				}
 			},
 			j_dbbq_source_antifun = {
@@ -528,6 +679,34 @@ return {
 					"for trying something unusual in your",
 					"run. Easy to achieve in the early-game,",
 					"worthless for late-game."
+				}
+			},
+			j_dbbq_source_brc = {
+				name = "Source",
+				text = {
+					"The area known as the 'Core' houses",
+					"many silent blue and red figures that",
+					"exist only to point the way forwards.",
+					"Characters that don't do much have",
+					"a lot of freedom to do any effect, so",
+					"I made a joker where the blue and red",
+					"suits (at least with Balatro's coloring)",
+					"work together to retrigger each other."
+				}
+			},
+			j_dbbq_source_body = {
+				name = "Source",
+				text = {
+					"Mannequin characters are found throughout",
+					"the ENA series. They're almost never",
+					"acknowledged directly, and in Dream BBQ",
+					"specifically, most of them are dead.",
+					"Another recurring element is death, or",
+					"more specifically, how it seemingly isn't",
+					"permanent. Althoug it's unclear, there is",
+					"also a chance they're all ENA's bodies in",
+					"particular, but the exact mechanics and",
+					"relations can only be speculated."
 				}
 			},
 			j_dbbq_source_bunraku = {
@@ -722,6 +901,19 @@ return {
 					"part applies to your deck instead."
 				}
 			},
+			j_dbbq_source_tomb = {
+				name = "Source",
+				text = {
+					"Any time these Headtombs appear, it's",
+					"for some form of auction that offers",
+					"random items.",
+					"While it's not necessarily fitting",
+					"for the tomb itself to choose the",
+					"item on offer, but the spirit remains",
+					"the same. Sell it random items to",
+					"make it more powerful."
+				}
+			},
 			j_dbbq_source_kintsugi = {
 				name = "Source",
 				text = {
@@ -826,6 +1018,18 @@ return {
 					"Joker Slot open, and be lucky enough to see",
 					"Not Stalker again and again and again, if you",
 					"want a super-high XMult."
+				}
+			},
+			j_dbbq_source_pg = {
+				name = "Source",
+				text = {
+					"The Purge Event's dance floor is littered",
+					"with many dancing, shadowy entities such",
+					"as these. All they do is dance, they have",
+					"no interactions or even collision.",
+					"Similar to the other directly party-themed",
+					"Joker I've made, they help empower Wild Cards",
+					"in a simple but useful way."
 				}
 			},
 			j_dbbq_source_party = {
@@ -1155,7 +1359,9 @@ return {
 				"recognized. Go away."
 			},
 			j_dbbq_horse_shitchat = {
-				"No time for shit-chat."
+				"No time for shit-chat!",
+				"Asshole left door open,",
+				"now pets are gone! My babies!"
 			},
 			j_dbbq_horse_money = {
 				"I will give so many",
@@ -1558,10 +1764,37 @@ return {
 				"Not surprised."
 			},
 			j_dbbq_toll_refund = {
-				"Not refunds."
+				"No refunds."
 			},
 			j_dbbq_toll_wait = {
 				"What are you waiting for?"
+			},
+			j_dbbq_tomb_cash = {
+				"I don't like the cast.",
+				"I prefer         cash."
+			},
+			j_dbbq_tomb_act = {
+				"The second act",
+				"feels too obvious."
+			},
+			j_dbbq_tomb_owe = {
+				"What are you looking at?",
+				"Do I owe you something?"
+			},
+			j_dbbq_tomb_looks = {
+				"This looks controversial.",
+			},
+			j_dbbq_tomb_now = {
+				"Things are smelling",
+				"much more valuable now!"
+			},
+			j_dbbq_tomb_congratulations = {
+				"Congratulations!"
+			},
+			j_dbbq_tomb_island = {
+				"This new island looked",
+				"fancier in the catalogue.",
+				"Not impressed."
 			},
 			j_dbbq_casino_tv_dinner = {
 				"Ugh, you again. Go away!",
@@ -1647,7 +1880,7 @@ return {
 				"\"One person can be in two places",
 				"at once. Althrough, the magician does",
 				"not have to be in two places at once.",
-				"He can be in one place at once ti&#-\""
+				"He can be in one place at one ti&#-\""
 			},
 			j_dbbq_unlucky_boss = {
 				"I am the Boss!"
@@ -1678,17 +1911,17 @@ return {
 			dbbq_pet_seal = "Pe? Seal",
 			k_dbbq_secret = "Secret",
 		},
-        suits_singular = {
+		suits_singular = {
 			dbbq_fish = "Fish",
-            dbbq_grit = "Grit",
+			dbbq_grit = "Grit",
 			dbbq_travel = "Travel",
 			dbbq_utility = "Utility",
-        },
-        suits_plural = {
+		},
+		suits_plural = {
 			dbbq_fish = "Fish",
-            dbbq_grit = "Grit",
+			dbbq_grit = "Grit",
 			dbbq_travel = "Travel",
 			dbbq_utility = "Utility",
-        }
+		}
 	}
 }

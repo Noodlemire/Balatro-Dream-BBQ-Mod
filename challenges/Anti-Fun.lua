@@ -7,6 +7,7 @@ SMODS.Challenge {
 		banned_cards = {
 			{id = "j_dbbq_sales"},
 			{id = "j_erosion"},
+			{id = "j_dbbq_body"},
 		}
 	}
 }

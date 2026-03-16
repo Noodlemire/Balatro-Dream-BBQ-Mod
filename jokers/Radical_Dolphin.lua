@@ -56,7 +56,7 @@ SMODS.Joker{
 				return {repetitions = reps}
 			end
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

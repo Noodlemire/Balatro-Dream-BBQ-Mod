@@ -27,10 +27,9 @@ function SMODS.calculate_context(context)
 	local ret = old_scc(context)
 
 	if context.after and #context.scoring_hand > 1 then
-		local pause = false
 		local utilities = {}
 		local eligible = {}
-		for i, card in ipairs(context.scoring_hand) do
+		for _, card in ipairs(context.scoring_hand) do
 			if not SMODS.has_no_suit(card) and not card.debuff and not card.getting_sliced then
 				table.insert(eligible, card)
 				if card.base.suit == "dbbq_utility" then

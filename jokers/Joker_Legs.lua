@@ -22,19 +22,19 @@ SMODS.Joker{
 		{type = "win", key = "j_dbbq_legs_epic"},
 		{type = "win", key = "j_dbbq_legs_imploded"},
 	}}},
-    loc_vars = function(self, info_queue, card)
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_legs", set = "Other"}
 		end
-        return {vars = {card.ability.extra.chips}}
-    end,
+		return {vars = {card.ability.extra.chips}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main and #G.deck.cards <= G.GAME.starting_deck_size / 2 then
 			return {
 				chips = card.ability.extra.chips
 			}
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

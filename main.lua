@@ -121,12 +121,12 @@ function Card_Character:init(args)
 		local eligible_quotes = {}
 		for _, quote in ipairs(joker.ability.extra.dbbq_quotes) do
 			if (G.STATE == G.STATES.GAME_OVER and quote.type ~= "win") or (G.GAME.won and quote.type ~= "lose") then
-				eligible_quotes[#eligible_quotes+1] = quote
+				eligible_quotes[#eligible_quotes+1] = quote.key
 			end
 		end
 		if #eligible_quotes > 0 then
 			args.center = joker.config.center.key
-			next_quote = pseudorandom_element(eligible_quotes, "WHERE THE HELL IS THE BOSS?!").key
+			next_quote = pseudorandom_element(eligible_quotes, "WHERE THE HELL IS THE BOSS?!")
 		end
 	end
 	old_cc_init(self, args)
