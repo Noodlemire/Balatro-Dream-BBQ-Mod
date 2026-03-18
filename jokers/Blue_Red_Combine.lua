@@ -86,7 +86,7 @@ SMODS.Joker{
 						end
 					end)
 				end
-				card.joker_display_values.active_text = card.joker_display_values.is_active and "Active" or "Inactive"
+				card.joker_display_values.active_text = localize("jdis_"..(card.joker_display_values.is_active and "active" or "inactive"))
 				card.joker_display_values.local_heart = localize("Hearts", 'suits_singular')
 				card.joker_display_values.local_club = localize("Clubs", 'suits_singular')
 			end,

@@ -53,18 +53,30 @@ DBBQ.purge_calc = function(self, deck, context)
 				draw_card(G.deck, G.play, 1, "up", false, card)
 			end
 		end
-		if #destroy_cards > 0 then
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					dont = true
-					SMODS.destroy_cards(destroy_cards)
-					dont = false
-					return true
-				end
-			}))
-		end
+		G.E_MANAGER:add_event(Event({
+			trigger = "after",
+			delay = 0.1,
+			func = function()
+				dont = true
+				SMODS.destroy_cards(destroy_cards)
+				dont = false
+
+				--Fix for any possible instance where cards
+				--pulled up into G.play by the Purge Deck
+				--never actually get destroyed.
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						for _, card in ipairs(destroy_cards) do
+							if not card.getting_sliced then
+								draw_card(G.play, G.deck, 1, 'down', false, card)
+							end
+						end
+						return true
+					end
+				}))
+				return true
+			end
+		}))
 	end
 end
 

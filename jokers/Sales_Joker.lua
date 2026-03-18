@@ -14,7 +14,7 @@ SMODS.Joker{
 	pos = {x = 2, y = 3},
 	soul_pos = {x = 5, y = 3},
 	blueprint_compat = false,
-	config = {extra = {dbbq_quotes = {
+	config = {extra = {no_front = true, dbbq_quotes = {
 		{type = "lose", key = "j_dbbq_sales_loop"},
 		{type = "win", key = "j_dbbq_sales_ambush"},
 		{type = "win", key = "j_dbbq_sales_doable"},

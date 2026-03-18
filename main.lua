@@ -1,5 +1,7 @@
 DBBQ = {suits = {}}
 
+local items = {"jokers", "decks", "challenges", "suits"}
+
 SMODS.current_mod.optional_features = function()
 	return {
 		post_trigger = true,
@@ -28,13 +30,6 @@ SMODS.Atlas {
 	key = "dbbq_decks",
 	path = "Decks.png",
 	px = 71,
-	py = 95,
-}
-
-SMODS.Atlas {
-	key = "dbbq_sleeves",
-	path = "Sleeves.png",
-	px = 73,
 	py = 95,
 }
 
@@ -80,10 +75,70 @@ SMODS.Rarity {
 	default_weight = 0
 }
 
-local items = {"jokers", "decks", "challenges", "suits"}
 if next(SMODS.find_mod("CardSleeves")) then
+	SMODS.Atlas {
+		key = "dbbq_sleeves",
+		path = "Sleeves.png",
+		px = 73,
+		py = 95,
+	}
+
 	table.insert(items, "sleeves")
 end
+
+if next(SMODS.find_mod("SealsOnEverything")) then
+	DBBQ.shared_jokerfronts = {}
+
+	SMODS.Atlas {
+		key = "dbbq_jokers_front",
+		path = "JokersFront.png",
+		px = 71,
+		py = 95,
+	}
+
+	SMODS.DrawStep{
+		key = "jokers_front",
+		order = 10,
+		conditions = {facing = "front"},
+		func = function(card, layer)
+			if not card.config.center.original_mod or card.config.center.original_mod.id ~= "DreamBBQ" or (card.ability.extra and card.ability.extra.no_front) then return end
+			if card.ability.soe_legalenhancements and (card.ability.soe_legalenhancements.m_lucky or card.ability.soe_legalenhancements.m_gold or card.ability.soe_legalenhancements.m_steel or card.ability.soe_legalenhancements.m_glass) and DBBQ.shared_jokerfronts[card.config.center.key] then
+				if not card.oldatlas or not card.oldpos then
+					card.oldatlas = card.children.center.atlas
+					card.oldpos =  card.children.center.sprite_pos
+				end
+				card.children.center.atlas = G.ASSET_ATLAS["soe_Enhancers"]
+				local center
+				for k, v in pairs(card.ability.soe_legalenhancements) do
+					if k == 'm_lucky' or k == 'm_gold' or k == 'm_steel' or k == 'm_glass' then
+						center = G.P_CENTERS[k]
+						break
+					end
+				end
+				card.children.center:set_sprite_pos(center.pos)
+				DBBQ.shared_jokerfronts[card.config.center.key].role.draw_major = card
+				DBBQ.shared_jokerfronts[card.config.center.key]:draw_shader('dissolve', nil, nil, nil, card.children.center)
+			elseif card.oldatlas and card.oldpos then
+				card.children.center.atlas = card.oldatlas
+				card.children.center:set_sprite_pos(card.oldpos)
+				card.oldatlas = nil
+				card.oldpos = nil
+			end
+		end,
+	}
+
+	local oldmainmenu = Game.main_menu
+	function Game:main_menu(change_context)
+		local ret = oldmainmenu(self, change_context)
+		for k, v in pairs(G.P_CENTER_POOLS.Joker) do
+			if v.original_mod and v.original_mod.id == "DreamBBQ" then
+				DBBQ.shared_jokerfronts[v.key] = Sprite(0, 0, 71, 95, G.ASSET_ATLAS.dbbq_jokers_front, v.pos or {x = 0, y = 0})
+			end
+		end
+		return ret
+	end
+end
+
 for _, item in ipairs(items) do
 	local files = NFS.getDirectoryItems(SMODS.current_mod.path..item)
 	for _, filename in pairs(files) do

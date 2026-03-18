@@ -15,7 +15,7 @@ SMODS.Joker{
 	cost = 20,
 	pos = {x = 0, y = 0},
 	blueprint_compat = true,
-	config = {extra = {Xmult = 1, Xmult_gain = 0.05, timer = 0, frame = 0, anim = false, dbbq_quotes = {
+	config = {extra = {Xmult = 1, Xmult_gain = 0.05, timer = 0, frame = 0, anim = false, no_front = true, dbbq_quotes = {
 		{type = "any", key = "j_dbbq_im_the_bus"},
 	}}},
 	update = function(self, joker, dt)

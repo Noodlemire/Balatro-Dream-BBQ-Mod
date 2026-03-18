@@ -46,7 +46,7 @@ SMODS.Joker{
 			joker.ability.extra.success = false
 
 			for _, card in ipairs(G.deck.cards) do
-				if not card.seal then
+				if not card.seal and not card.debuff then
 					table.insert(valid_cards, card)
 				end
 			end

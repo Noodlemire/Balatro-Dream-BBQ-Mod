@@ -52,13 +52,11 @@ SMODS.Joker{
 			},
 			calc_function = function(card)
 				card.joker_display_values.is_active = G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0
-				card.joker_display_values.active_text = localize("jdis_" ..
-					(card.joker_display_values.is_active and "active" or "inactive"))
+				card.joker_display_values.active_text = localize("jdis_"..(card.joker_display_values.is_active and "active" or "inactive"))
 			end,
 			style_function = function(card, text, reminder_text, extra)
 				if text and text.children and text.children[1] then
-					text.children[1].config.colour = card.joker_display_values.is_active and G.C.GREEN or
-						G.C.UI.TEXT_INACTIVE
+					text.children[1].config.colour = card.joker_display_values.is_active and G.C.GREEN or G.C.UI.TEXT_INACTIVE
 				end
 			end
 		}

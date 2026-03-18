@@ -25,7 +25,7 @@ SMODS.Joker{
         info_queue[#info_queue + 1] = G.P_CENTERS.e_polychrome
 	end,
 	in_pool = function(self, args)
-		return G.GAME.selected_back ~= "b_dbbq_purge" and G.GAME.selected_sleeve ~= "sleeve_dbbq_purge"
+		return G.GAME.selected_back.effect.center.key ~= "b_dbbq_purge" and G.GAME.selected_sleeve ~= "sleeve_dbbq_purge"
 	end
 }
 

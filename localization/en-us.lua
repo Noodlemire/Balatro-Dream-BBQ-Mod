@@ -331,9 +331,9 @@ return {
 			j_dbbq_pg = {
 				name = "Partygoers",
 				text = {
-					"{C:attention}Wild Cards{} score {C:mult}+Mult",
-					"instead of {C:chips}+Chips{} equal",
-					"to their base value"
+					"If played {C:attention}5{} card hand is {C:attention}1{} suit",
+					"away from containing a {C:chips}Flush{},",
+					"the outlier becomes a {C:attention}Wild Card"
 				}
 			},
 			j_dbbq_phone = {
@@ -1027,9 +1027,13 @@ return {
 					"with many dancing, shadowy entities such",
 					"as these. All they do is dance, they have",
 					"no interactions or even collision.",
-					"Similar to the other directly party-themed",
-					"Joker I've made, they help empower Wild Cards",
-					"in a simple but useful way."
+					"They come in many shapes and sizes, all",
+					"different while still sharing the same",
+					"activity and colour scheme. So, I made",
+					"a joker that helps Flushes by bringing",
+					"any outlying card into the 'party', if",
+					"there's ever one card not sharing the rest",
+					"of the hand's suit."
 				}
 			},
 			j_dbbq_source_party = {
@@ -1902,8 +1906,9 @@ return {
 			},
 		},
 		dictionary = {
-			k_dbbq_secret = "Secret",
 			k_dbbq_auction_day = "Auction Day",
+			k_dbbq_join_us = "Join us!",
+			k_dbbq_secret = "Secret",
 			k_dbbq_temptation_stairway = "Temptation Stairway"
 		},
 		labels = {
