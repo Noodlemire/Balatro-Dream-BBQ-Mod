@@ -1,0 +1,7 @@
+{
+	"name": "Dream_BBQ",
+	"description": "Crossover mod with ENA: Dream BBQ",
+	"version_number": "1.1.91",
+	"website_url": "https://github.com/Noodlemire/Balatro-Dream-BBQ-Mod",
+	"dependencies": ["Steamodded-Steamodded-26.829.0"]
+}
