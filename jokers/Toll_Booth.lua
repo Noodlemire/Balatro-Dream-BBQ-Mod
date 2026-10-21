@@ -7,20 +7,24 @@ If your first play or discard
 add a Sticker of Entry to it 
 --]]
 
+local key = "toll"
+DBBQ.quip_colours[key] = {HEX("000000"), HEX("9536a0"), HEX("819393")}
+DBBQ.quip_pitch[key] = 0.5
+DBBQ.quip_speed[key] = 0.3
+DBBQ.add_quip(key, "toll", "any", 3)
+DBBQ.add_quip(key, "armleg", "loss", 16)
+DBBQ.add_quip(key, "surprise", "any", 3)
+DBBQ.add_quip(key, "refund", "loss", 3)
+DBBQ.add_quip(key, "wait", "win", 6, 0.15)
+
 SMODS.Joker{
-	key = "toll",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,
 	pos = {x = 7, y = 1},
+	pronouns = "he_they",
 	blueprint_compat = false,
-	config = {extra = {dbbq_quotes = {
-		{type = "any", key = "j_dbbq_toll_toll"},
-		{type = "lose", key = "j_dbbq_toll_armleg"},
-		{type = "any", key = "j_dbbq_toll_surprise"},
-		{type = "lose", key = "j_dbbq_toll_refund"},
-		{type = "win", key = "j_dbbq_toll_wait"}
-	}}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_legs", set = "Other"}

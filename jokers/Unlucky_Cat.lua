@@ -8,20 +8,25 @@ or a Lucky Card fails,
 destroy this card
 --]]
 
+local key = "unlucky"
+DBBQ.quip_colours[key] = {HEX("fefde2"), HEX("fefe39"), HEX("a5aaf8")}
+DBBQ.quip_pitch[key] = 1.5
+DBBQ.add_quip(key, "boss", "win", 4, 0.36)
+DBBQ.add_quip(key, "simpleton", "loss", 25)
+DBBQ.add_quip(key, "cruise", "win", 20)
+DBBQ.add_quip(key, "poppers", "loss", 9)
+
 SMODS.Joker{
-	key = "unlucky",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,
 	pos = {x = 3, y = 4},
 	blueprint_compat = true,
 	eternal_compat = false,
-    config = {extra = {Xmult = 2, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_unlucky_boss"},
-		{type = "lose", key = "j_dbbq_unlucky_simpleton"},
-		{type = "win", key = "j_dbbq_unlucky_cruise"},
-		{type = "lose", key = "j_dbbq_unlucky_poppers"},
-	}}},
+	pronouns = "he_him",
+	dbbq_i_am_the_boss = "dbbq_boss_generic",
+    config = {extra = {Xmult = 2}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_unlucky", set = "Other"}

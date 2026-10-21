@@ -6,25 +6,33 @@ When Blind is selected:
 Create a random Enhanced
 face card and draw it to hand
 
+Also I'll write this here because
+japanese characters do not render
+in Balatro itself, or at least
+not with the default English font.
 じょ = jo
 け = ke
 る = ru
 --]]
 
+local key = "heno"
+DBBQ.quip_colours[key] = {HEX("e9ae38"), HEX("232012"), HEX("f25f38")}
+DBBQ.quip_pitch[key] = 0.85
+DBBQ.add_quip(key, "boss", "win", 10)
+DBBQ.add_quip(key, "dratula", "any", 6, 0.3)
+DBBQ.add_quip(key, "nuts", "any", 9)
+DBBQ.add_quip(key, "pengvin", "loss", 10)
+DBBQ.add_quip(key, "stronk", "win", 7)
+
 SMODS.Joker{
-	key = "heno",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 7,
 	pos = {x = 2, y = 1},
 	blueprint_compat = true,
-    config = {extra = {dbbq_quotes = {
-		{type = "win", key = "j_dbbq_heno_boss"},
-		{type = "any", key = "j_dbbq_heno_dratula"},
-		{type = "any", key = "j_dbbq_heno_nuts"},
-		{type = "lose", key = "j_dbbq_heno_pengvin"},
-		{type = "win", key = "j_dbbq_heno_stronk"},
-	}}},
+	pronouns = "he_him",
+	dbbq_i_am_the_boss = "dbbq_boss_heno",
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_heno", set = "Other"}

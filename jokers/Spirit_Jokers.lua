@@ -18,6 +18,7 @@ SMODS.Joker{
 	cost = 4,
 	pos = {x = 0, y = 4},
 	blueprint_compat = false,
+	pronouns = "they_them",
 	config = {extra = {cards = 5, say1 = NOTHING, say2 = NOTHING}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then

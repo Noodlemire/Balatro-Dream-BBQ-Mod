@@ -8,22 +8,25 @@ When Blind is defeated,
 transforms into Sales Joker
 --]]
 
+local key = "mean"
+DBBQ.quip_colours[key] = {HEX("22665a"), HEX("a5cdd1"), HEX("f9f1d2")}
+DBBQ.quip_pitch[key] = 1.8
+DBBQ.add_quip(key, "boss", "loss", 6)
+DBBQ.add_quip(key, "hogwash", "win", 11)
+DBBQ.add_quip(key, "fraud", "loss", 8)
+DBBQ.add_quip(key, "sympathy", "loss", 17)
+DBBQ.add_quip(key, "prices", "win", 13)
+DBBQ.add_quip(key, "bullshit", "loss", 25)
+
 SMODS.Joker{
-	key = "mean",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 4,
 	cost = 20,
 	pos = {x = 3, y = 2},
 	soul_pos = {x = 5, y = 2},
 	blueprint_compat = false,
-	config = {extra = {no_front = true, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_mean_boss"},
-		{type = "win", key = "j_dbbq_mean_hogwash"},
-		{type = "lose", key = "j_dbbq_mean_fraud"},
-		{type = "lose", key = "j_dbbq_mean_sympathy"},
-		{type = "win", key = "j_dbbq_mean_prices"},
-		{type = "lose", key = "j_dbbq_mean_bullshit"},
-	}}},
+	pronouns = "she_her",
 	loc_vars = function(self, info_queue, joker)
 		if joker.area and joker.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_mean", set = "Other"}

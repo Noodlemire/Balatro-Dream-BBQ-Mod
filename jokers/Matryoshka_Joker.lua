@@ -9,6 +9,16 @@ highest (Vanilla) rarity
 (Currently: <Rarity>)
 --]]
 
+local key = "matry"
+DBBQ.quip_colours[key] = {HEX("0f0d08"), HEX("ffffff"), HEX("fe0405")}
+DBBQ.quip_sound[key] = DBBQ.sound_range(key, 10)
+DBBQ.quip_speed[key] = 0.3
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "cents", "loss", 5)
+DBBQ.add_quip(key, "toot", "win", 5)
+DBBQ.add_quip(key, "ruin", "loss", 5)
+DBBQ.add_quip(key, "boss", "win", 5)
+
 local function get_keys(t)
 	local keys = {}
 	for k, _ in pairs(t) do
@@ -18,28 +28,25 @@ local function get_keys(t)
 end
 
 SMODS.Joker{
-	key = "matry",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 3,
 	pos = {x = 2, y = 2},
 	blueprint_compat = false,
 	eternal_compat = false,
-	config = {extra = {dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_matry_cents"},
-		{type = "win", key = "j_dbbq_matry_toot"},
-		{type = "lose", key = "j_dbbq_matry_ruin"},
-	}}},
+	pronouns = "she_they",
+	dbbq_i_am_the_boss = "dbbq_boss_generic",
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_matry", set = "Other"}
 		end
 		local highest = 1
-		for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+		DBBQ.iterate_jokers(function(joker)
 			if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then
 				highest = joker.config.center.rarity
 			end
-		end
+		end)
 		if highest >= 4 then
 			return {vars = {colours = {HEX("fe5f55")}, "Rare"}}
 		elseif highest == 3 then
@@ -53,11 +60,11 @@ SMODS.Joker{
 	calculate = function(self, card, context)
 		if context.selling_self then
 			local highest = 1
-			for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+			DBBQ.iterate_jokers(function(joker)
 				if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then
 					highest = joker.config.center.rarity
 				end
-			end
+			end)
 			if highest > 1 then
 				if highest >= 4 then
 					highest = "Rare"
@@ -88,11 +95,11 @@ SMODS.Joker{
 			}}},
 			calc_function = function(card)
 				local highest = 1
-				for _, joker in ipairs(G.jokers and G.jokers.cards or {}) do
+				DBBQ.iterate_jokers(function(joker)
 					if type(joker.config.center.rarity) == "number" and joker.config.center.rarity > highest then
 						highest = joker.config.center.rarity
 					end
-				end
+				end)
 				if highest >= 4 then
 					highest = "Rare"
 				elseif highest == 3 then

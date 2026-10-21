@@ -16,6 +16,7 @@ SMODS.Joker{
 	pos = {x = 0, y = 0},
 	blueprint_compat = false,
 	eternal_compat = false,
+	pronouns = "it_its",
 	config = {extra = {slot = 1}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
@@ -26,13 +27,13 @@ SMODS.Joker{
 	calculate = function(self, card, context)
 		if context.selling_self then
 			local killcount = 0
-			for _, joker in ipairs(G.jokers.cards) do
+			DBBQ.iterate_jokers(function(joker)
 				if not joker.ability.eternal and not joker.getting_sliced then
 					killcount = killcount + 1
 					joker.getting_sliced = true
 					joker:start_dissolve()
 				end
-			end
+			end)
 			G.jokers.config.card_limit = G.jokers.config.card_limit + math.floor(killcount * card.ability.extra.slot / 3)
 		end
 	end,
@@ -47,7 +48,13 @@ SMODS.Joker{
 			},
 			text_config = {colour = G.C.GREEN},
 			calc_function = function(card)
-				card.joker_display_values.jokers = math.floor((G.jokers and G.jokers.cards and #G.jokers.cards or 0) * card.ability.extra.slot / 3)
+				local killcount = 0
+				DBBQ.iterate_jokers(function(joker)
+					if not joker.ability.eternal and not joker.getting_sliced then
+						killcount = killcount + 1
+					end
+				end)
+				card.joker_display_values.jokers = math.floor(killcount * card.ability.extra.slot / 3)
 			end
 		}
 	end

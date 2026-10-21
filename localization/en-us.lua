@@ -3,6 +3,19 @@ local adire_desc = {
 	"{C:attention}rank{} held in hand"
 }
 
+local slots_desc = {
+	"Once per round, you may pay {C:money}$#1#",
+	"to spin the slots! This joker's",
+	"effect changes based the symbols",
+	"you get, and if all three are",
+	"the same, you get {X:attention,C:white}X#2#{} the reward",
+	"{C:white}.",
+	"If played hand #3# a",
+	"{C:attention}#4#{} with at least one",
+	"scoring {V:1}#5#{} card,",
+	"{V:2,B:3}#6#{} #7#"
+}
+
 local tpao_desc = {
 	"When {C:attention}Blind{} is selected:",
 	"Unpin and copy self without modifiers,",
@@ -14,8 +27,29 @@ local tpao_desc = {
 	"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
 }
 
+local luxury_reusable = "{C:inactive}(Reusable each Ante.)"
+
+local function won_run_with(stake, color)
+	return {
+		"Used this Joker",
+		"to win on {C:"..color.."}"..stake,
+		"{C:"..color.."}Stake{} difficulty"
+	}
+end
+
 return {
 	descriptions = {
+		Enhanced = {
+			m_dbbq_damson = {
+				name = "Damson",
+				text = {
+					"Has no rank or suit,",
+					"{C:attention}Straights{} and {C:attention}Flushes{} can",
+					"be formed with one less",
+					"card per scoring {C:spectral}Damson{}"
+				}
+			},
+		},
 		Joker = {
 			j_dbbq_adire = {
 				name = "A Dealer In Real Estate",
@@ -165,6 +199,14 @@ return {
 					"{C:inactive}(Currently: {X:mult,C:white}X#2#{C:inactive} Mult)"
 				}
 			},
+			j_dbbq_capsule = {
+				name = "Capsule of One",
+				text = {
+					"{C:attention}+#1#{} shop card slots, but you",
+					"may only buy {C:attention}one{} card out",
+					"of each set of shop cards"
+				}
+			},
 			j_dbbq_horse = {
 				name = "Cucumber Horse",
 				text = {
@@ -234,6 +276,15 @@ return {
 					"in Consumable Slots"
 				}
 			},
+			j_dbbq_honest = {
+				name = "Honesty and Unforgiveness",
+				text = {
+					"Gains {C:red}+#1#{} discard each round if you",
+					"play a {C:attention}Straight Flush{} of {C:spades}Spades{} with",
+					"five cards, no rank gaps, and no wrapping",
+					"(Currently {C:red}+#2#{} discards each round)"
+				}
+			},
 			j_dbbq_bus = {
 				name = "I'M THE BUS!",
 				text = {
@@ -249,6 +300,16 @@ return {
 					"{C:chips}+#1#{} Chips if you",
 					"have drawn through",
 					"half of your deck"
+				}
+			},
+			j_dbbq_tomb = {
+				name = "Joker's Tombstone",
+				text = {
+					"This Joker gains {C:chips}Chips{} equal",
+					"to {C:chips}X#2# {C:attention}#1#{}'s {C:money}sell value{} if",
+					"you sell that joker",
+					"{C:inactive}(Joker changes each round)",
+					"{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)"
 				}
 			},
 			j_dbbq_kintsugi = {
@@ -270,6 +331,15 @@ return {
 					"decrease Mult depending on",
 					"how much your final chip total",
 					"overshot the Blind's requirement"
+				}
+			},
+			j_dbbq_tim = {
+				name = "Timothy Rundle",
+				text = {
+					"First shop each Ante has an extra",
+					"{C:dbbq_luxury}Spacious Durable Luxury Bag",
+					"Newly obtained {C:dbbq_luxury}Luxury Items{} will",
+					"not take up {C:attention}Consumable slots"
 				}
 			},
 			j_dbbq_matry = {
@@ -369,6 +439,15 @@ return {
 					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})",
 				}
 			},
+			j_dbbq_rainbow = {
+				name = "Rainbow in Hiding",
+				text = {
+					"Gives {C:spectral}+#1#{} Spectral Cards",
+					"if you beat a {C:attention}boss blind",
+					"without triggering it",
+					"{C:inactive}(Must have room)"
+				}
+			},
 			j_dbbq_sales = {
 				name = "Sales Joker",
 				text = {
@@ -384,6 +463,14 @@ return {
 					"Each {C:attention}#1#{} held in hand",
 					"gives {C:chips}+#2#{} Chips",
 				}
+			},
+			j_dbbq_slots = {
+				name = "Slot Machine",
+				text = slots_desc
+			},
+			j_dbbq_slots_feeds = {
+				name = "It Feeds On Hope",
+				text = slots_desc
 			},
 			j_dbbq_smoker = {
 				name = "Smoker",
@@ -411,22 +498,20 @@ return {
 					"Another says: {C:mult}\"#3#\"",
 				}
 			},
+			j_dbbq_stress = {
+				name = "Stress Resources",
+				text = {
+					"If you play your last hand,",
+					"gain {C:money}$#1#{} per hand type that",
+					"played poker hand contains"
+				}
+			},
 			j_dbbq_toll = {
 				name = "Toll Booth",
 				text = {
 					"If your first {C:chips}play{} or {C:mult}discard",
 					"{C:inactive}(not both){} contains only {C:attention}1{} card,",
 					"add a {C:attention}Sticker of Entry to it",
-				}
-			},
-			j_dbbq_tomb = {
-				name = "Joker's Tombstone",
-				text = {
-					"This Joker gains {C:chips}Chips{} equal",
-					"to {C:chips}X#2# {C:attention}#1#{}'s {C:money}sell value{} if",
-					"you sell that joker",
-					"{C:inactive}(Joker changes each round)",
-					"{C:inactive}(Currently {C:chips}+#3# {C:inactive}Chips)"
 				}
 			},
 			j_dbbq_casino = {
@@ -469,10 +554,17 @@ return {
 			j_dbbq_unlucky = {
 				name = "Unlucky Cat",
 				text = {
-					"{X:mult,C:white} X#1# {} Mult",
+					"{X:mult,C:white}X#1#{} Mult",
 					"If {C:inactive}Glass Card{} shatters",
 					"or a {C:attention}Lucky Card{} fails,",
 					"destroy this card",
+				}
+			},
+			j_dbbq_boss = {
+				name = "Who is the Boss?",
+				text = {
+					"{X:mult,C:white}X#1#{} Mult per joker that",
+					"claims to be the {C:attention}Boss",
 				}
 			},
 		},
@@ -530,6 +622,315 @@ return {
 				}
 			},
 		},
+		dbbq_luxury = {
+			c_dbbq_argon = {
+				name = "Argon",
+				text = {
+					"Create {C:attention}#1# {C:dark_edition}Negative{} copies of a",
+					"{C:tarot}Tarot{} card corresponding to the",
+					"median rank out of cards held in hand",
+					"{C:inactive}(Currently: {C:tarot}#2# - #3#{C:inactive})",
+					luxury_reusable
+				}
+			},
+			c_dbbq_artillery = {
+				name = "Artillery",
+				text = {
+					"{C:red}Destroy{} #1# random cards",
+					"from your full deck",
+					luxury_reusable
+				}
+			},
+			c_dbbq_braid = {
+				name = "Braid",
+				text = {
+					"{C:red}Destroy{} selected joker with an",
+					"{C:dark_edition}edition{}, apply that {C:dark_edition}edition{} to up",
+					"to {C:attention}#1#{} random cards held in hand",
+					luxury_reusable
+				}
+			},
+			c_dbbq_crampon = {
+				name = "Crampon",
+				text = {
+					"Draw {C:attention}#1#{} cards",
+					luxury_reusable
+				}
+			},
+			c_dbbq_cutlets = {
+				name = "Cutlets",
+				text = {
+					"Up to {C:attention}#1#{} selected cards will",
+					"be torn into two {C:attention}Half Cards",
+					luxury_reusable
+				}
+			},
+			c_dbbq_damson = {
+				name = "Damson",
+				text = {
+					"{C:attention}Enhance{} selected",
+					"card into a {C:spectral}Damson",
+					luxury_reusable
+				}
+			},
+			c_dbbq_fish = {
+				name = "Fish",
+				text = {
+					"All cards held in hand become {C:blue}Bonus",
+					"{C:blue}Cards{}, then discard all but {C:attention}1{} card",
+					luxury_reusable
+				}
+			},
+			c_dbbq_flange = {
+				name = "Flange",
+				text = {
+					"Apply random {C:attention}Seals{} to up",
+					"to {C:attention}#1#{} cards held in hand",
+					luxury_reusable
+				}
+			},
+			c_dbbq_jodhpurs = {
+				name = "Jodhpurs",
+				text = {
+					"{C:attention}+#1#{} hand size,",
+					"{C:blue}#2#{} hand each round",
+					luxury_reusable
+				}
+			},
+			c_dbbq_knurler = {
+				name = "Knurler",
+				text = {
+					"Select any type of card with an {C:dark_edition}edition,",
+					"it loses that {C:dark_edition}edition{} and gains {C:money}$#1#{}, either",
+					"as sell value or as a permanent bonus",
+					"{C:inactive}(Must have room if you're removing {C:dark_edition}Negative{C:inactive})",
+					luxury_reusable
+				}
+			},
+			c_dbbq_lathe = {
+				name = "Lathe",
+				text = {
+					"Decrease the rank of up",
+					"to {C:attention}#1#{} selected cards by {C:attention}#2#",
+					luxury_reusable
+				}
+			},
+			c_dbbq_leek = {
+				name = "Leek",
+				text = {
+					"{C:red}Destroy{} selected card, and",
+					"all cards in your full deck",
+					"with the same {C:attention}rank{} and {C:attention}suit",
+					luxury_reusable
+				}
+			},
+			c_dbbq_mead = {
+				name = "Mead",
+				text = {
+					"Randomize the {C:attention}ranks{} and {C:attention}suits",
+					"of all cards held in hand",
+					luxury_reusable
+				}
+			},
+			c_dbbq_pot = {
+				name = "Pot",
+				text = {
+					"Use to {C:attention}remember{} cards held in hand,",
+					"Those cards will be drawn first next round",
+					luxury_reusable
+				}
+			},
+			c_dbbq_pencil = {
+				name = "Pencil",
+				text = {
+					"Select {C:attention}#1#{} cards, and convert",
+					"the left cards into the",
+					"{C:attention}rank{} of the rightmost card",
+					luxury_reusable
+				}
+			},
+			c_dbbq_periwinkle = {
+				name = "Periwinkle",
+				text = {
+					"Convert {C:attention}#1#{} selected cards",
+					"to the top {C:attention}#1#{} ranks and",
+					"suits from your full deck",
+					luxury_reusable
+				}
+			},
+			c_dbbq_periwinkle_current = {
+				name = "Periwinkle",
+				text = {
+					"Convert {C:attention}#1#{} selected cards",
+					"to the top {C:attention}#1#{} ranks and",
+					"suits from your full deck",
+					"{C:inactive}(Currently: {C:attention}#2#{C:inactive})",
+					luxury_reusable
+				}
+			},
+			c_dbbq_pickle = {
+				name = "Pickle",
+				text = {
+					"Gain {C:money}$#1#{} per card that has",
+					"been present in your deck",
+					"since the beginning of the run",
+					"{C:inactive}(Max of {C:money}$#2#{C:inactive}, currently {C:money}$#3#{C:inactive})",
+					luxury_reusable
+				}
+			},
+			c_dbbq_pivot = {
+				name = "Pivot",
+				text = {
+					"Upgrade all least",
+					"played {C:legendary}poker hands",
+					luxury_reusable
+				}
+			},
+			c_dbbq_plimsol = {
+				name = "Plimsol",
+				text = {
+					"{C:red}+#1#{} discards each round",
+					"{C:attention}#2#{} hand size",
+					luxury_reusable
+				}
+			},
+			c_dbbq_printer = {
+				name = "Printer",
+				text = {
+					"Create {C:attention}#1#{} copies",
+					"of selected card",
+					luxury_reusable
+				}
+			},
+			c_dbbq_spigot = {
+				name = "Spigot",
+				text = {
+					"Fill joker slots with non-{C:blue}Common{} jokers,",
+					"then add {C:c75985}Eternal{} to one compatible joker",
+					"{C:inactive}(Must have room for at least {C:attention}#1# {C:inactive}joker)",
+					luxury_reusable
+				}
+			},
+			c_dbbq_razorback = {
+				name = "Razorback",
+				text = {
+					"{C:red}Destroy{} half of your jokers, rounded down,",
+					"Remaining jokers gain random {C:dark_edition}editions",
+					"{C:inactive}(Must have enough jokers to destroy)",
+					luxury_reusable
+				}
+			},
+			c_dbbq_target = {
+				name = "Target",
+				text = {
+					"Selects a random card each round, and",
+					"becomes usable if you play that card,",
+					"Use to create a {C:attention}joker{} based on that card",
+					"{C:inactive}(Currently: {C:attention}#1# of #2#{C:inactive} to create {C:attention}#3#{C:inactive})",
+					luxury_reusable
+				}
+			},
+			c_dbbq_tripod = {
+				name = "Tripod",
+				text = {
+					"Combine {C:attention}#1#{} selected cards of",
+					"the same {C:attention}suit{} together,",
+					"The resulting card will have a",
+					"random {C:attention}rank{}, {C:green}enhancement{}, {C:blue}seal{},",
+					"and {C:dark_edition}edition{} from the selected cards",
+					luxury_reusable
+				}
+			},
+		},
+		Stake = {
+			stake_dbbq_cheery = {
+				name = "Cheery Stake",
+				text = {
+					"Jokers you sell or destroy",
+					"are {C:red}banned{} for the rest of",
+					"the run, excluding {C:attention}Joker"
+				}
+			},
+			stake_dbbq_moody = {
+				name = "Moody Stake",
+				text = {
+					"With each hand played, every card",
+					"held in hand loses {C:chips}#1#{} chip",
+					"{s:0.8}Applies {C:gold,s:0.8}Cheery Stake"
+				}
+			},
+			stake_dbbq_drunk = {
+				name = "Drunk Stake",
+				text = {
+					"Shops can have Drunk Jokers",
+					"{C:inactive,s:0.8}({C:green,s:0.8}1 in 4 {C:inactive,s:0.8}chance to turn into a random joker,",
+					"{C:inactive,s:0.8}which will be a lower rarity if possible)",
+					"{s:0.8}Applies {C:blue,s:0.8}Moody Stake"
+				}
+			},
+			stake_dbbq_depression = {
+				name = "Depression Stake",
+				text = {
+					"Excess hands do not",
+					"grant extra money",
+					"{s:0.8}Applies {C:c7bb2b,s:0.8}Drunk Stake"
+				}
+			},
+			stake_dbbq_empty = {
+				name = "Empty Stake",
+				text = {
+					"Beating a {C:attention}Boss Blind{} causes played hand",
+					"to lose levels equal to current {C:attention}Ante",
+					"(Can level a hand down to {C:red}0{})",
+					"{s:0.8}Applies {C:spectral,s:0.8}Depression Stake"
+				}
+			},
+			stake_dbbq_scam = {
+				name = "Scam Stake",
+				text = {
+					"{C:attention}Playing cards{} can be",
+					"purchased from the {C:attention}shop",
+					"{s:0.8}Applies {C:inactive,s:0.8}Empty Stake"
+				}
+			},
+			stake_dbbq_mean = {
+				name = "Mean Stake",
+				text = {
+					"{C:attention}Booster packs{} cannot be skipped",
+					"{s:0.8}Applies {C:red,s:0.8}Scam Stake"
+				}
+			},
+			stake_dbbq_displaced = {
+				name = "Displaced Stake",
+				text = {
+					"Shops can have Toll Jokers",
+					"{C:inactive,s:0.8}({C:blue,s:0.8}-1 {C:inactive,s:0.8}hand every round)",
+					"{s:0.8}Applies {C:inactive,s:0.8}Mean Stake"
+				}
+			},
+			stake_dbbq_hunger = {
+				name = "Hunger Stake",
+				text = {
+					"{C:attention}-1{} joker slot",
+					"{s:0.8}Applies {C:99bccf,s:0.8}Displaced Stake"
+				}
+			},
+			stake_dbbq_bbq = {
+				name = "BBQ Stake",
+				text = {
+					"Shops can have {C:attention}Husk{} Jokers",
+					"{C:inactive,s:0.8}(Debuffed until {C:attention,s:0.8}3 {C:inactive,s:0.8}rounds have passed)",
+					"{s:0.8}Applies {C:d54405,s:0.8}Hunger Stake"
+				}
+			},
+			stake_dbbq_gold_ena = {
+				name = "Gold ENA Stake",
+				text = {
+					"Applies {C:gold}Gold Stake{} and {C:157516}BBQ Stake",
+					"{C:red,s:0.8}Not recommended if you like yourself."
+				}
+			},
+		},
 		Other = {
 			dbbq_entry = {
 				name = "Sticker of Entry",
@@ -537,15 +938,109 @@ return {
 					"Cannot be debuffed",
 				},
 			},
+			dbbq_drunk = {
+				name = "Drunk Sticker",
+				text = {
+					"{C:green}#1# in #2#{} chance to",
+					"degrade into a random",
+					"lower rarity joker"
+				},
+			},
+			dbbq_drunk_common = {
+				name = "Drunk Sticker",
+				text = {
+					"{C:green}#1# in #2#{} chance to",
+					"turn into a random",
+					"other {C:blue}common{} joker"
+				},
+			},
+			dbbq_toll = {
+				name = "Toll Sticker",
+				text = {
+					"{C:blue}-1{} hand every round"
+				},
+			},
+			dbbq_husk = {
+				name = "Husk Sticker",
+				text = {
+					"Debuffed until {C:attention}3",
+					"rounds have passed",
+					"{C:inactive}(Currently {C:attention}#1#{C:inactive}/{C:attention}3 {C:inactive}rounds)"
+				},
+			},
+			dbbq_cheery_sticker = {
+				name = "Cheery Stake",
+				text = won_run_with("Cheery", "gold")
+			},
+			dbbq_moody_sticker = {
+				name = "Moody Stake",
+				text = won_run_with("Moody", "blue")
+			},
+			dbbq_drunk_sticker = {
+				name = "Drunk Stake",
+				text = won_run_with("Drunk", "c7bb2b")
+			},
+			dbbq_depression_sticker = {
+				name = "Depression Stake",
+				text = won_run_with("Depression", "spectral")
+			},
+			dbbq_empty_sticker = {
+				name = "Empty Stake",
+				text = won_run_with("Empty", "inactive")
+			},
+			dbbq_scam_sticker = {
+				name = "Scam Stake",
+				text = won_run_with("Scam", "red")
+			},
+			dbbq_mean_sticker = {
+				name = "Mean Stake",
+				text = won_run_with("Mean", "white")
+			},
+			dbbq_displaced_sticker = {
+				name = "Displaced Stake",
+				text = won_run_with("Displaced", "99bccf")
+			},
+			dbbq_hunger_sticker = {
+				name = "Hunger Stake",
+				text = won_run_with("Hunger", "d54405")
+			},
+			dbbq_bbq_sticker = {
+				name = "BBQ Stake",
+				text = won_run_with("BBQ", "157516")
+			},
+			dbbq_gold_ena_sticker = {
+				name = "Gold ENA Stake",
+				text = won_run_with("Gold ENA", "c79000")
+			},
+			dbbq_magic_trick = {
+				name = "Magic Trick",
+				text = {
+					"Yes, you still have to",
+					"purchase this to get {C:attention}Illusion"
+				}
+			},
+			dbbq_red_card = {
+				name = "Bonus",
+				text = {
+					"{C:red}Red Card{} lets you",
+					"skip {C:attention}booster packs"
+				}
+			},
+			dbbq_half_card = {
+				name = "Half Card",
+				text = {
+					"Fills {C:dark_edition}0.5{} hand space"
+				}
+			},
 			dbbq_fish = {
-				name = "N/A",
+				name = "Fish",
 				text = {
 					"If scored hand has exactly {C:attention}2 {C:dbbq_fish}Fish{},",
 					"convert the {C:attention}left{} card into the {C:attention}right{} card"
 				}
 			},
 			dbbq_grit = {
-				name = "N/A",
+				name = "Grit",
 				text = {
 					"Leftmost scoring {C:dbbq_grit}Grit{}",
 					"card gets destroyed"
@@ -556,23 +1051,39 @@ return {
 				text = {
 					"If all cards with {C:attention}Pet? Seals{} are",
 					"played and scored before round's end,",
-					"they are replaced with {C:money}Gold Seals",
+					"they are replaced with {C:gold}Gold Seals",
 					"Otherwise, the Pet? Seals will vanish"
 				}
 			},
 			dbbq_travel = {
-				name = "N/A",
+				name = "Travel",
 				text = {
 					"Scoring cards increase {C:attention}rank",
 					"for each scoring {C:dbbq_travel}Travel{} card"
 				}
 			},
 			dbbq_utility = {
-				name = "N/A",
+				name = "Utility",
 				text = {
 					"One random card will be converted",
 					"to a {C:dbbq_utility}Utility{} card's rank after scoring"
 				}
+			},
+			undiscovered_dbbq_luxury = {
+				name = "Not Discovered",
+				text = {
+					"Purchase or use",
+					"this item in an",
+					"unseeded run to",
+					"learn what it does"
+				},
+			},
+			p_dbbq_sdlb = {
+				name = "Spacious Durable Luxury Bag",
+				text = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:dbbq_luxury} Luxury{} items"
+				},
 			},
 			j_dbbq_antifun_dummy = {
 				name = "Anti-Fun Joker",
@@ -726,6 +1237,24 @@ return {
 					"Ensure that your Jokers are able",
 					"to give it a firm hit to keep it",
 					"up and running smoothly."
+				}
+			},
+			j_dbbq_source_capsule = {
+				name = "Source",
+				text = {
+					"The Vending Machine is one of many characters",
+					"that are immediately hateful towards ENA, just",
+					"from her (or the ENA species') reputation for",
+					"having done something terrible in the past.",
+					"She does talk it into letting her buy anything",
+					"at all... but only a single item, out of its",
+					"usual selection of four.",
+					"It took a while to settle upon the idea for",
+					"this, with rejected ideas being based around",
+					"booster packs in some way usually, as they",
+					"typically also let you only choose one card.",
+					"Those ideas were way less unique than this",
+					"design though."
 				}
 			},
 			j_dbbq_source_horse = {
@@ -885,10 +1414,56 @@ return {
 					"of junk items to block them from spawning."
 				}
 			},
+			j_dbbq_source_honest = {
+				name = "Source",
+				text = {
+					"Unforgiven Frank is an old-timey king's head with",
+					"cyborg legs, who speaks kindly and values honesty.",
+					"It's not known what he did to be so unforgivable.",
+					"His role in the game is to be a guide, giving a",
+					"vague overview of a puzzle in the hidden village",
+					"that blocks your progress, and talking to him more",
+					"makes him increasingly obvious hints.",
+					"In Balatro, the hardest hands to consistently play",
+					"are almost always Straight Flushes, to the point",
+					"where many utility jokers exist simply to let you",
+					"bend the rules of what counts as a \"Straight Flush\".",
+					"So, this joker instead helps you perform Straight",
+					"Flushes by granting you extra discards, but only",
+					"if you can prove yourself honest by not relying",
+					"on effects like Shortcut, or Four Fingers, or any",
+					"modded effect that allows Straights to wrap around.",
+				}
+			},
 			j_dbbq_source_bus = {
 				name = "Source",
 				text = {
-					"I'M THE BUS!"
+					"I'M THE BUS!",
+					"{C:white}.",
+					"...In all seriousness, this is a cameo of,",
+					"and voiced by, Sr. Pelo. Almost all of the",
+					"voice lines come from Dream BBQ itself, except",
+					"for the one in Spanish. That one comes from",
+					"Sr. Pelo's livestream of the game, where he",
+					"explained this very cameo, first to English",
+					"viewers, and then to Spanish/Mexican viewers.",
+					"\"SOY EL BUS!\" was his translation for them."
+				}
+			},
+			j_dbbq_source_slots = {
+				name = "Source",
+				text = {
+					"This is very easily the most self-indulgent",
+					"joker I have made for this mod. There's no",
+					"practical purpose, no special reason, to make",
+					"the slot machine of all things into the biggest",
+					"and most complex joker of them all. These are",
+					"just background decorations in ENA: Dream BBQ,",
+					"you can't even use them (probably because ENA's",
+					"broke). But it sure was fun to make some crazy",
+					"and ridiculous jokers, with a code file size",
+					"dwarfing that of the 6 other biggest jokers,",
+					"or the 13 smallest jokers, from this mod."
 				}
 			},
 			j_dbbq_source_legs = {
@@ -1110,6 +1685,24 @@ return {
 					"His phone number is 2543276."
 				}
 			},
+			j_dbbq_source_rainbow = {
+				name = "Source",
+				text = {
+					"The Squeedly Headman is a well-hidden NPC",
+					"that is somewhat easy to spot if you look",
+					"up, but impossible to reach and speak to",
+					"if you haven't gotten a specific item yet.",
+					"His dialogue ranges from overly cryptic",
+					"hints, to rambling descriptions of his",
+					"surroundings, to plainly telling you he's",
+					"hiding from the civil authorities.",
+					"...Which, when applied to Balatro, basically",
+					"translates to 'hiding' from the Boss of each",
+					"Ante. I don't love borrowing from Mataor's",
+					"inconsistent mechanics, but that's why I give",
+					"this joker a reward worth working towards",
+				}
+			},
 			j_dbbq_source_sales = {
 				name = "Source",
 				text = {
@@ -1180,6 +1773,17 @@ return {
 			j_dbbq_source_spirit = {
 				name = "Source",
 				text = {
+					"I wouldn't be surprised if most people",
+					"don't know you can interact with these",
+					"so-called 'Lantern Men'. They don't speak,",
+					"you just get ENA mentally complimenting",
+					"their work efforts because stress and high",
+					"altitudes produce better resources."
+				}
+			},
+			j_dbbq_source_stress = {
+				name = "Source",
+				text = {
 					"These spirit entities are here to guide",
 					"you towards your destination. However,",
 					"only half of them tell the truth.",
@@ -1188,6 +1792,23 @@ return {
 					"ones tell the truth. This would make the",
 					"Joker too easy to figure out, though, so",
 					"you don't get to see which color says what."
+				}
+			},
+			j_dbbq_source_tim = {
+				name = "Source",
+				text = {
+					"Timothy Rundle is one of, maybe, only four",
+					"or five? characters in the entire game to",
+					"introduce themselves by name, and he's just",
+					"a minor, somewhat secret NPC you only meet",
+					"once. When you find him, he's standing next",
+					"to a regular trash bag, but he describes it",
+					"as a \"spacious, durable, luxury bag\" that",
+					"can allegedly allow him to hold a bunch of",
+					"very random objects. All 24 of the items he",
+					"lists off were turned into Luxury Items, with",
+					"Timothy himself being a very reliable way",
+					"to both find and store new Luxury Items."
 				}
 			},
 			j_dbbq_source_toll = {
@@ -1287,6 +1908,61 @@ return {
 					"this innocent boy."
 				}
 			},
+			j_dbbq_source_boss = {
+				name = "Source",
+				text = {
+					"For whatever reason, characters in Dream BBQ",
+					"love claiming to be the Boss, even if their",
+					"claims are immediately dismissed. There are",
+					"so many, I was reasonably able to make a",
+					"Baseball Card-style joker based on them."
+				}
+			},
+			dbbq_boss_generic = {
+				name = "Who is the Boss?",
+				text = {
+					"I am the Boss!"
+				}
+			},
+			dbbq_boss_horse = {
+				name = "Who is the Boss?",
+				text = {
+					"I am Boss!!!"
+				}
+			},
+			dbbq_boss_heno = {
+				name = "Who is the Boss?",
+				text = {
+					"YESSS, I AM THE BOSS!!",
+					"HA HA HA, HAH HAH!!"
+				}
+			},
+			dbbq_boss_party = {
+				name = "Who is the Boss?",
+				text = {
+					"I AM THE BOSS!!"
+				}
+			},
+			dbbq_boss_stalker = {
+				name = "Who is the Boss?",
+				text = {
+					"HEHEHEH. I Am. The",
+					"Boss. Heheheheh."
+				}
+			},
+			dbbq_boss_tumi = {
+				name = "Who is the Boss?",
+				text = {
+					"I am the B-O-S-S! ...Naaah,",
+					"I W-I-S-H. I wish! Hahaha!"
+				}
+			},
+			dbbq_boss_vending = {
+				name = "Who is the Boss?",
+				text = {
+					"I COULD BE THE BOSS!"
+				}
+			},
 		}
 	},
 	misc = {
@@ -1294,212 +1970,246 @@ return {
 			c_dbbq_antifun = "The Fun Hater"
 		},
 		quips = {
-			j_dbbq_antifun_deplorable = {
+			dbbq_antifun_deplorable = {
 				"{C:planet}I need to get back to",
 				"{C:planet}my d-deplorable job..."
 			},
-			j_dbbq_antifun_sick = {
+			dbbq_antifun_sick = {
 				"{C:planet}I am f-feeling... sick in this p-place."
 			},
-			j_dbbq_antifun_morons = {
+			dbbq_antifun_morons = {
 				"{C:planet}L-Listen to me! Regrettably,",
 				"{C:planet}I'm v-very hard-working and",
 				"{C:planet}sh-shouldn't be in a place full",
 				"{C:planet}of m-morons having... FUN."
 			},
-			j_dbbq_antifun_uh = {
+			dbbq_antifun_uh = {
 				"{C:planet}......................................."
 			},
-			j_dbbq_antifun_schedule = {
+			dbbq_antifun_schedule = {
 				"{C:planet}H-How can I leave this stupid event?",
 				"{C:planet}M-My lame schedule is full.",
 				"{C:planet}I c-can't afford. Another minute of joy."
 			},
-			j_dbbq_blobby_friends = {
+			dbbq_blobby_friends = {
 				"All my \"friends\" criticized me",
 				"for coming here. I laugh at them",
 				"because they are all the same.",
 			},
-			j_dbbq_blobby_crazy = {
+			dbbq_blobby_crazy = {
 				"You were right this whole",
 				"time and we called you crazy.",
 				"Or... maybe we're the crazy",
 				"ones for believing you now."
 			},
-			j_dbbq_blobby_sick = {
+			dbbq_blobby_sick = {
 				"I'm getting sick from",
 				"how scared I am."
 			},
-			j_dbbq_blobby_run = {
+			dbbq_blobby_run = {
 				"This is the part of",
 				"the game where you",
 				"run to your death."
 			},
-			j_dbbq_bunraku_haters = {
+			dbbq_blobby_boss = {
+				"I am the boss!"
+			},
+			dbbq_bunraku_haters = {
 				"Ohohoh, YEAAH!! There will always",
 				"be haters hatin' on you, mate!",
 				"You can't live your life trying",
 				"to make everybody happy!!",
 				"YyeeeaAAAAH!!"
 			},
-			j_dbbq_bunraku_harder = {
+			dbbq_bunraku_harder = {
 				"HAAAA, WAHOOOOO!! More reason",
 				"to party even harder, mate!!"
 			},
-			j_dbbq_bunraku_comes = {
+			dbbq_bunraku_comes = {
 				"HERE IT COMEEESSS!!!",
 				"YeeaaAAAAAAAAAAH!!"
 			},
-			j_dbbq_bunraku_bathroom = {
+			dbbq_bunraku_bathroom = {
 				"Consider: Would the sane put",
 				"only one Bathroom in a place",
 				"full of party poopers?"
 			},
-			j_dbbq_horse_boss = {
+			dbbq_capsule_boss = { --5
+				"I COULD BE THE BOSS!"
+			},
+			dbbq_capsule_dreams = { --20
+				"Dreams are made of wee doodles",
+				"and tickers for sale are bought",
+				"for car window washings!"
+			},
+			dbbq_capsule_bargain = { --9
+				"Damn right! You found",
+				"yourself a bargain!"
+			},
+			dbbq_capsule_horses = { --13
+				"Bye for now. Be good! (I mean,",
+				"good with horses, you know.)"
+			},
+			dbbq_capsule_no = { --5
+				"NO!"
+			},
+			dbbq_capsule_losers = { --14
+				"I can't sell things to losers",
+				"NO NO!!!!!!!!!!!!!!!!!!!!!!!!"
+			},
+			dbbq_horse_boss = {
 				"I am Boss!!!"
 			},
-			j_dbbq_horse_no = {
+			dbbq_horse_no = {
 				"Don't care. Not",
 				"recognized. Go away."
 			},
-			j_dbbq_horse_shitchat = {
+			dbbq_horse_shitchat = {
 				"No time for shit-chat!",
 				"Asshole left door open,",
 				"now pets are gone! My babies!"
 			},
-			j_dbbq_horse_money = {
+			dbbq_horse_money = {
 				"I will give so many",
 				"money. Many money."
 			},
-			j_dbbq_horse_early = {
+			dbbq_horse_early = {
 				"Bad service! You are here early!"
 			},
-			j_dbbq_horse_meal = {
+			dbbq_horse_meal = {
 				"Ohhh, thank GOD! I was starving.",
 				"Now I can have a good meal!"
 			},
-			j_dbbq_beholder_condolences = {
+			dbbq_beholder_condolences = {
 				"My condolences on",
 				"reaching this place."
 			},
-			j_dbbq_beholder_never = {
+			dbbq_beholder_never = {
 				"Forgiveness is only a",
 				"gift you can never have."
 			},
-			j_dbbq_beholder_food = {
+			dbbq_beholder_food = {
 				"Remember: \"All it takes is",
 				"a place and the right food.\""
 			},
-			j_dbbq_beholder_toilet = {
+			dbbq_beholder_toilet = {
 				"All of your sins are now forgotten.",
 				"Ascend to the toilet of GOD and",
 				"wipe the guilt off of your face,",
 				"beloved angel."
 			},
-			j_dbbq_beholder_unforgiven = {
+			dbbq_beholder_unforgiven = {
 				"Wait wait wait, you are UNforgiven!",
 				"My job here is terminated..."
 			},
-			j_dbbq_beholder_capable = {
+			dbbq_beholder_capable = {
 				"You can't aspire for more",
 				"than what you are capable of."
 			},
-			j_dbbq_fax_handshake = {
+			dbbq_beholder_punishment = {
+				"No punishment. Just like how",
+				"nobody needs to be punished",
+				"for being born.",
+				"Except you, of course."
+			},
+			dbbq_fax_handshake = {
 				"Ah... Sorry, handshakes weren't",
 				"part of the job description."
 			},
-			j_dbbq_fax_shambles = {
+			dbbq_fax_shambles = {
 				"My whole life is in",
 				"shambles right now..."
 			},
-			j_dbbq_fax_opportunity = {
+			dbbq_fax_opportunity = {
 				"I turned down another job",
 				"opportunity to be here..."
 			},
-			j_dbbq_fax_highly = {
+			dbbq_fax_highly = {
 				"...I'm highly concerned and",
 				"astonished at the same time."
 			},
-			j_dbbq_girl_care = {
+			dbbq_girl_care = {
 				"I don care! DON CARE!!",
 				">:OO GO AWAY!!!"
 			},
-			j_dbbq_girl_thankz = {
+			dbbq_girl_thankz = {
 				"POO!!! >:( I am nice to you",
 				"and this is the thankz I get?!",
 				"umwbmhjnbgrzmmafbczlcmnkvn"
 			},
-			j_dbbq_girl_rude = {
+			dbbq_girl_rude = {
 				"Rude entities like you get",
 				"punished for the sins of others.",
 			},
-			j_dbbq_girl_fell = {
+			dbbq_girl_fell = {
 				"MWAA-HA!!!, fell for",
 				"it, didn'tchuU?! ^-^",
 			},
-			j_dbbq_girl_words = {
+			dbbq_girl_words = {
 				"U know, im pretty good",
 				"@ organizing words!!",
 				"I should be the CEO of",
 				"organizing events or",
 				"sumthing... O . O"
 			},
-			j_dbbq_girl_resuemay = {
+			dbbq_girl_resuemay = {
 				"I should send my worky",
 				"resuemay to the boss",
 				"nao. Im supa good with",
 				"organizing bosses!! , !!!"
 			},
-			j_dbbq_girl_job = {
+			dbbq_girl_job = {
 				"GUESS WHAT!! ! THIS",
 				"CHICKEN BUTT GOTTA",
 				"NEW JOB, BABEH!! ! :d"
 			},
-			j_dbbq_head_work = {
-				"{C:gold}Work! Yes, I work a lot."
+			dbbq_head_work = {
+				"{C:gold}I salute. Work! Yes, I work a lot.",
+				"{C:gold}I send people to this victory",
+				"{C:gold}screen, yes? You wanna go?"
 			},
-			j_dbbq_head_party = {
+			dbbq_head_party = {
 				"{C:gold}Have fun at the Extinction",
 				"{C:gold}Party!! Wait, wrong event."
 			},
-			j_dbbq_head_doom = {
+			dbbq_head_doom = {
 				"{C:inactive}I bring the doom to anyone",
 				"{C:inactive}looking for it. I can even",
 				"{C:inactive}send your meatslab into",
 				"{C:inactive}eternal darkness."
 			},
-			j_dbbq_head_awaiting = {
+			dbbq_head_awaiting = {
 				"{C:inactive}Suffering and loneliness",
 				"{C:inactive}are awaiting you."
 			},
-			j_dbbq_head_ride = {
+			dbbq_head_ride = {
 				"{C:chips}Get in the taxi and prepare",
 				"{C:chips}for the ride of your life!"
 			},
-			j_dbbq_head_awful = {
+			dbbq_head_awful = {
 				"{C:chips}Have an awful day!"
 			},
-			j_dbbq_heno_boss = {
+			dbbq_heno_boss = {
 				"YESSS, I AM THE BOSS!!",
 				"HA HA HA, HAH HAH!!"
 			},
-			j_dbbq_heno_dratula = {
+			dbbq_heno_dratula = {
 				"I AM DRATULAAA!!"
 			},
-			j_dbbq_heno_nuts = {
+			dbbq_heno_nuts = {
 				"I AM NOT NUTS, I AM DRATULA."
 			},
-			j_dbbq_heno_pengvin = {
+			dbbq_heno_pengvin = {
 				"VHAT?!! DID YOU CALL",
 				"ME A STINKY PENGVIN?!!"
 			},
-			j_dbbq_heno_stronk = {
+			dbbq_heno_stronk = {
 				"I AM A VAMPIRE. SO STRONK!!"
 			},
-			j_dbbq_hoarder_another = {
+			dbbq_hoarder_another = {
 				"Oh no, not another one."
 			},
-			j_dbbq_hoarder_fought = {
+			dbbq_hoarder_fought = {
 				"HEY, HEY, HEY! LISTEN HERE:",
 				"I JUST HAD THE WORST DAY",
 				"OF MY LIFE, OKAY?!!",
@@ -1510,166 +2220,203 @@ return {
 				"KILLED MY BROTHER, and NOW...",
 				"ARGH!!!"
 			},
-			j_dbbq_hoarder_enjoy = {
+			dbbq_hoarder_enjoy = {
 				"You think I enjoy this?",
 				"Being a professional",
 				"hoarder is no joke."
 			},
-			j_dbbq_hoarder_ogling = {
+			dbbq_hoarder_ogling = {
 				"Perfect. Now quit ogling my",
 				"properties and fly off."
 			},
-			j_dbbq_hoarder_posterior = {
+			dbbq_hoarder_posterior = {
 				"Go pull yourself along on",
 				"your mother's posterior."
 			},
-			j_dbbq_hoarder_rad = {
+			dbbq_hoarder_rad = {
 				"Oh, you actually",
 				"did it? Okay. Rad."
 			},
-			j_dbbq_im_the_bus = {
+			dbbq_honest_seen = {
+				"Hast thou seen that?"
+			},
+			dbbq_honest_lies = {
+				"So tired I am of lies..."
+			},
+			dbbq_honest_wends = {
+				"And so the day wends away.",
+				"Thou'rt tired, I'd warrant."
+			},
+			dbbq_honest_end = {
+				"Strange it is, how problems always",
+				"end later than sooner. But thou?",
+				"Thou hast seen an end of it."
+			},
+			dbbq_honest_good = {
+				"It was nice for me— No,",
+				"it was a good time for me.",
+				"Thou provided good company."
+			},
+			dbbq_honest_truth = {
+				"I can no longer sense the",
+				"stench of any lie. Vain",
+				"pretense has met his match,",
+				"and noble Truth holds sway."
+			},
+			dbbq_honest_learn = {
+				"Unforgiven I must still",
+				"remain, but always learning",
+				"from my old mistakes."
+			},
+			dbbq_bus_im_the_bus = {
 				"I'M THE BUS!"
 			},
-			j_dbbq_legs_eyeball = {
+			dbbq_legs_eyeball = {
 				"Are you here on purpose?",
 				"Or are you going to",
 				"bounce like an eyeball?"
 			},
-			j_dbbq_legs_how = {
+			dbbq_legs_how = {
 				"How am I supposed",
 				"to win big now?!"
 			},
-			j_dbbq_legs_damnation = {
+			dbbq_legs_damnation = {
 				"Time for you to visit the",
 				"toilet of eternal damnation!"
 			},
-			j_dbbq_legs_boobstraps = {
+			dbbq_legs_boobstraps = {
 				"Pull yourself up by your",
 				"boobstraps. Seek help."
 			},
-			j_dbbq_legs_epic = {
+			dbbq_legs_epic = {
 				"May the Doors guide",
 				"my epic moves!"
 			},
-			j_dbbq_legs_imploded = {
+			dbbq_legs_imploded = {
 				"I was so excited that",
 				"half of my body imploded!",
 				"That's what I get for",
 				"being on my feets all day."
 			},
-			j_dbbq_lazy_sweat = {
+			dbbq_legs_boss = {
+				"I am the boss!"
+			},
+			dbbq_lazy_sweat = {
 				"Sweat that shirt! Keep",
 				"up that hard work.",
 			},
-			j_dbbq_lazy_slack = {
+			dbbq_lazy_slack = {
 				"I certainly won't be",
 				"picking up your slack!",
 				"Find a way out of there!"
 			},
-			j_dbbq_lazy_easier = {
+			dbbq_lazy_easier = {
 				"Good job. You always",
 				"make work easier."
 			},
-			j_dbbq_lazy_proactive = {
+			dbbq_lazy_proactive = {
 				"Being proactive at work, eh?",
 				"Good signal, good signal."
 			},
-			j_dbbq_lazy_meat = {
+			dbbq_lazy_meat = {
 				"Now we're running out",
 				"of time to put that",
 				"dead meat in its place!"
 			},
-			j_dbbq_lazy_novice = {
+			dbbq_lazy_novice = {
 				"Stop acting like a novice!",
 				"You know your job."
 			},
-			j_dbbq_lazy_working = {
+			dbbq_lazy_working = {
 				"I don't know what you did,",
 				"but it is really working!"
 			},
-			j_dbbq_matry_cents = {
+			dbbq_matry_cents = {
 				"Listen to yourself, you don't",
 				"even make cents. Typical."
 			},
-			j_dbbq_matry_toot = {
+			dbbq_matry_toot = {
 				"This is the real",
 				"deal, sugar-toot."
 			},
-			j_dbbq_matry_ruin = {
+			dbbq_matry_ruin = {
 				"Losers always ruin the party.",
 			},
-			j_dbbq_mean_boss = {
+			dbbq_matry_boss = {
+				"I am the boss!"
+			},
+			dbbq_mean_boss = {
 				"{C:inactive}WHERE THE HELL IS THE BOSS?!"
 			},
-			j_dbbq_mean_hogwash = {
+			dbbq_mean_hogwash = {
 				"{C:inactive}That was the boss? Hah!",
 				"{C:inactive}The boss of what? Hogwash?!"
 			},
-			j_dbbq_mean_fraud = {
+			dbbq_mean_fraud = {
 				"{C:inactive}You're not fooling anyone, FRAUD!"
 			},
-			j_dbbq_mean_sympathy = {
+			dbbq_mean_sympathy = {
 				"{C:inactive}HEY PAL! My sympathy",
 				"{C:inactive}is gonna COST you",
 				"{C:inactive}for every condolence."
 			},
-			j_dbbq_mean_prices = {
+			dbbq_mean_prices = {
 				"{C:inactive}With prices this low,",
 				"{C:inactive}you can't afford a",
 				"{C:inactive}lifetime to wait!"
 			},
-			j_dbbq_mean_bullshit = {
+			dbbq_mean_bullshit = {
 				"{C:inactive}You know, I don't even believe",
 				"{C:inactive}anything! But you're bleeding",
 				"{C:inactive}out some real BULLSHIT here!!",
 				"{C:inactive}YOU'RE A FLUKE!!!"
 			},
-			j_dbbq_stalker_boss = {
+			dbbq_stalker_boss = {
 				"HEHEHEH. I Am. The",
 				"Boss. Heheheheh."
 			},
-			j_dbbq_stalker_mistake = {
+			dbbq_stalker_mistake = {
 				"NO! NO. NO! NO. Common",
 				"Mistake. But Sad. Mistake."
 			},
-			j_dbbq_stalker_heheheheh = {
+			dbbq_stalker_heheheheh = {
 				"HEHEHEHEH..."
 			},
-			j_dbbq_stalker_delight = {
+			dbbq_stalker_delight = {
 				"What A Delight. To See. YOU!"
 			},
-			j_dbbq_stalker_captivity = {
+			dbbq_stalker_captivity = {
 				"GLORY! It Is To See. Your",
 				"Actions. While. YOU Are",
 				"Trapped Here. In Captivity."
 			},
-			j_dbbq_party_boss = {
+			dbbq_party_boss = {
 				"I AM THE BOSS!!"
 			},
-			j_dbbq_party_focusing = {
+			dbbq_party_focusing = {
 				"You're better off focusing",
 				"on other things in life."
 			},
-			j_dbbq_party_crazy = {
+			dbbq_party_crazy = {
 				"What the hell are you talking about?",
 				"You better start dancing, crazy."
 			},
-			j_dbbq_party_whistle = {
+			dbbq_party_whistle = {
 				"Follow the whistle",
 				"and let yourself go."
 			},
-			j_dbbq_quartet_delightful = {
+			dbbq_quartet_delightful = {
 				"{C:purple}Delightful! Off we go, then.",
 				"{C:gold}Don't spend it all in one place.",
 				"{C:mult}Take care, dearie!",
 			},
-			j_dbbq_quartet_reference = {
+			dbbq_quartet_reference = {
 				"{C:gold}Psst... \"We should go home,",
 				"{C:gold}I am allergic to persons.\"",
 				"{C:green}HAAAA-HA! I GOT THAT REFERENCE!!!",
 				"{C:mult}Shhh! Zip it!!!"
 			},
-			j_dbbq_quartet_fault = {
+			dbbq_quartet_fault = {
 				"{C:green}GREAT! NOW WE WON'T MAKE IT TO THE",
 				"{C:green}PURGE EVENT AND IT'S ALL YOUR FAULT.",
 				"{C:gold}Could you hurry it, please? I miss",
@@ -1679,206 +2426,242 @@ return {
 				"{C:mult}drive any entity to split into its",
 				"{C:mult}component parts."
 			},
-			j_dbbq_radical_polynomial = {
+			dbbq_radical_polynomial = {
 				"Just leave me your polynomial and",
 				"I'll integrate right on over."
 			},
-			j_dbbq_radical_tangent = {
+			dbbq_radical_tangent = {
 				"You're pretty acute for a newbie,",
 				"but now's not the time for",
 				"me to go off on a tangent."
 			},
-			j_dbbq_radical_chill = {
+			dbbq_radical_chill = {
 				"Woah woah woah woah woah woah WOAH!",
 				"Take a chill pill, I meant no ill-will!"
 			},
-			j_dbbq_radical_star = {
+			dbbq_radical_star = {
 				"That's all, my star! Chyah!"
 			},
-			j_dbbq_radical_humor = {
+			dbbq_radical_humor = {
 				"DO YOU KNOW WHY CAMELS DON'T DO",
 				"PROFESSIONAL WRESTLING? BECAUSE THEY--",
 				"Woah, wooah, woooaah, wooaAAH, WOOAAHH...",
 				"HAH, THAT'S DOLPHIN HUMOR FOR YAH."
 			},
-			j_dbbq_sales_loop = {
+			dbbq_rainbow_bell = {
+				"Ask not for whom the bell tolls."
+			},
+			dbbq_rainbow_hiding = {
+				"I am hiding from the",
+				"civil authorities."
+			},
+			dbbq_rainbow_prison = {
+				"It may be small and dark and cramped and",
+				"I may never be able to leave again...",
+				"...but at least I'm not in prison."
+			},
+			dbbq_rainbow_left = {
+				"The civil authorities",
+				"got bored and left."
+			},
+			dbbq_sales_loop = {
 				"{C:mult}Huh. Seems I am out of",
 				"{C:mult}the loop. Shall we review",
 				"{C:mult}the job description?"
 			},
-			j_dbbq_sales_ambush = {
+			dbbq_sales_ambush = {
 				"{C:mult}Let's arrange our next",
 				"{C:mult}ambush at the scene!"
 			},
-			j_dbbq_sales_doable = {
+			dbbq_sales_doable = {
 				"{C:mult}That was most categorically doable."
 			},
-			j_dbbq_sales_child = {
+			dbbq_sales_child = {
 				"{C:mult}Worry not, you are",
 				"{C:mult}still a child of GOD."
 			},
-			j_dbbq_sales_bless = {
+			dbbq_sales_bless = {
 				"{C:mult}Bless you for your business."
 			},
-			j_dbbq_sales_personally = {
+			dbbq_sales_personally = {
 				"{C:mult}Don't take it personally."
 			},
-			j_dbbq_sixeyed_thank = {
+			dbbq_sixeyed_thank = {
 				"Thank you. I don't know what",
 				"I would have done without this."
 			},
-			j_dbbq_sixeyed_back = {
+			dbbq_sixeyed_back = {
 				"I want to go back.",
 				"I'm so tired..."
 			},
-			j_dbbq_sixeyed_before = {
+			dbbq_sixeyed_before = {
 				"I've never seen",
 				"something like this",
 				"before. It's relaxing."
 			},
-			j_dbbq_sixeyed_death = {
+			dbbq_sixeyed_death = {
 				"To toil beyond death itself."
 			},
-			j_dbbq_soooooie_sad = {
+			dbbq_soooooie_sad = {
 				"Hey, DON'T BE SAD! Soooooie!"
 			},
-			j_dbbq_soooooie_bright = {
+			dbbq_soooooie_bright = {
 				"Look on the bright side!",
 				"Uh...",
 				"Hmmm...",
 				"...",
 				"Soooieeee!"
 			},
-			j_dbbq_soooooie_existential = {
+			dbbq_soooooie_existential = {
 				"YEAH! All your existential",
 				"troubles will go away soon, okay?"
 			},
-			j_dbbq_soooooie_daily = {
+			dbbq_soooooie_daily = {
 				"ALRIGHT, Y'ALL! Welcome to the",
 				"Daily Auctioning! Sooie! Soooooieeee!"
 			},
-			j_dbbq_toll_toll = {
+			dbbq_tim_fortune = {
+				"What fortune! What bliss!",
+				"What kind hands could have",
+				"orchistrated such a thing?"
+			},
+			dbbq_tim_thanks = {
+				"Well, you have the thanks",
+				"of Timothy Rundle!"
+			},
+			dbbq_tim_space = {
+				"Now, what will I do with all this space?",
+				"I can carry flanges, pencils, mead…",
+				"Pivots, crampons, artillery…",
+				"Cutlets, targets, plimsols…",
+				"Jodhpurs, printers, damsons…",
+				"Fish, leeks, braid…",
+				"Pots, knurlers, lathes…",
+				"Spigots, tripods, pickles…",
+				"Razorbacks, periwinkles, argon…"
+			},
+			dbbq_toll_toll = {
 				"Pay the toll."
 			},
-			j_dbbq_toll_armleg = {
+			dbbq_toll_armleg = {
 				"Hmm, that blood... Ah, I see.",
 				"It will cost you an arm or a leg next."
 			},
-			j_dbbq_toll_surprise = {
+			dbbq_toll_surprise = {
 				"Not surprised."
 			},
-			j_dbbq_toll_refund = {
+			dbbq_toll_refund = {
 				"No refunds."
 			},
-			j_dbbq_toll_wait = {
+			dbbq_toll_wait = {
 				"What are you waiting for?"
 			},
-			j_dbbq_tomb_cash = {
+			dbbq_tomb_cash = {
 				"I don't like the cast.",
-				"I prefer         cash."
+				"I prefer		 cash."
 			},
-			j_dbbq_tomb_act = {
+			dbbq_tomb_act = {
 				"The second act",
 				"feels too obvious."
 			},
-			j_dbbq_tomb_owe = {
+			dbbq_tomb_owe = {
 				"What are you looking at?",
 				"Do I owe you something?"
 			},
-			j_dbbq_tomb_looks = {
+			dbbq_tomb_looks = {
 				"This looks controversial.",
 			},
-			j_dbbq_tomb_now = {
+			dbbq_tomb_now = {
 				"Things are smelling",
 				"much more valuable now!"
 			},
-			j_dbbq_tomb_congratulations = {
+			dbbq_tomb_congratulations = {
 				"Congratulations!"
 			},
-			j_dbbq_tomb_island = {
+			dbbq_tomb_island = {
 				"This new island looked",
 				"fancier in the catalogue.",
 				"Not impressed."
 			},
-			j_dbbq_casino_tv_dinner = {
+			dbbq_casino_tv_dinner = {
 				"Ugh, you again. Go away!",
 				"You smell poor! Go eat a",
 				"TV dinner, you broke,",
 				"ping-collared slug!"
 			},
-			j_dbbq_casino_nonsense = {
+			dbbq_casino_nonsense = {
 				"What?! I hope you are spitting",
 				"some needy nonsense!"
 			},
-			j_dbbq_casino_richer = {
+			dbbq_casino_richer = {
 				"Now SHOO! Come back when",
 				"you're a little, mmm, richer!"
 			},
-			j_dbbq_casino_clodpoll = {
+			dbbq_casino_clodpoll = {
 				"You poor, needy, beggarly, hard up,",
 				"schlocky, frowzy, scrimpy clodpoll!"
 			},
-			j_dbbq_casino_problematic = {
+			dbbq_casino_problematic = {
 				"Ah, making more losses, are we?",
 				"You seem rather... ah, pro-ble-ma-tic."
 			},
-			j_dbbq_casino_luck = {
+			dbbq_casino_luck = {
 				"You are pushing your luck, 'winner'."
 			},
-			j_dbbq_casino_slacking = {
+			dbbq_casino_slacking = {
 				"I have no time for slacking off and",
 				"insulting a lowly conman all day.",
 				"Do what you need to do and leave."
 			},
-			j_dbbq_casino_party = {
+			dbbq_casino_party = {
 				"If you are a party person, you",
 				"can always switch the mood and",
 				"attend the infamous Purge Event."
 			},
-			j_dbbq_tumi_boss = {
+			dbbq_tumi_boss = {
 				"I am the B-O-S-S! ...Naaah,",
 				"I W-I-S-H. I wish! Hahaha!"
 			},
-			j_dbbq_tumi_nobody = {
+			dbbq_tumi_nobody = {
 				"What do have H-A-V-E H-E-R-E?",
 				"L-O-O-K at this nobody who",
 				"isn't having a G-O-O-D T-I-M-E!"
 			},
-			j_dbbq_tumi_waste = {
+			dbbq_tumi_waste = {
 				"Uhhh... What a W-A-S-TE...",
 				"w-aaa-s-ttt... aw, shoot."
 			},
-			j_dbbq_tumi_menu = {
+			dbbq_tumi_menu = {
 				"What's on the M-E-N-U tonight?!",
 				"Oh, I'm really hoping it's me!"
 			},
-			j_dbbq_tpao_understand = {
-				"I'm glad we understand each",
+			dbbq_tpao_understand = {
+				"I'm glad we understand",
 				"each other. YOU are here",
 				"because you want to be.",
 				"I can see it in your eyes."
 			},
-			j_dbbq_tpao_life = {
+			dbbq_tpao_life = {
 				"Now, go away, and get a LIFE.",
 				"That shall be your quest today!"
 			},
-			j_dbbq_tpao_forgive = {
+			dbbq_tpao_forgive = {
 				"May the GODS forgive me",
 				"for what I'm about to do."
 			},
-			j_dbbq_tpao_done = {
+			dbbq_tpao_done = {
 				"What had to be done was done,",
 				"but... what hadn't been done",
 				"was done too. And now that it",
 				"is done, it may be done again.",
 				"Done. Done. Done..."
 			},
-			j_dbbq_tpao_anew = {
+			dbbq_tpao_anew = {
 				"Now, it's your turn",
 				"to BEGIN LIFE ANEW!",
 				"...Possibly."
 			},
-			j_dbbq_tpao_explain = {
+			dbbq_tpao_explain = {
 				"I shall be happy to explain",
 				"everything to you:",
 				"\"One person can be in two places",
@@ -1886,21 +2669,21 @@ return {
 				"not have to be in two places at once.",
 				"He can be in one place at one ti&#-\""
 			},
-			j_dbbq_unlucky_boss = {
+			dbbq_unlucky_boss = {
 				"I am the Boss!"
 			},
-			j_dbbq_unlucky_simpleton = {
+			dbbq_unlucky_simpleton = {
 				"I have seen you millions",
 				"of times here, is this something",
 				"like a simpleton event?!",
 				"AHAHAHAHAHA!"
 			},
-			j_dbbq_unlucky_cruise = {
+			dbbq_unlucky_cruise = {
 				"I am so ready to cruise",
 				"and party responsibly",
 				"in every illegal way!"
 			},
-			j_dbbq_unlucky_poppers = {
+			dbbq_unlucky_poppers = {
 				"Had one too many",
 				"party poppers?"
 			},
@@ -1909,11 +2692,58 @@ return {
 			k_dbbq_auction_day = "Auction Day",
 			k_dbbq_join_us = "Join us!",
 			k_dbbq_secret = "Secret",
-			k_dbbq_temptation_stairway = "Temptation Stairway"
+			k_dbbq_temptation_stairway = "Temptation Stairway",
+			b_dbbq_luxury_cards = "Luxury Items",
+			k_dbbq_luxury = "Luxury",
+			k_dbbq_is = "is",
+			k_dbbq_has = "has",
+			k_dbbq_contains = "contains",
+			k_dbbq_spin = "Spin",
+			k_dbbq_banned = "Banned!",
+			k_dbbq_enabled = "Enabled!",
+			k_dbbq_remembered = "Remembered!",
+			k_plus_dbbq_luxury = "+1 Luxury Item!",
+			k_dbbq_plus_tag = "+1 Tag!",
+			k_dbbq_slotreward0 = "Luxury Item",
+			k_dbbq_slotrewards0 = "Luxury Items",
+			k_dbbq_slotreward1 = "Spectral Card",
+			k_dbbq_slotrewards1 = "Spectral Cards",
+			k_dbbq_slotreward2 = "Mult given to each scoring card",
+			k_dbbq_slotreward3 = "Retrigger for joker to the right",
+			k_dbbq_slotrewards3 = "Retriggers for joker to the right",
+			k_dbbq_slotreward4 = "random Skip Tag",
+			k_dbbq_slotrewards4 = "random Skip Tags",
+			k_dbbq_slotreward5 = "Chips given to each scoring card",
+			k_dbbq_slotreward6 = "Mult given to each scoring card",
+			k_dbbq_jd_slotreward0 = "Luxury",
+			k_dbbq_jd_slotrewards0 = "Luxuries",
+			k_dbbq_jd_slotreward1 = "Spectral",
+			k_dbbq_jd_slotrewards1 = "Spectrals",
+			k_dbbq_jd_slotreward2 = "Mult bonus",
+			k_dbbq_jd_slotreward3 = "Right Retrigger",
+			k_dbbq_jd_slotrewards3 = "Right Retriggers",
+			k_dbbq_jd_slotreward4 = "Tag",
+			k_dbbq_jd_slotrewards4 = "Tags",
+			k_dbbq_jd_slotreward5 = "Chips bonus",
+			k_dbbq_jd_slotreward6 = "Mult bonus",
+			k_dbbq_4oak = "4oaK",
+			k_dbbq_3oak = "3oaK",
+			k_dbbq_holo = "Holo",
+			k_dbbq_poly = "Poly",
+			k_dbbq_least_played_hands = "Least Played Hands",
+			k_booster_group_p_dbbq_sdlb = "Spacious Durable Luxury Bag",
+			k_dbbq_boss = "Boss?",
+			k_dbbq_inactive = "Inactive"
+		},
+		v_dictionary = {
+			k_dbbq_minus_chip = "#1# chip",
 		},
 		labels = {
 			dbbq_entry = "Sticker of Entry",
-			dbbq_pet_seal = "Pe? Seal",
+			dbbq_drunk = "Drunk Sticker",
+			dbbq_toll = "Toll Sticker",
+			dbbq_husk = "Husk Sticker",
+			dbbq_pet_seal = "Pet? Seal",
 			k_dbbq_secret = "Secret",
 		},
 		suits_singular = {

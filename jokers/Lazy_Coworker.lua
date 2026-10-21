@@ -9,28 +9,32 @@ how much your final chip total
 overshot the Blind's requirement
 --]]
 
+local key = "lazy"
+DBBQ.quip_colours[key] = {HEX("000000"), HEX("ffffff"), HEX("850a08")}
+DBBQ.quip_pitch[key] = 1.5
+DBBQ.add_quip(key, "sweat", "win", 8)
+DBBQ.add_quip(key, "slack", "loss", 17)
+DBBQ.add_quip(key, "easier", "win", 10)
+DBBQ.add_quip(key, "proactive", "win", 14)
+DBBQ.add_quip(key, "meat", "loss", 15)
+DBBQ.add_quip(key, "novice", "loss", 11)
+DBBQ.add_quip(key, "working", "win", 14)
+
 SMODS.Joker{
-	key = "lazy",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 5,
 	pos = {x = 1, y = 2},
 	blueprint_compat = true,
-	config = {extra = {mult = 50, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_lazy_sweat"},
-		{type = "lose", key = "j_dbbq_lazy_slack"},
-		{type = "win", key = "j_dbbq_lazy_easier"},
-		{type = "win", key = "j_dbbq_lazy_proactive"},
-		{type = "lose", key = "j_dbbq_lazy_meat"},
-		{type = "lose", key = "j_dbbq_lazy_novice"},
-		{type = "win", key = "j_dbbq_lazy_working"},
-	}}},
-    loc_vars = function(self, info_queue, card)
+	pronouns = "he_him",
+	config = {extra = {mult = 50}},
+	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_lazy", set = "Other"}
 		end
-        return {vars = {card.ability.extra.mult}}
-    end,
+		return {vars = {card.ability.extra.mult}}
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {mult = card.ability.extra.mult}
@@ -45,7 +49,7 @@ SMODS.Joker{
 				}
 			end
 		end
-    end,
+	end,
 	joker_display_def = function(jd)
 		return {
 			text = {

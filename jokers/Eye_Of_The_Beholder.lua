@@ -8,23 +8,60 @@ each (Vanilla) Rank, gain X1 Mult
 (Currently: X1 Mult)
 --]]
 
+local a, b, c, d, e, f, g, h, i, j = 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3
+local pitch_map = {
+	dbbq_beholder_food = {e, f, g, k, j, i, i, g, g, c, c, f, d},
+	dbbq_beholder_toilet = {
+		e, e, e, e, e, e, g, i, f,
+		e, e, e, e, e, h, g, f, e,
+		f, e, f, e, e, d, d,
+		c, c, c, a, b
+	},
+	dbbq_beholder_unforgiven = {
+		e, c, d, e, e, g, f, e, f,
+		c, c, c, c, c, c, a, a
+	},
+	dbbq_beholder_capable = {
+		e, e, e, e, e, e,
+		e, e, e, e, c, c, c, d
+	},
+	dbbq_beholder_punishment = {
+		f, f, f, f, f, f, f,
+		h, g, f, f, f, h, h, g,
+		e, d, d, e,
+		a, a, a, a, a
+	},
+}
+
+local key = "beholder"
+DBBQ.quip_function[key] = function(self, times)
+	if pitch_map[self.key] then
+		play_sound("voice"..math.random(1, 11), pitch_map[self.key][1 + #pitch_map[self.key] - times])
+	else
+		play_sound("voice"..math.random(1, 11), 0.8)
+	end
+end
+DBBQ.quip_colours[key] = {HEX("6c0848"), HEX("6e3215"), HEX("000000")}
+DBBQ.quip_speed[key] = 0.25
+DBBQ.add_quip(key, "condolences", "loss", 9, 0.15)
+DBBQ.add_quip(key, "never", "loss", 13, 0.15)
+DBBQ.add_quip(key, "food", "any", 13, 0.2)
+DBBQ.add_quip(key, "toilet", "win", 30)
+DBBQ.add_quip(key, "unforgiven", "loss", 17)
+DBBQ.add_quip(key, "capable", "loss", 14)
+DBBQ.add_quip(key, "punishment", "loss", 24)
+
 local VANILLA_RANKS = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'}
 
 SMODS.Joker{
-	key = "beholder",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,
 	pos = {x = 3, y = 0},
 	blueprint_compat = true,
-	config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_beholder_condolences"},
-		{type = "lose", key = "j_dbbq_beholder_never"},
-		{type = "any", key = "j_dbbq_beholder_food"},
-		{type = "win", key = "j_dbbq_beholder_toilet"},
-		{type = "lose", key = "j_dbbq_beholder_unforgiven"},
-		{type = "lose", key = "j_dbbq_beholder_capable"},
-	}}},
+	pronouns = "she_her",
+	config = {extra = {Xmult_gain = 1, played = {}, Xmult = 1}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_beholder", set = "Other"}
@@ -65,11 +102,11 @@ SMODS.Joker{
 				end
 			end
 			card.ability.extra.played = {}
-			card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
-			return {
-				message = localize('k_upgrade_ex'),
-				colour = G.C.MULT
-			}
+			SMODS.scale_card(card, {
+				ref_table = card.ability.extra,
+				ref_value = "Xmult",
+				scalar_value = "Xmult_gain"
+			})
 		end
 	end,
 	joker_display_def = function(jd)

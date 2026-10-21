@@ -8,6 +8,16 @@ Prevents use of cards
 in Consumable Slots
 --]]
 
+local key = "hoarder"
+DBBQ.quip_colours[key] = {HEX("47705e"), HEX("fbfff7"), HEX("0d281a")}
+DBBQ.quip_pitch[key] = 1.15
+DBBQ.add_quip(key, "another", "loss", 7)
+DBBQ.add_quip(key, "fought", "loss", 41, 0.1)
+DBBQ.add_quip(key, "enjoy", "loss", 18)
+DBBQ.add_quip(key, "ogling", "win", 13)
+DBBQ.add_quip(key, "posterior", "loss", 14)
+DBBQ.add_quip(key, "rad", "win", 11)
+
 local ccuc = Card.can_use_consumeable
 function Card:can_use_consumeable(any_state, skip_check)
 	if self.area == G.consumeables and #SMODS.find_card("j_dbbq_hoarder") > 0 then
@@ -17,20 +27,14 @@ function Card:can_use_consumeable(any_state, skip_check)
 end
 
 SMODS.Joker{
-	key = "hoarder",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 5,
 	pos = {x = 3, y = 1},
 	blueprint_compat = true,
-	config = {extra = {slots = 1000, chips = 5, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_hoarder_another"},
-		{type = "lose", key = "j_dbbq_hoarder_fought"},
-		{type = "lose", key = "j_dbbq_hoarder_enjoy"},
-		{type = "win", key = "j_dbbq_hoarder_ogling"},
-		{type = "lose", key = "j_dbbq_hoarder_posterior"},
-		{type = "win", key = "j_dbbq_hoarder_rad"},
-	}}},
+	pronouns = "he_him",
+	config = {extra = {slots = 1000, chips = 5}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_hoarder", set = "Other"}

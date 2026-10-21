@@ -7,19 +7,27 @@ play one of your
 most played hands.
 --]]
 
+local key = "blobby"
+DBBQ.quip_colours[key] = {HEX("c65f5d"), HEX("c65f5d"), HEX("e79274")}
+DBBQ.quip_sound[key] = DBBQ.sound_range(key, 6)
+DBBQ.quip_speed[key] = 0.6
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "friends", "win", 3)
+DBBQ.add_quip(key, "crazy", "win", 3)
+DBBQ.add_quip(key, "sick", "loss", 3)
+DBBQ.add_quip(key, "run", "loss", 3)
+DBBQ.add_quip(key, "boss", "win", 3)
+
 SMODS.Joker{
-	key = "blobby",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,
 	pos = {x = 1, y = 0},
 	blueprint_compat = true,
-	config = {extra = {mult = 15, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_blobby_friends"},
-		{type = "win", key = "j_dbbq_blobby_crazy"},
-		{type = "lose", key = "j_dbbq_blobby_sick"},
-		{type = "lose", key = "j_dbbq_blobby_run"},
-	}}},
+	pronouns = "they_them",
+	dbbq_i_am_the_boss = "dbbq_boss_generic",
+	config = {extra = {mult = 15}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_blobby", set = "Other"}

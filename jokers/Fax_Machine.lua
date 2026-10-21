@@ -8,21 +8,25 @@ Ranks 3, 4, 6, 8, and three 7s,
 All cards held in hand gain double their Chips
 --]]
 
---Known bug: Somehow, whne usd in tandem with UNIK's Mod and Bundles of Fun, attempting to add onto perma_bonus simply fails. No crash, it just acts like 0 + 8 = 0 and moves on. No clue how to fix.
+--Known bug: Somehow, when used in tandem with UNIK's Mod and Bundles of Fun, attempting to add onto perma_bonus simply fails. No crash, it just acts like 0 + 8 = 0 and moves on. No clue how to fix.
+
+local key = "fax"
+DBBQ.quip_colours[key] = {HEX("000000"), HEX("bcb191"), HEX("cd4c3c")}
+DBBQ.quip_pitch[key] = 1.5
+DBBQ.add_quip(key, "handshake", "win", 14)
+DBBQ.add_quip(key, "shambles", "loss", 9)
+DBBQ.add_quip(key, "opportunity", "loss", 15, 0.2)
+DBBQ.add_quip(key, "highly", "any", 13)
 
 SMODS.Joker{
-	key = "fax",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 7,
 	pos = {x = 4, y = 0},
 	blueprint_compat = true,
-    config = {extra = {upgrade = false, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_fax_handshake"},
-		{type = "lose", key = "j_dbbq_fax_shambles"},
-		{type = "lose", key = "j_dbbq_fax_opportunity"},
-		{type = "any", key = "j_dbbq_fax_highly"},
-	}}},
+	pronouns = "she_her",
+    config = {extra = {upgrade = false}},
     loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_fax", set = "Other"}

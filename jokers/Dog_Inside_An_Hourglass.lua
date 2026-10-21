@@ -15,6 +15,7 @@ SMODS.Joker{
 	blueprint_compat = false,
 	eternal_compat = false,
 	config = {extra = {hands = 2}},
+	pronouns = "any_all",
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_diah", set = "Other"}

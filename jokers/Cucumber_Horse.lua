@@ -16,21 +16,27 @@ they are replaced with Gold Seals
 Otherwise, the Pet? Seals will vanish
 --]]
 
+local key = "horse"
+DBBQ.quip_colours[key] = {HEX("c4c2be"), HEX("c7a780"), HEX("784b48")}
+DBBQ.quip_pitch[key] = 1.3
+DBBQ.quip_speed[key] = 0.2
+DBBQ.add_quip(key, "boss", "win", 3, 0.3)
+DBBQ.add_quip(key, "no", "loss", 9)
+DBBQ.add_quip(key, "shitchat", "loss", 18)
+DBBQ.add_quip(key, "money", "win", 12)
+DBBQ.add_quip(key, "early", "win", 8)
+DBBQ.add_quip(key, "meal", "win", 14)
+
 SMODS.Joker{
-	key = "horse",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 4,
 	pos = {x = 2, y = 0},
 	blueprint_compat = false,
-	config = {extra = {pets = 4, success = false, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_horse_boss"},
-		{type = "lose", key = "j_dbbq_horse_no"},
-		{type = "lose", key = "j_dbbq_horse_shitchat"},
-		{type = "win", key = "j_dbbq_horse_money"},
-		{type = "win", key = "j_dbbq_horse_early"},
-		{type = "win", key = "j_dbbq_horse_meal"},
-	}}},
+	pronouns = "he_him",
+	dbbq_i_am_the_boss = "dbbq_boss_horse",
+	config = {extra = {pets = 4, success = false}},
 	loc_vars = function(self, info_queue, joker)
 		if joker.area and joker.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_horse", set = "Other"}
@@ -106,11 +112,11 @@ SMODS.Seal{
 					end
 				end
 			end
-			for _, joker in ipairs(G.jokers.cards) do
+			DBBQ.iterate_jokers(function(joker)
 				if joker.config.center.key == "j_dbbq_horse" then
 					joker.ability.extra.success = true
 				end
-			end
+			end)
 			for _, area in ipairs({G.play, G.hand, G.discard, G.deck}) do
 				for __, card in ipairs(area.cards) do
 					if card.seal == "dbbq_pet" then

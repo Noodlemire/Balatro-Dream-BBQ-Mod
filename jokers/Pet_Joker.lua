@@ -14,6 +14,7 @@ SMODS.Joker{
 	cost = 2,
 	pos = {x = 0, y = 3},
 	blueprint_compat = false,
+	pronouns = "any_all",
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_pet", set = "Other"}

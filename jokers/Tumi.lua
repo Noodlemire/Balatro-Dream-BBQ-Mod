@@ -9,19 +9,25 @@ Poker hand changes
 after every hand played
 --]]
 
+local key = "tumi"
+DBBQ.quip_colours[key] = {HEX("b2a208"), HEX("971a0d"), HEX("0d9796")}
+DBBQ.quip_pitch[key] = 1.9
+DBBQ.quip_speed[key] = 0.2
+DBBQ.add_quip(key, "boss", "win", 13)
+DBBQ.add_quip(key, "nobody", "loss", 18)
+DBBQ.add_quip(key, "waste", "loss", 8, 0.3)
+DBBQ.add_quip(key, "menu", "win", 16)
+
 SMODS.Joker{
-	key = "tumi",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,
 	pos = {x = 1, y = 4},
 	blueprint_compat = true,
-	config = {extra = {poker_hand = "High Card", Xmult = 4, hand = 1, penalty = 0, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_tumi_boss"},
-		{type = "lose", key = "j_dbbq_tumi_nobody"},
-		{type = "lose", key = "j_dbbq_tumi_waste"},
-		{type = "win", key = "j_dbbq_tumi_menu"},
-	}}},
+	pronouns = "she_her",
+	dbbq_i_am_the_boss = "dbbq_boss_tumi",
+	config = {extra = {poker_hand = "High Card", Xmult = 4, hand = 1, penalty = 0}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_tumi", set = "Other"}

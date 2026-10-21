@@ -10,21 +10,25 @@ XMult and spawn rate
 (Max 64x spawn rate)
 --]]
 
+local key = "stalker"
+DBBQ.quip_colours[key] = {HEX("0f352d"), HEX("7be387"), HEX("396f7d")}
+DBBQ.quip_pitch[key] = 0.7
+DBBQ.add_quip(key, "boss", "win", 11, 0.33)
+DBBQ.add_quip(key, "mistake", "loss", 12, 0.33)
+DBBQ.add_quip(key, "heheheheh", "any", 4, 0.2)
+DBBQ.add_quip(key, "delight", "win", 7, 0.4)
+DBBQ.add_quip(key, "captivity", "loss", 19, 0.2)
+
 SMODS.Joker{
-	key = "stalker",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 4,
 	pos = {x = 4, y = 2},
 	blueprint_compat = true,
 	eternal_compat = false,
-	config = {extra = {dbbq_quotes = {
-		{type = "win", key = "j_dbbq_stalker_boss"},
-		{type = "lose", key = "j_dbbq_stalker_mistake"},
-		{type = "any", key = "j_dbbq_stalker_heheheheh"},
-		{type = "win", key = "j_dbbq_stalker_delight"},
-		{type = "lose", key = "j_dbbq_stalker_captivity"},
-	}}},
+	pronouns = "he_him",
+	dbbq_i_am_the_boss = "dbbq_boss_stalker",
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_stalker", set = "Other"}

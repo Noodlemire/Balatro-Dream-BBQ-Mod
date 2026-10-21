@@ -1,24 +1,30 @@
 --[[
 Six-Eyed Joker
-Common, $5
+Common, $4
 
 Each 6 held in hand
 grants +36 Chips
 --]]
 
+local key = "sixeyed"
+DBBQ.quip_colours[key] = {HEX("122b12"), HEX("ff04fa"), HEX("5d3ebd")}
+DBBQ.quip_sound[key] = DBBQ.sound_range(key, 4)
+DBBQ.quip_speed[key] = 0.4
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "thank", "win", 3)
+DBBQ.add_quip(key, "back", "loss", 3)
+DBBQ.add_quip(key, "before", "win", 3)
+DBBQ.add_quip(key, "death", "any", 3)
+
 SMODS.Joker{
-	key = "sixeyed",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 1,
-	cost = 5,
+	cost = 4,
 	pos = {x = 3, y = 3},
 	blueprint_compat = true,
-	config = {extra = {target = "6", chips = 36, dbbq_quotes = {
-		{type = "win", key = "j_dbbq_sixeyed_thank"},
-		{type = "lose", key = "j_dbbq_sixeyed_back"},
-		{type = "win", key = "j_dbbq_sixeyed_before"},
-		{type = "any", key = "j_dbbq_sixeyed_death"},
-	}}},
+	pronouns = "he_they",
+	config = {extra = {target = "6", chips = 36}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_sixeyed", set = "Other"}

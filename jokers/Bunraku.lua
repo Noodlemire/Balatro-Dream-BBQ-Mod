@@ -9,19 +9,23 @@ played cards is first scored, at random
 (Currently: X0 Mult)
 --]]
 
+local key = "bunraku"
+DBBQ.quip_colours[key] = {HEX("31511f"), HEX("fa4111"), HEX("ffbe62")}
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "haters", "any", 37)
+DBBQ.add_quip(key, "harder", "win", 16)
+DBBQ.add_quip(key, "comes", "win", 7)
+DBBQ.add_quip(key, "bathroom", "loss", 21)
+
 SMODS.Joker{
-	key = "bunraku",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 3,
 	cost = 8,
 	pos = {x = 5, y = 0},
 	blueprint_compat = true,
-	config = {extra = {Xmult_gain = 0.1, Xmult = 0, dbbq_quotes = {
-		{type = "any", key = "j_dbbq_bunraku_haters"},
-		{type = "win", key = "j_dbbq_bunraku_harder"},
-		{type = "win", key = "j_dbbq_bunraku_comes"},
-		{type = "lose", key = "j_dbbq_bunraku_bathroom"},
-	}}},
+	pronouns = "he_him",
+	config = {extra = {Xmult_gain = 0.1, Xmult = 0}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_bunraku", set = "Other"}
@@ -53,12 +57,11 @@ SMODS.Joker{
 				message_card = card
 			}
 		elseif context.post_trigger and G.GAME.blind.in_blind and context.other_card.config.center and context.other_card.config.center.key ~= "j_dbbq_bunraku" and not context.other_context.modify_scoring_hand then
-			card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
-			return {
-				message = localize("k_upgrade_ex"),
-				colour = G.C.RED,
-				message_card = card
-			}
+			SMODS.scale_card(card, {
+				ref_table = card.ability.extra,
+				ref_value = "Xmult",
+				scalar_value = "Xmult_gain"
+			})
 		end
 	end,
 	joker_display_def = function(jd)

@@ -6,22 +6,25 @@ All played cards become Mult cards when scored
 When Blind is defeated, transforms into Mean Joker
 --]]
 
+local key = "sales"
+DBBQ.quip_colours[key] = {HEX("22665a"), HEX("e64437"), HEX("e64437")}
+DBBQ.quip_pitch[key] = 1.4
+DBBQ.add_quip(key, "loop", "loss", 17)
+DBBQ.add_quip(key, "ambush", "win", 10)
+DBBQ.add_quip(key, "doable", "win", 12)
+DBBQ.add_quip(key, "child", "loss", 10)
+DBBQ.add_quip(key, "bless", "win", 6)
+DBBQ.add_quip(key, "personally", "loss", 7)
+
 SMODS.Joker{
-	key = "sales",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 4,
 	cost = 20,
 	pos = {x = 2, y = 3},
 	soul_pos = {x = 5, y = 3},
 	blueprint_compat = false,
-	config = {extra = {no_front = true, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_sales_loop"},
-		{type = "win", key = "j_dbbq_sales_ambush"},
-		{type = "win", key = "j_dbbq_sales_doable"},
-		{type = "lose", key = "j_dbbq_sales_child"},
-		{type = "win", key = "j_dbbq_sales_bless"},
-		{type = "lose", key = "j_dbbq_sales_personally"},
-	}}},
+	pronouns = "she_her",
 	loc_vars = function(self, info_queue, joker)
 		if joker.area and joker.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_sales", set = "Other"}

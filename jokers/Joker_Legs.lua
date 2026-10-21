@@ -7,21 +7,29 @@ have drawn through
 half of your deck
 --]]
 
+local key = "legs"
+DBBQ.quip_colours[key] = {HEX("d6be76"), HEX("d8dfe8"), HEX("5c4956")}
+DBBQ.quip_sound[key] = DBBQ.sound_range(key, 10)
+DBBQ.quip_speed[key] = 0.25
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "eyeball", "loss", 4)
+DBBQ.add_quip(key, "how", "loss", 4)
+DBBQ.add_quip(key, "damnation", "loss", 4)
+DBBQ.add_quip(key, "boobstraps", "loss", 4)
+DBBQ.add_quip(key, "epic", "win", 4)
+DBBQ.add_quip(key, "imploded", "win", 4)
+DBBQ.add_quip(key, "boss", "win", 4)
+
 SMODS.Joker{
-	key = "legs",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 1,
 	cost = 4,
 	pos = {x = 4, y = 1},
 	blueprint_compat = true,
-	config = {extra = {chips = 100, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_legs_eyeball"},
-		{type = "lose", key = "j_dbbq_legs_how"},
-		{type = "lose", key = "j_dbbq_legs_damnation"},
-		{type = "lose", key = "j_dbbq_legs_boobstraps"},
-		{type = "win", key = "j_dbbq_legs_epic"},
-		{type = "win", key = "j_dbbq_legs_imploded"},
-	}}},
+	pronouns = "he_they",
+	dbbq_i_am_the_boss = "dbbq_boss_generic",
+	config = {extra = {chips = 100}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_legs", set = "Other"}

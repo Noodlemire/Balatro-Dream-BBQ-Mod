@@ -18,6 +18,8 @@ SMODS.Joker{
 	pos = {x = 0, y = 2},
 	blueprint_compat = false,
 	eternal_compat = false,
+	pronouns = "it_its",
+	dbbq_i_am_the_boss = "dbbq_boss_generic",
 	config = {extra = {price = 1, meteor = false, Xmult = 2}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
@@ -35,12 +37,20 @@ SMODS.Joker{
 			end
 		elseif not context.blueprint then
 			if context.end_of_round and context.game_over == false and context.main_eval then
-				card.ability.extra_value = card.ability.extra_value + card.ability.extra.price
-				card:set_cost()
-				return {
-					message = localize('k_val_up'),
-					colour = G.C.MONEY
-				}
+				SMODS.scale_card(card, {
+					ref_table = card.ability,
+					ref_value = "extra_value",
+					scalar_table = card.ability.extra,
+					scalar_value = "price",
+					scaling_message = {
+						message = localize('k_val_up'),
+						colour = G.C.MONEY
+					},
+					operation = function(ref_table, ref_value, initial, change)
+						ref_table[ref_value] = initial + change
+						card:set_cost()
+					end
+				})
 			elseif context.remove_playing_cards then
 				for _, removed_card in ipairs(context.removed) do
 					if removed_card.shattered then
@@ -106,7 +116,7 @@ SMODS.Joker{
 				{text = "$"},
 				{ref_table = "card", ref_value = "sell_cost"}
 			},
-			text_config = {colour = G.C.GOLD}
+			text_config = {colour = G.C.MONEY}
 		}
 	end
 }

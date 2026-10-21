@@ -7,20 +7,24 @@ Create 1 Negative Dog Inside An Hourglass
 (They will be removed if you lose Soooooie!)
 --]]
 
+local key = "soooooie"
+DBBQ.quip_colours[key] = {HEX("ff390a"), HEX("5380ff"), HEX("d26be9")}
+DBBQ.quip_pitch[key] = 1.65
+DBBQ.add_quip(key, "sad", "loss", 6, 0.2)
+DBBQ.add_quip(key, "bright", "loss", 9)
+DBBQ.add_quip(key, "existential", "win", 16)
+DBBQ.add_quip(key, "daily", "any", 16)
+
 SMODS.Joker{
-	key = "soooooie",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = "dbbq_secret",
 	cost = 10,
 	pos = {x = 6, y = 3},
 	blueprint_compat = true,
 	no_mod_badges = true,
-	config = {extra = {diah = 1, dbbq_quotes = {
-		{type = "loss", key = "j_dbbq_soooooie_sad"},
-		{type = "lose", key = "j_dbbq_soooooie_bright"},
-		{type = "win", key = "j_dbbq_soooooie_existential"},
-		{type = "any", key = "j_dbbq_soooooie_daily"},
-	}}},
+	pronouns = "he_they",
+	config = {extra = {diah = 1}},
 	set_badges = function(self, card, badges)
 		if not SMODS.config.no_mod_badges then
 			table.insert(badges, create_badge(localize("k_dbbq_auction_day"), HEX("ffdf00"), HEX("1e5fff")))
@@ -50,7 +54,7 @@ SMODS.Joker{
 	end,
 	remove_from_deck = function(self, card, from_debuff)
 		if not from_debuff then
-			for _, joker in ipairs(G.jokers.cards) do
+			DBBQ.iterate_jokers(function(joker)
 				if joker.config.center.key == "j_dbbq_diah" and not SMODS.is_eternal(joker, card) and not joker.getting_sliced then
 					joker.getting_sliced = true
 					G.E_MANAGER:add_event(Event({
@@ -60,7 +64,7 @@ SMODS.Joker{
 						end
 					}))
 				end
-			end
+			end)
 		end
 	end
 }

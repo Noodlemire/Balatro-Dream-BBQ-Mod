@@ -40,6 +40,7 @@ SMODS.Joker{
 	pos = {x = 6, y = 1},
 	blueprint_compat = false,
 	eternal_compat = false,
+	pronouns = "it_its",
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_phone", set = "Other"}
@@ -65,7 +66,7 @@ SMODS.Joker{
 						end
 					end
 					if match then
-						if not card.edition or not card.edition.negative or #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
+						if (card.area == G.jokers and (not card.edition or not card.edition.negative)) or #G.jokers.cards + G.GAME.joker_buffer < G.jokers.config.card_limit then
 							local already = {}
 							for i = 1, 7 do
 								for _, pc in ipairs(G.hand.cards) do

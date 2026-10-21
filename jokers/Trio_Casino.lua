@@ -2,10 +2,6 @@
 Trio Casino
 Uncommon, $6
 
-When poker hand is played:
-Create 3 random Negative Rare Vanilla Jokers
-Unless they all match, they are destroyed
-
 Chance for all played cards
 to give $2 when scored
 Chance depends on number of
@@ -31,25 +27,27 @@ local matching_consumables = function()
 	return count
 end
 
---local RARE_VANILLA_JOKERS = {"j_ancient", "j_baron", "j_baseball", "j_blueprint", "j_brainstorm", "j_burnt", "j_campfire", "j_dna", "j_drivers_license", "j_hit_the_road", "j_invisible", "j_obelisk", "j_stuntman", "j_duo", "j_trio", "j_family", "j_order", "j_tribe", "j_vagabond", "j_wee"}
+local key = "casino"
+DBBQ.quip_colours[key] = {HEX("0be96f"), HEX("c400e4"), HEX("5a00f9")}
+DBBQ.quip_pitch[key] = 1.4
+DBBQ.add_quip(key, "tv_dinner", "loss", 22, 0.2)
+DBBQ.add_quip(key, "nonsense", "loss", 12)
+DBBQ.add_quip(key, "richer", "loss", 12)
+DBBQ.add_quip(key, "clodpoll", "loss", 17, 0.25)
+DBBQ.add_quip(key, "problematic", "loss", 16, 0.2)
+DBBQ.add_quip(key, "luck", "win", 8)
+DBBQ.add_quip(key, "slacking", "any", 27)
+DBBQ.add_quip(key, "party", "win", 25)
 
 SMODS.Joker{
-	key = "casino",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 2,
 	cost = 6,
 	pos = {x = 6, y = 0},
 	blueprint_compat = true,
-	config = {extra = {dollars = 2, odds = 3, active = false, dbbq_quotes = {
-		{type = "lose", key = "j_dbbq_casino_tv_dinner"},
-		{type = "lose", key = "j_dbbq_casino_nonsense"},
-		{type = "lose", key = "j_dbbq_casino_richer"},
-		{type = "lose", key = "j_dbbq_casino_clodpoll"},
-		{type = "lose", key = "j_dbbq_casino_problematic"},
-		{type = "win", key = "j_dbbq_casino_luck"},
-		{type = "any", key = "j_dbbq_casino_slacking"},
-		{type = "win", key = "j_dbbq_casino_party"},
-	}}},
+	pronouns = "she_her",
+	config = {extra = {dollars = 2, odds = 3, active = false}},
 	loc_vars = function(self, info_queue, card)
 		if card.area and card.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_casino", set = "Other"}

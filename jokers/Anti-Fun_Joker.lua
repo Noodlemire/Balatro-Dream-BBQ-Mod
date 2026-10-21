@@ -8,8 +8,18 @@ When Blind is defeated, transforms into Mean Joker
 (Challenge-Only)
 --]]
 
+local key = "antifun"
+DBBQ.quip_colours[key] = {HEX("22665a"), HEX("99bccb"), HEX("7d3305")}
+DBBQ.quip_pitch[key] = 1.6
+DBBQ.quip_pitch[key.."_uh"] = 0.8
+DBBQ.add_quip(key, "deplorable", "any", 12)
+DBBQ.add_quip(key, "sick", "loss", 8)
+DBBQ.add_quip(key, "morons", "win", 28)
+DBBQ.add_quip(key, "uh", "loss", 20, 0.05)
+DBBQ.add_quip(key, "schedule", "win", 26)
+
 SMODS.Joker{
-	key = "antifun",
+	key = key,
 	atlas = "dbbq_jokers",
 	rarity = 4,
 	cost = 20,
@@ -17,13 +27,8 @@ SMODS.Joker{
 	soul_pos = {x = 5, y = 4},
 	blueprint_compat = true,
 	discovered = true,
-	config = {extra = {mult_gain = 0.01, no_front = true, dbbq_quotes = {
-		{type = "any", key = "j_dbbq_antifun_deplorable"},
-		{type = "lose", key = "j_dbbq_antifun_sick"},
-		{type = "win", key = "j_dbbq_antifun_morons"},
-		{type = "lose", key = "j_dbbq_antifun_uh"},
-		{type = "win", key = "j_dbbq_antifun_schedule"},
-	}}},
+	pronouns = "she_her",
+	config = {extra = {mult_gain = 0.01}},
 	loc_vars = function(self, info_queue, joker)
 		if joker.area and joker.area.config.collection then
 			info_queue[#info_queue + 1] = {key = "j_dbbq_source_antifun", set = "Other"}
@@ -41,16 +46,25 @@ SMODS.Joker{
 			return
 		end
 		if context.setting_blind then
-			local total = 0
+			G.GAME.j_dbbq_antifun_scalar = 0
 			for _, card in ipairs(G.playing_cards) do
 				if next(SMODS.get_enhancements(card)) then
-					total = total + 1
+					G.GAME.j_dbbq_antifun_scalar = G.GAME.j_dbbq_antifun_scalar + 1
 				end
 			end
-			total = total * -joker.ability.extra.mult_gain
-			if total ~= 0 then
-				G.GAME.j_dbbq_antifun_mult = G.GAME.j_dbbq_antifun_mult + total
-				return {message = G.GAME.j_dbbq_antifun_mult..' '..localize("k_mult")}
+			G.GAME.j_dbbq_antifun_scalar = G.GAME.j_dbbq_antifun_scalar * joker.ability.extra.mult_gain
+			if G.GAME.j_dbbq_antifun_scalar ~= 0 then
+				SMODS.scale_card(joker, {
+					ref_table = G.GAME,
+					ref_value = "j_dbbq_antifun_mult",
+					scalar_value = "j_dbbq_antifun_scalar",
+					operation = '-',
+					no_message = true
+				})
+				return {
+					message = G.GAME.j_dbbq_antifun_mult..' '..localize("k_mult"),
+					colour = G.C.RED
+				}
 			end
 		elseif context.end_of_round and context.game_over == false and context.main_eval then
 			G.E_MANAGER:add_event(Event({

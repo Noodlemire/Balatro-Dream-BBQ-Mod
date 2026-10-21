@@ -8,16 +8,21 @@ consecutive hand played
 without a scoring face card
 --]]
 
+local key = "bus"
+DBBQ.quip_colours[key] = {HEX("e9e0d2"), HEX("0f110e")}
+DBBQ.quip_sound[key] = DBBQ.sound_range(key, 11)
+DBBQ.quip_pitch[key] = 1
+DBBQ.add_quip(key, "im_the_bus", "any", 1)
+
 SMODS.Joker{
-	key = "bus",
+	key = key,
 	atlas = "dbbq_bus",
 	rarity = 4,
 	cost = 20,
 	pos = {x = 0, y = 0},
 	blueprint_compat = true,
-	config = {extra = {Xmult = 1, Xmult_gain = 0.05, timer = 0, frame = 0, anim = false, no_front = true, dbbq_quotes = {
-		{type = "any", key = "j_dbbq_im_the_bus"},
-	}}},
+	pronouns = "bus_bus",
+	config = {extra = {Xmult = 1, Xmult_gain = 0.05, timer = 0, frame = 0, anim = false}},
 	update = function(self, joker, dt)
 		if not joker.ability.extra.anim then return end
 		if joker.ability.extra.timer < 3 then
@@ -51,26 +56,25 @@ SMODS.Joker{
 				end
 			end
 			if not faces then
-				joker.ability.extra.Xmult = joker.ability.extra.Xmult + joker.ability.extra.Xmult_gain
-				local output = {
-					message = 'X'..joker.ability.extra.Xmult,
-					colour = G.C.MULT
-				}
+				SMODS.scale_card(joker, {
+					ref_table = joker.ability.extra,
+					ref_value = "Xmult",
+					scalar_value = "Xmult_gain"
+				})
 				if not joker.ability.extra.anim then
-					output.func = function()
+					return {func = function()
 						joker.ability.extra.anim = true
 						play_sound("dbbq_bus"..math.ceil(pseudorandom("I'M THE BUS!") * 11))
-					end
+					end}
 				end
-				return output
-			elseif joker.ability.extra.Xmult > 1 then
+			elseif joker.ability.extra.Xmult ~= 1 then
 				joker.ability.extra.Xmult = 1
 				return {
 					message = localize("k_reset"),
 					colour = G.C.PURPLE
 				}
 			end
-		elseif context.individual and context.cardarea == G.play and joker.ability.extra.Xmult > 1 then
+		elseif context.individual and context.cardarea == G.play and joker.ability.extra.Xmult ~= 1 then
 			return {Xmult = joker.ability.extra.Xmult}
 		end
 	end,
@@ -106,3 +110,15 @@ SMODS.Joker{
 		}
 	end
 }
+
+if next(SMODS.find_mod("cardpronouns")) then
+	CardPronouns.Pronoun {
+		colour = HEX("888888"),
+		text_colour = G.C.WHITE,
+		pronoun_table = { "Bus", "Bus" },
+		in_pool = function()
+		    return false
+		end,
+		key = "bus_bus"
+	}
+end
