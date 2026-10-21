@@ -1963,6 +1963,12 @@ return {
 					"I COULD BE THE BOSS!"
 				}
 			},
+			dbbq_boss_capsule = {
+				name = "Who is the Boss?",
+				text = {
+					"I COULD BE THE BOSS!"
+				}
+			},
 		}
 	},
 	misc = {

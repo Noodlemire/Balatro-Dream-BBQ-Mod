@@ -32,7 +32,8 @@ SMODS.Joker{
 	cost = 8,
 	pos = {x = 7, y = 5},
 	blueprint_compat = false,
-	pronouns = "he_him",
+	pronouns = "it_its",
+	dbbq_i_am_the_boss = "dbbq_boss_capsule",
 	config = {extra = {slots = 2}},
 	loc_vars = function(self, info_queue, joker)
 		if joker.area and joker.area.config.collection then

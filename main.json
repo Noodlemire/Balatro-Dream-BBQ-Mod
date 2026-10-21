@@ -8,7 +8,7 @@
 	"badge_colour": "e64437",
 	"badge_text_colour": "a5cdd1",
 	"display_name": "Dream BBQ",
-	"version": "1.3.2",
+	"version": "1.3.5",
 	"name":"DreamBBQ",
 	"dependencies": [
 		"Steamodded (>=26.1002.0)",
